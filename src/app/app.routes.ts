@@ -16,15 +16,15 @@ export const routes: Routes = [
     children: [
       {
         path: 'pengajuan-resign',
-        loadChildren: () => import('./views/pengajuanresign/pengajuanresign.module').then((m) => m.PengajuanResignModule)
+        loadChildren: () => import('./views/pengajuanresign/pengajuanresign-create/pengajuanresign.module').then((m) => m.PengajuanResignModule)
       },
       {
-        path: 'theme',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        path: 'progress-approval',
+        loadChildren: () => import('./views/pengajuanresign/pengajuanresign-view/view-pengajuanresign.module').then((m) => m.ViewPengajuanResignModule)
       },
       {
-        path: 'base',
-        loadChildren: () => import('./views/base/routes').then((m) => m.routes)
+        path: 'approval-atasan',
+        loadChildren: () => import('./views/approvalatasan/approvalatasan.module').then((m) => m.ApprovalAtasanModule)
       },
       {
         path: 'buttons',

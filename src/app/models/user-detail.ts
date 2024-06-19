@@ -1,11 +1,13 @@
 export interface UserDetail {
-    id: number;
-    nama: string;
-    email: string | null;
-    cabang: string;
-    idDivisi: string;
-    divisi: string;
-    jabatan: string;
-    externalUser: string;
-    user_username: string;
-  }
+  id: number;
+  nama: string;
+  email: string | null;
+  cabang: string;
+  idDivisi: string;
+  divisi: string;
+  jabatan: string;
+  externalUser: string;
+  emailAktif: string | null;
+  nomerWA: string | null;
+  user_username: string;
+}

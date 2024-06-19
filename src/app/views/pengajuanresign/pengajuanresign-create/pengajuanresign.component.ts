@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ResignationService } from '../../services/resignation.service';
-import { Resignation } from '../../models/resignation.model';
+import { ResignationService } from '../../../services/resignation.service';
+import { Resignation } from '../../../models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 
 @Component({

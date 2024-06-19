@@ -2,13 +2,23 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Pengajuan Resign',
+    title: true,
+    name: 'Pengajuan Resign'
+  },
+  {
+    name: 'Pengajuan Resign Baru',
     url: '/pengajuan-resign',
-    iconComponent: { name: 'cil-input' },
+    iconComponent: { name: 'cil-pencil' },
     badge: {
       color: 'info',
       text: 'NEW'
     }
+  },
+  {
+    name: 'Progress Approval',
+    url: '/progress-approval',
+    linkProps: { fragment: 'headings' },
+    iconComponent: { name: 'cil-pencil' }
   },
   {
     title: true,
