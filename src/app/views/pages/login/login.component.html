@@ -5,20 +5,24 @@
         <c-card-group>
           <c-card class="p-4">
             <c-card-body>
-              <form cForm>
+              <!-- Bind form submission to onSubmit method -->
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <h1>Login</h1>
                 <p class="text-body-secondary">Sign In to your account</p>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <!-- Bind input to form control using formControlName -->
+                  <input formControlName="username" autoComplete="username" cFormControl placeholder="Username" />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
+                  <!-- Bind input to form control using formControlName -->
                   <input
+                    formControlName="password"
                     autoComplete="current-password"
                     cFormControl
                     placeholder="Password"
@@ -27,7 +31,8 @@
                 </c-input-group>
                 <c-row>
                   <c-col xs="6">
-                    <button cButton class="px-4" color="primary">
+                    <!-- Ensure the button has type="submit" -->
+                    <button cButton type="submit" class="px-4" color="primary">
                       Login
                     </button>
                   </c-col>
@@ -37,6 +42,8 @@
                     </button>
                   </c-col>
                 </c-row>
+                <!-- Display error message if login fails -->
+                <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
               </form>
             </c-card-body>
           </c-card>

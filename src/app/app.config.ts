@@ -12,6 +12,9 @@ import {
 import { DropdownModule, SidebarModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { routes } from './app.routes';
+import { provideHttpClient, HTTP_INTERCEPTORS, withInterceptors } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor';
+import { AuthService } from './services/auth-service.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,6 +32,9 @@ export const appConfig: ApplicationConfig = {
     ),
     importProvidersFrom(SidebarModule, DropdownModule),
     IconSetService,
-    provideAnimations()
+    provideAnimations(),
+    provideHttpClient(withInterceptors([TokenInterceptor])),
+    
+
   ]
 };

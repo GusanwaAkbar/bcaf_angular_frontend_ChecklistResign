@@ -1,0 +1,100 @@
+<!-- resignation-form.component.html -->
+<c-row>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header ngPreserveWhitespaces>
+        <strong>Form Pengajuan Resign</strong>
+      </c-card-header>
+      <c-card-body>
+        <c-row>
+          <c-col md="8">
+            <form [formGroup]="resignationForm" (ngSubmit)="onSubmit()">
+              <c-row class="mb-3">
+                <c-form-check>
+                  <input cFormCheckInput id="isiOrangLain" name="isiOrangLain" type="checkbox" formControlName="isiOrangLain" />
+                  <label cFormCheckLabel for="isiOrangLain">Isi untuk Orang Lain?</label>
+                </c-form-check>
+              </c-row>
+              <c-row class="mb-3">
+                <label cLabel class="col-sm-2 col-form-label" for="tanggalPembuatanAkunHRIS">Tanggal Pembuatan Akun HRIS</label>
+                <c-col sm="10">
+                  <input cFormControl id="tanggalPembuatanAkunHRIS" type="date" formControlName="tanggalPembuatanAkunHRIS" />
+                </c-col>
+              </c-row>
+              <c-row class="mb-3">
+                <label cLabel class="col-sm-2 col-form-label" for="tanggalBerakhirBekerja">Tanggal Berakhir Bekerja</label>
+                <c-col sm="10">
+                  <input cFormControl id="tanggalBerakhirBekerja" type="date" formControlName="tanggalBerakhirBekerja" />
+                </c-col>
+              </c-row>
+              <c-row class="mb-3">
+                <label cLabel class="col-sm-2 col-form-label" for="emailAtasan">Email Atasan</label>
+                <c-col sm="10">
+                  <input cFormControl id="emailAtasan" type="email" formControlName="emailAtasan" />
+                </c-col>
+              </c-row>
+              <c-row class="mb-3">
+                <label cLabel class="col-sm-2 col-form-label" for="nipAtasan">NIP Atasan</label>
+                <c-col sm="10">
+                  <input cFormControl id="nipAtasan" formControlName="nipAtasan" />
+                </c-col>
+              </c-row>
+              <c-row class="mb-3">
+                <c-col sm="10" class="offset-sm-2">
+                  <button cButton type="submit">Submit</button>
+                </c-col>
+              </c-row>
+            </form>
+          </c-col>
+          <c-col md="4">
+            <c-card *ngIf="userDetail">
+              <c-card-header>User Details</c-card-header>
+              <c-card-body>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>ID</th>
+                      <td>{{ userDetail.id }}</td>
+                    </tr>
+                    <tr>
+                      <th>Nama</th>
+                      <td>{{ userDetail.nama }}</td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{{ userDetail.email }}</td>
+                    </tr>
+                    <tr>
+                      <th>Cabang</th>
+                      <td>{{ userDetail.cabang }}</td>
+                    </tr>
+                    <tr>
+                      <th>ID Divisi</th>
+                      <td>{{ userDetail.idDivisi }}</td>
+                    </tr>
+                    <tr>
+                      <th>Divisi</th>
+                      <td>{{ userDetail.divisi }}</td>
+                    </tr>
+                    <tr>
+                      <th>Jabatan</th>
+                      <td>{{ userDetail.jabatan }}</td>
+                    </tr>
+                    <tr>
+                      <th>External User</th>
+                      <td>{{ userDetail.externalUser }}</td>
+                    </tr>
+                    <tr>
+                      <th>Username</th>
+                      <td>{{ userDetail.user_username }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </c-card-body>
+            </c-card>
+          </c-col>
+        </c-row>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

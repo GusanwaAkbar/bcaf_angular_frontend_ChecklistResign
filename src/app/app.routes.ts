@@ -4,7 +4,7 @@ import { DefaultLayoutComponent } from './layout';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'pengjuan-resign',
     pathMatch: 'full'
   },
   {
@@ -15,8 +15,8 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
+        path: 'pengajuan-resign',
+        loadChildren: () => import('./views/pengajuanresign/pengajuanresign.module').then((m) => m.PengajuanResignModule)
       },
       {
         path: 'theme',
@@ -52,7 +52,7 @@ export const routes: Routes = [
       },
       {
         path: 'pages',
-        loadChildren: () => import('./views/pages/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/pages/pages-routing.module').then((m) => m.PagesRoutingModule)
       }
     ]
   },
@@ -72,10 +72,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./views/pages/login/login.component').then(m => m.LoginComponent),
-    data: {
-      title: 'Login Page'
-    }
+    loadChildren: () => import('./views/pages/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'register',

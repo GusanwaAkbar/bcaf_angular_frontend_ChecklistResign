@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
     this.titleService.setTitle(this.title);
     // iconSet singleton
     this.iconSetService.icons = { ...iconSubset };
+
+    
   }
 
   ngOnInit(): void {
@@ -30,5 +32,11 @@ export class AppComponent implements OnInit {
         return;
       }
     });
+
+    
+
+    
+
+    
   }
 }
