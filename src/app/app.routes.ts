@@ -24,7 +24,7 @@ export const routes: Routes = [
       },
       {
         path: 'approval-atasan',
-        loadChildren: () => import('./views/approvalatasan/approvalatasan.module').then((m) => m.ApprovalAtasanModule)
+        loadChildren: () => import('./views/approvalatasan-list/approvalatasan-list.module').then((m) => m.ApprovalAtasanListModule)
       },
       {
         path: 'buttons',

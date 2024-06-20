@@ -28,5 +28,6 @@ export class ResignationService {
     return this.http.get<ApiResponse<ResignationGet>>(this.apiUrl)
   }
 
+ 
   
 }

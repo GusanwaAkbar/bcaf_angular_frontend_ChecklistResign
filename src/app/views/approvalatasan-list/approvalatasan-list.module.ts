@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ApprovalAtasanComponent } from './approvalatasn.component';
-import { ApprovalAtasanRoutingModule } from './approvalatasan-routing.module';
+import { ApprovalAtasanListComponent } from './approvalatasan-list.component';
+import { ApprovalAtasanListRoutingModule } from './approvalatasan-list-routing.module';
 import { NgStyle } from '@angular/common';
 import { IconDirective } from '@coreui/icons-angular';
 
@@ -26,9 +26,10 @@ import {
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,  ColDirective,  } from '@coreui/angular';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
-  declarations: [ApprovalAtasanComponent],
+  declarations: [ApprovalAtasanListComponent],
   imports: [
     
     CommonModule,
@@ -55,10 +56,14 @@ import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheck
     FormControlDirective,
     ButtonDirective,
     HttpClientModule,
-    ApprovalAtasanRoutingModule,
-    ButtonGroupComponent
+    ApprovalAtasanListRoutingModule,
+    ButtonGroupComponent,
+    RouterLink,
+    CardHeaderComponent,
+    CardBodyComponent
+    
     
   ],
   providers: [HttpClientModule]
 })
-export class ApprovalAtasanModule { }
+export class ApprovalAtasanListModule { }

@@ -8,3 +8,15 @@ export interface ApiResponse<T> {
     errorDetails: any;
 
   }
+
+
+  export interface ApiResponseList<T> {
+    
+    data: T[];
+    success: boolean;
+    message: string;
+    status: number;
+    timestamp: string;
+    errorDetails: any;
+
+  }

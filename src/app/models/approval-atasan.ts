@@ -24,6 +24,18 @@ export interface ApprovalAtasanPost {
     emailAtasan: string;
     userDetailAtasan: UserDetail;
     pengajuanResign: ResignationGet;
+    serahTerimaTugas: string;
+    pengembalianNotebook: string;
+    pengembalianKunciLoker: string;
+    pengembalianKunciRuangan: string;
+    penyerahanSuratPengunduranDiri: string;
+    pengembalianIdCard: string;
+    hapusAplikasiMobile: string;
+    uninstallSoftwareNotebook: string;
+    uninstallSoftwareUnitKerja: string;
+    approvalStatusAtasan: string;
+    remarksAtasan: string;
   }
-  
+
+
   

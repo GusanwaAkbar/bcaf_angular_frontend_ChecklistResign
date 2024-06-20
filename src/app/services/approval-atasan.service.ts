@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApprovalAtasanGet, ApprovalAtasanPost} from '../models/approval-atasan'
 import { environment } from '../../environments/environment';
-import { ApiResponse } from '../models/api-response';
+import { ApiResponse, ApiResponseList } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,30 @@ export class ApprovalAtasanService {
 
   constructor(private http: HttpClient) { }
 
-  getApprovalAtasanState(): Observable<any> {
-    return this.http.get<ApiResponse<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/4`);
+  getApprovalAtasanList(): Observable<any> {
+    return this.http.get<ApiResponseList<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`);
+  }
+
+  getApprovalAtasan(): Observable<any> {
+    return this.http.get<ApiResponseList<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`);
   }
 
   submitApproval(data: ApprovalAtasanPost): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/api/approval-atasan`, data);
+    return this.http.put<any>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`, data);
   }
-}
+
+
+  getApprovalAtasanById(id: number): Observable<any> {
+    return this.http.get<ApiResponse<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/${id}`);
+  }
+
+
+  }
+
+
+  
+
+
+  
+
+
