@@ -1,0 +1,53 @@
+<div class="container mt-5">
+
+
+  
+
+  <h2>Approval List</h2>
+  <c-card>
+    <c-card-header>
+      List Karyawan Resign
+    </c-card-header>
+
+    <c-card-body>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>No</th>
+    
+            <th>Nama User</th>
+            <th>Cabang</th>
+            <th>Divisi</th>
+            <th>Jabatan</th>
+            <!-- <th>Email Aktif</th> -->
+            <th>Nomer WA</th>
+            <th>Tgl Berakhir Bekerja</th>
+            <th> View Resignation </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let approval of GeneralServiceApprovals; let i = index">
+            <td>{{ i + 1 }}</td>
+      
+            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.nama}}</td>
+            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.cabang }}</td>
+            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.divisi }}</td>
+            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.jabatan }}</td>
+            <!-- <td>{{ approval.pengajuanResign.userDetailResign.emailAktif }}</td> -->
+            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.nomerWA }}</td>
+            <td>{{ approval.approvalAtasan.pengajuanResign.tanggalBerakhirBekerja }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="viewApproval(approval.id)">View</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+
+
+  </c-card>
+
+
+ 
+</div>

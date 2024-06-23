@@ -1,0 +1,128 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Form Approval HR IR</h3>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="approvalHRIRData">
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <c-container>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{ userDetailResign?.nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIP</th>
+                    <td>{{ userDetailResign?.user_username }}</td>
+                  </tr>
+                  <tr>
+                    <th>Cabang</th>
+                    <td>{{ userDetailResign?.cabang }}</td>
+                  </tr>
+                  <tr>
+                    <th>Divisi</th>
+                    <td>{{ userDetailResign?.divisi }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{ userDetailResign?.email }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Aktif</th>
+                    <td>{{ userDetailResign?.emailAktif }}</td>
+                  </tr>
+                  <tr>
+                    <th>External User</th>
+                    <td>{{ userDetailResign?.externalUser }}</td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td>{{ userDetailResign?.jabatan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nomor WA</th>
+                    <td>{{ userDetailResign?.nomerWA }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Atasan</th>
+                    <td>{{ resignationData?.emailAtasan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Berakhir Bekerja</th>
+                    <td>{{ resignationData?.tanggalBerakhirBekerja }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Pembuatan Akun HRIS</th>
+                    <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </c-container>
+          </c-card-body>
+        </c-card>
+      </div>
+
+      <c-card>
+        <c-card-header>
+          <h4>Hal-hal yang harus dilakukan</h4>
+        </c-card-header>
+        <c-card-body>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Exit Interview -->
+                  <tr>
+                    <th>Exit Interview</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Exit Interview">
+                        <input class="btn-check" formControlName="exitInterview" type="radio" value="belum dilakukan" id="exitInterview1" />
+                        <label class="btn btn-outline-danger" for="exitInterview1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="exitInterview" type="radio" value="selesai" id="exitInterview2" />
+                        <label class="btn btn-outline-success" for="exitInterview2">Selesai</label>
+
+                        <input class="btn-check" formControlName="exitInterview" type="radio" value="tidak ada" id="exitInterview3" />
+                        <label class="btn btn-outline-secondary" for="exitInterview3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Approval HR IR Status -->
+                  <tr>
+                    <th>Approval HR IR Status</th>
+                    <td>
+                      <select class="form-control" formControlName="approvalHRIRStatus">
+                        <option value="">Pilih Status</option>
+                        <option value="accept">Accept</option>
+                        <option value="reject">Reject</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </td>
+                  </tr>
+
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </c-card-body>
+      </c-card>
+    </c-card-body>
+  </c-card>
+</c-container>
+

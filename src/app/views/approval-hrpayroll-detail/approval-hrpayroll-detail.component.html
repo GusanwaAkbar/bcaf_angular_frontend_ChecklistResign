@@ -1,0 +1,212 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Form Approval HR Payroll</h3>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="approvalHRPayrollData">
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <c-container>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{ userDetailResign?.nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIP</th>
+                    <td>{{ userDetailResign?.user_username }}</td>
+                  </tr>
+                  <tr>
+                    <th>Cabang</th>
+                    <td>{{ userDetailResign?.cabang }}</td>
+                  </tr>
+                  <tr>
+                    <th>Divisi</th>
+                    <td>{{ userDetailResign?.divisi }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{ userDetailResign?.email }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Aktif</th>
+                    <td>{{ userDetailResign?.emailAktif }}</td>
+                  </tr>
+                  <tr>
+                    <th>External User</th>
+                    <td>{{ userDetailResign?.externalUser }}</td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td>{{ userDetailResign?.jabatan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nomor WA</th>
+                    <td>{{ userDetailResign?.nomerWA }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Atasan</th>
+                    <td>{{ resignationData?.emailAtasan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Berakhir Bekerja</th>
+                    <td>{{ resignationData?.tanggalBerakhirBekerja }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Pembuatan Akun HRIS</th>
+                    <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </c-container>
+          </c-card-body>
+        </c-card>
+      </div>
+
+      <c-card>
+        <c-card-header>
+          <h4>Hal-hal yang harus dilakukan</h4>
+        </c-card-header>
+        <c-card-body>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Soft Loan -->
+                  <tr>
+                    <th>Soft Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Soft Loan">
+                        <input class="btn-check" formControlName="softLoan" type="radio" value="belum dilakukan" id="softLoan1" />
+                        <label class="btn btn-outline-danger" for="softLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="softLoan" type="radio" value="selesai" id="softLoan2" />
+                        <label class="btn btn-outline-success" for="softLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="softLoan" type="radio" value="tidak ada" id="softLoan3" />
+                        <label class="btn btn-outline-secondary" for="softLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Emergency Loan -->
+                  <tr>
+                    <th>Emergency Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Emergency Loan">
+                        <input class="btn-check" formControlName="emergencyLoan" type="radio" value="belum dilakukan" id="emergencyLoan1" />
+                        <label class="btn btn-outline-danger" for="emergencyLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="emergencyLoan" type="radio" value="selesai" id="emergencyLoan2" />
+                        <label class="btn btn-outline-success" for="emergencyLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="emergencyLoan" type="radio" value="tidak ada" id="emergencyLoan3" />
+                        <label class="btn btn-outline-secondary" for="emergencyLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Smartphone Loan -->
+                  <tr>
+                    <th>Smartphone Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Smartphone Loan">
+                        <input class="btn-check" formControlName="smartphoneLoan" type="radio" value="belum dilakukan" id="smartphoneLoan1" />
+                        <label class="btn btn-outline-danger" for="smartphoneLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="smartphoneLoan" type="radio" value="selesai" id="smartphoneLoan2" />
+                        <label class="btn btn-outline-success" for="smartphoneLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="smartphoneLoan" type="radio" value="tidak ada" id="smartphoneLoan3" />
+                        <label class="btn btn-outline-secondary" for="smartphoneLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Motor Loan -->
+                  <tr>
+                    <th>Motor Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Motor Loan">
+                        <input class="btn-check" formControlName="motorLoan" type="radio" value="belum dilakukan" id="motorLoan1" />
+                        <label class="btn btn-outline-danger" for="motorLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="motorLoan" type="radio" value="selesai" id="motorLoan2" />
+                        <label class="btn btn-outline-success" for="motorLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="motorLoan" type="radio" value="tidak ada" id="motorLoan3" />
+                        <label class="btn btn-outline-secondary" for="motorLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- UMK Loan -->
+                  <tr>
+                    <th>UMK Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="UMK Loan">
+                        <input class="btn-check" formControlName="umkLoan" type="radio" value="belum dilakukan" id="umkLoan1" />
+                        <label class="btn btn-outline-danger" for="umkLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="umkLoan" type="radio" value="selesai" id="umkLoan2" />
+                        <label class="btn btn-outline-success" for="umkLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="umkLoan" type="radio" value="tidak ada" id="umkLoan3" />
+                        <label class="btn btn-outline-secondary" for="umkLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Laptop Loan -->
+                  <tr>
+                    <th>Laptop Loan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Laptop Loan">
+                        <input class="btn-check" formControlName="laptopLoan" type="radio" value="belum dilakukan" id="laptopLoan1" />
+                        <label class="btn btn-outline-danger" for="laptopLoan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="laptopLoan" type="radio" value="selesai" id="laptopLoan2" />
+                        <label class="btn btn-outline-success" for="laptopLoan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="laptopLoan" type="radio" value="tidak ada" id="laptopLoan3" />
+                        <label class="btn btn-outline-secondary" for="laptopLoan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Approval HR Payroll Status -->
+                  <tr>
+                    <th>Approval HR Payroll Status</th>
+                    <td>
+                      <select class="form-control" formControlName="approvalHRPayrollStatus">
+                        <option value="">Pilih Status</option>
+                        <option value="accept">Accept</option>
+                        <option value="reject">Reject</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </td>
+                  </tr>
+
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </c-card-body>
+      </c-card>
+    </c-card-body>
+  </c-card>
+</c-container>

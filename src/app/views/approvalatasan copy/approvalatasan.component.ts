@@ -19,6 +19,7 @@ export class ApprovalAtasanComponent implements OnInit {
   resignationData!: ResignationGet;
   userDetailAtasan!: UserDetail;
   userDetailResign!: UserDetail;
+  idApproval!: number;
 
   pengajuanResignData: ResignationGet | undefined;
 
@@ -46,6 +47,7 @@ export class ApprovalAtasanComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = +params['id'];
       this.loadApprovalAtasan(id);
+      this.idApproval = +params['id'];
     });
   }
 
@@ -82,8 +84,11 @@ export class ApprovalAtasanComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
+
+      let id = this.idApproval
+
       const approvalData: ApprovalAtasanPost = this.form.value;
-      this.approvalAtasanService.submitApproval(approvalData).subscribe(response => {
+      this.approvalAtasanService.submitApproval(id, approvalData).subscribe(response => {
         // Handle response here
         console.log('Approval submitted:', response);
       });

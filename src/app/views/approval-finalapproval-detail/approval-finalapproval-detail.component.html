@@ -1,0 +1,190 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Final Approval Summary</h3>
+    </c-card-header>
+    <c-card-body>
+      <div *ngIf="approvalData">
+        <!-- User Detail Resign -->
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Nama</th><td>{{ userDetailResign?.nama }}</td></tr>
+                <tr><th>NIP</th><td>{{ userDetailResign?.user_username }}</td></tr>
+                <tr><th>Cabang</th><td>{{ userDetailResign?.cabang }}</td></tr>
+                <tr><th>Divisi</th><td>{{ userDetailResign?.divisi }}</td></tr>
+                <tr><th>Email</th><td>{{ userDetailResign?.email }}</td></tr>
+                <tr><th>Jabatan</th><td>{{ userDetailResign?.jabatan }}</td></tr>
+                <tr><th>External User</th><td>{{ userDetailResign?.externalUser }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval General Services -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval General Services</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Penutupan PIN</th><td>{{ approvalData.approvalGeneralServices.penutupanPin }}</td></tr>
+                <tr><th>Pengembalian Kendaraan Dinas</th><td>{{ approvalData.approvalGeneralServices.pengembalianKendaraanDinas }}</td></tr>
+                <tr><th>Inventaris Kantor</th><td>{{ approvalData.approvalGeneralServices.inventarisKantor }}</td></tr>
+                <tr><th>Pengembalian Aktiva</th><td>{{ approvalData.approvalGeneralServices.pengembalianAktiva }}</td></tr>
+                <tr><th>Pengembalian Kendaraan UMK3</th><td>{{ approvalData.approvalGeneralServices.pengembalianKendaraanUMK3 }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalGeneralServices.approvalGeneralServicesStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalGeneralServices.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval HR IR -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval HR IR</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Exit Interview</th><td>{{ approvalData.approvalHRIR.exitInterview }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalHRIR.approvalHRIRStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalHRIR.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval HR Learning -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval HR Learning</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Pengecekan Biaya Training</th><td>{{ approvalData.approvalHRLearning.pengecekanBiayaTraining }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalHRLearning.approvalHRLearningStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalHRLearning.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval HR Payroll -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval HR Payroll</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Soft Loan</th><td>{{ approvalData.approvalHRPayroll.softLoan }}</td></tr>
+                <tr><th>Emergency Loan</th><td>{{ approvalData.approvalHRPayroll.emergencyLoan }}</td></tr>
+                <tr><th>Smartphone Loan</th><td>{{ approvalData.approvalHRPayroll.smartphoneLoan }}</td></tr>
+                <tr><th>Motor Loan</th><td>{{ approvalData.approvalHRPayroll.motorLoan }}</td></tr>
+                <tr><th>UMK Loan</th><td>{{ approvalData.approvalHRPayroll.umkLoan }}</td></tr>
+                <tr><th>Laptop Loan</th><td>{{ approvalData.approvalHRPayroll.laptopLoan }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalHRPayroll.approvalHRPayrollStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalHRPayroll.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval HR Services Admin -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval HR Services Admin</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Excess Of Claim</th><td>{{ approvalData.approvalHRServicesAdmin.excessOfClaim }}</td></tr>
+                <tr><th>Penyelesaian Biaya HR</th><td>{{ approvalData.approvalHRServicesAdmin.penyelesaianBiayaHR }}</td></tr>
+                <tr><th>Penonaktifan Kartu Elektronik</th><td>{{ approvalData.approvalHRServicesAdmin.penonaktifanKartuElektronik }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalHRServicesAdmin.approvalHRServicesAdminStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalHRServicesAdmin.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval HR Talent -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval HR Talent</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Pengecekan Biaya</th><td>{{ approvalData.approvalHRTalent.pengecekanBiaya }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalHRTalent.approvalHRTalentStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalHRTalent.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval Security Administrator -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval Security Administrator</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Permohonan Penutupan User</th><td>{{ approvalData.approvalSecurityAdministrator.permohonanPenutupanUser }}</td></tr>
+                <tr><th>Penutupan Email BCA</th><td>{{ approvalData.approvalSecurityAdministrator.penutupanEmailBCA }}</td></tr>
+                <tr><th>Pengembalian Token</th><td>{{ approvalData.approvalSecurityAdministrator.pengembalianToken }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalSecurityAdministrator.approvalSecurityAdministratorStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalSecurityAdministrator.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Approval Treasury -->
+        <c-card>
+          <c-card-header>
+            <h5>Approval Treasury</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Biaya Advance</th><td>{{ approvalData.approvalTreasury.biayaAdvance }}</td></tr>
+                <tr><th>Blokir Fleet</th><td>{{ approvalData.approvalTreasury.blokirFleet }}</td></tr>
+                <tr><th>Status</th><td>{{ approvalData.approvalTreasury.approvalTreasuryStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.approvalTreasury.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+
+        <!-- Final Approval Status -->
+        <c-card>
+          <c-card-header>
+            <h5>Final Approval Status</h5>
+          </c-card-header>
+          <c-card-body>
+            <table class="table table-bordered">
+              <tbody>
+                <tr><th>Status</th><td>{{ approvalData.finalApprovalStatus }}</td></tr>
+                <tr><th>Remarks</th><td>{{ approvalData.remarks }}</td></tr>
+              </tbody>
+            </table>
+          </c-card-body>
+        </c-card>
+      </div>
+      <div *ngIf="!approvalData">
+        <p>Loading...</p>
+      </div>
+    </c-card-body>
+  </c-card>
+</c-container>

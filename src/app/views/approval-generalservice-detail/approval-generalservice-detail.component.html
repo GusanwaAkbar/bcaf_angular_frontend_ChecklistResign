@@ -1,0 +1,195 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Form Approval General Services</h3>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="approvalGeneralServicesData">
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <c-container>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{ userDetailResign?.nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIP</th>
+                    <td>{{ userDetailResign?.user_username }}</td>
+                  </tr>
+                  <tr>
+                    <th>Cabang</th>
+                    <td>{{ userDetailResign?.cabang }}</td>
+                  </tr>
+                  <tr>
+                    <th>Divisi</th>
+                    <td>{{ userDetailResign?.divisi }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{ userDetailResign?.email }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Aktif</th>
+                    <td>{{ userDetailResign?.emailAktif }}</td>
+                  </tr>
+                  <tr>
+                    <th>External User</th>
+                    <td>{{ userDetailResign?.externalUser }}</td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td>{{ userDetailResign?.jabatan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nomor WA</th>
+                    <td>{{ userDetailResign?.nomerWA }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Atasan</th>
+                    <td>{{ resignationData?.emailAtasan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Berakhir Bekerja</th>
+                    <td>{{ resignationData?.tanggalBerakhirBekerja }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Pembuatan Akun HRIS</th>
+                    <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </c-container>
+          </c-card-body>
+        </c-card>
+      </div>
+
+      <c-card>
+        <c-card-header>
+          <h4>Hal-hal yang harus dilakukan</h4>
+        </c-card-header>
+        <c-card-body>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Penutupan PIN -->
+                  <tr>
+                    <th>Penutupan PIN</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Penutupan PIN">
+                        <input class="btn-check" formControlName="penutupanPin" type="radio" value="belum dilakukan" id="penutupanPin1" />
+                        <label class="btn btn-outline-danger" for="penutupanPin1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="penutupanPin" type="radio" value="selesai" id="penutupanPin2" />
+                        <label class="btn btn-outline-success" for="penutupanPin2">Selesai</label>
+
+                        <input class="btn-check" formControlName="penutupanPin" type="radio" value="tidak ada" id="penutupanPin3" />
+                        <label class="btn btn-outline-secondary" for="penutupanPin3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Kendaraan Dinas -->
+                  <tr>
+                    <th>Pengembalian Kendaraan Dinas</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Kendaraan Dinas">
+                        <input class="btn-check" formControlName="pengembalianKendaraanDinas" type="radio" value="belum dilakukan" id="pengembalianKendaraanDinas1" />
+                        <label class="btn btn-outline-danger" for="pengembalianKendaraanDinas1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianKendaraanDinas" type="radio" value="selesai" id="pengembalianKendaraanDinas2" />
+                        <label class="btn btn-outline-success" for="pengembalianKendaraanDinas2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianKendaraanDinas" type="radio" value="tidak ada" id="pengembalianKendaraanDinas3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianKendaraanDinas3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Inventaris Kantor -->
+                  <tr>
+                    <th>Inventaris Kantor</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Inventaris Kantor">
+                        <input class="btn-check" formControlName="inventarisKantor" type="radio" value="belum dilakukan" id="inventarisKantor1" />
+                        <label class="btn btn-outline-danger" for="inventarisKantor1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="inventarisKantor" type="radio" value="selesai" id="inventarisKantor2" />
+                        <label class="btn btn-outline-success" for="inventarisKantor2">Selesai</label>
+
+                        <input class="btn-check" formControlName="inventarisKantor" type="radio" value="tidak ada" id="inventarisKantor3" />
+                        <label class="btn btn-outline-secondary" for="inventarisKantor3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Aktiva -->
+                  <tr>
+                    <th>Pengembalian Aktiva</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Aktiva">
+                        <input class="btn-check" formControlName="pengembalianAktiva" type="radio" value="belum dilakukan" id="pengembalianAktiva1" />
+                        <label class="btn btn-outline-danger" for="pengembalianAktiva1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianAktiva" type="radio" value="selesai" id="pengembalianAktiva2" />
+                        <label class="btn btn-outline-success" for="pengembalianAktiva2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianAktiva" type="radio" value="tidak ada" id="pengembalianAktiva3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianAktiva3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Kendaraan UMK3 -->
+                  <tr>
+                    <th>Pengembalian Kendaraan UMK3</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Kendaraan UMK3">
+                        <input class="btn-check" formControlName="pengembalianKendaraanUMK3" type="radio" value="belum dilakukan" id="pengembalianKendaraanUMK31" />
+                        <label class="btn btn-outline-danger" for="pengembalianKendaraanUMK31">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianKendaraanUMK3" type="radio" value="selesai" id="pengembalianKendaraanUMK32" />
+                        <label class="btn btn-outline-success" for="pengembalianKendaraanUMK32">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianKendaraanUMK3" type="radio" value="tidak ada" id="pengembalianKendaraanUMK33" />
+                        <label class="btn btn-outline-secondary" for="pengembalianKendaraanUMK33">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Approval General Services Status -->
+                  <tr>
+                    <th>Approval General Services Status</th>
+                    <td>
+                      <select class="form-control" formControlName="approvalGeneralServicesStatus">
+                        <option value="">Pilih Status</option>
+                        <option value="accept">Accept</option>
+                        <option value="reject">Reject</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </td>
+                  </tr>
+
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </c-card-body>
+      </c-card>
+    </c-card-body>
+  </c-card>
+</c-container>

@@ -24,8 +24,8 @@ export class ApprovalAtasanService {
     return this.http.get<ApiResponseList<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`);
   }
 
-  submitApproval(data: ApprovalAtasanPost): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`, data);
+  submitApproval(id: number, data: ApprovalAtasanPost): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username/${id}`, data);
   }
 
 

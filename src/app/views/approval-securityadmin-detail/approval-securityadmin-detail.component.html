@@ -1,0 +1,161 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Form Approval Security Administrator</h3>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="approvalSecurityAdminData">
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <c-container>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{ userDetailResign?.nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIP</th>
+                    <td>{{ userDetailResign?.user_username }}</td>
+                  </tr>
+                  <tr>
+                    <th>Cabang</th>
+                    <td>{{ userDetailResign?.cabang }}</td>
+                  </tr>
+                  <tr>
+                    <th>Divisi</th>
+                    <td>{{ userDetailResign?.divisi }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{ userDetailResign?.email }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Aktif</th>
+                    <td>{{ userDetailResign?.emailAktif }}</td>
+                  </tr>
+                  <tr>
+                    <th>External User</th>
+                    <td>{{ userDetailResign?.externalUser }}</td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td>{{ userDetailResign?.jabatan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nomor WA</th>
+                    <td>{{ userDetailResign?.nomerWA }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Atasan</th>
+                    <td>{{ resignationData?.emailAtasan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Berakhir Bekerja</th>
+                    <td>{{ resignationData?.tanggalBerakhirBekerja }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Pembuatan Akun HRIS</th>
+                    <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </c-container>
+          </c-card-body>
+        </c-card>
+      </div>
+
+      <c-card>
+        <c-card-header>
+          <h4>Hal-hal yang harus dilakukan</h4>
+        </c-card-header>
+        <c-card-body>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Permohonan Penutupan User -->
+                  <tr>
+                    <th>Permohonan Penutupan User</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Permohonan Penutupan User">
+                        <input class="btn-check" formControlName="permohonanPenutupanUser" type="radio" value="belum dilakukan" id="permohonanPenutupanUser1" />
+                        <label class="btn btn-outline-danger" for="permohonanPenutupanUser1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="permohonanPenutupanUser" type="radio" value="selesai" id="permohonanPenutupanUser2" />
+                        <label class="btn btn-outline-success" for="permohonanPenutupanUser2">Selesai</label>
+
+                        <input class="btn-check" formControlName="permohonanPenutupanUser" type="radio" value="tidak ada" id="permohonanPenutupanUser3" />
+                        <label class="btn btn-outline-secondary" for="permohonanPenutupanUser3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Penutupan Email BCA -->
+                  <tr>
+                    <th>Penutupan Email BCA</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Penutupan Email BCA">
+                        <input class="btn-check" formControlName="penutupanEmailBCA" type="radio" value="belum dilakukan" id="penutupanEmailBCA1" />
+                        <label class="btn btn-outline-danger" for="penutupanEmailBCA1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="penutupanEmailBCA" type="radio" value="selesai" id="penutupanEmailBCA2" />
+                        <label class="btn btn-outline-success" for="penutupanEmailBCA2">Selesai</label>
+
+                        <input class="btn-check" formControlName="penutupanEmailBCA" type="radio" value="tidak ada" id="penutupanEmailBCA3" />
+                        <label class="btn btn-outline-secondary" for="penutupanEmailBCA3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Token -->
+                  <tr>
+                    <th>Pengembalian Token</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Token">
+                        <input class="btn-check" formControlName="pengembalianToken" type="radio" value="belum dilakukan" id="pengembalianToken1" />
+                        <label class="btn btn-outline-danger" for="pengembalianToken1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianToken" type="radio" value="selesai" id="pengembalianToken2" />
+                        <label class="btn btn-outline-success" for="pengembalianToken2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianToken" type="radio" value="tidak ada" id="pengembalianToken3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianToken3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Approval Security Administrator Status -->
+                  <tr>
+                    <th>Approval Security Administrator Status</th>
+                    <td>
+                      <select class="form-control" formControlName="approvalSecurityAdministratorStatus">
+                        <option value="">Pilih Status</option>
+                        <option value="accept">Accept</option>
+                        <option value="reject">Reject</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </td>
+                  </tr>
+
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </c-card-body>
+      </c-card>
+    </c-card-body>
+  </c-card>
+</c-container>

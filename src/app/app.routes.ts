@@ -27,6 +27,44 @@ export const routes: Routes = [
         loadChildren: () => import('./views/approvalatasan-list/approvalatasan-list.module').then((m) => m.ApprovalAtasanListModule)
       },
       {
+        path: 'approval-treasury',
+        loadChildren: () => import('./views/approval-treasury-list/approval-treasury-list.module').then((m) => m.ApprovalTreasuryListModule)
+      },
+      {
+        path: 'approval-hrpayroll',
+        loadChildren: () => import('./views/approval-hrpayroll-list/approval-hrpayroll-list.module').then((m) => m.ApprovalHRPayrollListModule)
+      },
+      {
+        path: 'approval-hrir',
+        loadChildren: () => import('./views/approval-hrir-list/approval-hrir-list.module').then((m) => m.ApprovalHRIRListModule)
+      },
+      {
+        path: 'approval-generalservice',
+        loadChildren: () => import('./views/approval-generalservice-list/approval-generalservice-list.module').then((m) => m.ApprovalGeneralServiceListModule)
+      },
+      {
+        path: 'approval-hrservice',
+        loadChildren: () => import('./views/approval-hrservice-list/approval-hrservice-list.module').then((m) => m.ApprovalHRServiceListModule)
+      },
+
+      {
+        path: 'approval-securityadmin',
+        loadChildren: () => import('./views/approval-securityadmin-list/approval-securityadmin-list.module').then((m) => m.ApprovalSecurityAdminListModule)
+      },
+
+      {
+        path: 'approval-hrtalent',
+        loadChildren: () => import('./views/approval-hrtalent-list/approval-hrtalent-list.module').then((m) => m.ApprovalHRTalentListModule)
+      },
+
+
+      {
+        path: 'approval-finalapproval',
+        loadChildren: () => import('./views/approval-finalapproval-list/approval-finalapproval-list.module').then((m) => m.ApprovalFinalApprovalListModule)
+      },
+
+
+      {
         path: 'buttons',
         loadChildren: () => import('./views/buttons/routes').then((m) => m.routes)
       },
