@@ -165,8 +165,33 @@ export class ApprovalDepartementService {
   }
 
 
+  //HR Learning
+  getApprovalHRLearningList(): Observable<any>
+  {
 
-  //
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-learning`)
+  }
+
+  getApprovalHRLearningById(id: number): Observable<any>
+  {
+
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-learning/${id}`)
+  }
+
+  putApprovalHRLearningById(id: number, data: object): Observable<any>
+  {
+
+
+    return this.http.put<any>(`${this.apiUrl}/api/approval-hr-learning/${id}`,data)
+  }
+
+
+
+
+
+  //Final approval Session
   //
 
   getApprovalFinalApprovalById(id: number): Observable<any> 

@@ -113,6 +113,17 @@ export const navItems: INavData[] = [
 
   },
 
+  {
+    name: 'Bucket Approval',
+    title: true
+  },
+  {
+    name: 'Form Approval HR Learning',
+    url: '/approval-hrlearning',
+    iconComponent: { name: 'cil-pencil' },
+
+  },
+
 
   {
     name: 'Bucket Approval',

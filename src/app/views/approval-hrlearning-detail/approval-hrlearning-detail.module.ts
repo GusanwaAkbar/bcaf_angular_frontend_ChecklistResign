@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ApprovalFinalApprovalDetailComponent } from './approval-finalapproval-detail.component';
-import { ApprovalFinalApprovalDetailRoutingModule } from './approval-finalapproval-detail-routing.module'
+import { ApprovalHRLearningDetailComponent } from './approval-hrlearning-detail.component';
+import { ApprovalHRLearningDetailRoutingModule } from './approval-hrlearning-detail-routing.module'
 import { NgStyle } from '@angular/common';
 import { IconDirective } from '@coreui/icons-angular';
 
@@ -20,9 +20,7 @@ import {
   InputGroupTextDirective,
   FormControlDirective,
   ButtonDirective,
-  ButtonGroupComponent,
-  ButtonModule,
-  ButtonToolbarComponent,
+  ButtonGroupComponent
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -31,7 +29,7 @@ import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheck
 import { RouterLink } from '@angular/router';
 
 @NgModule({
-  declarations: [ApprovalFinalApprovalDetailComponent],
+  declarations: [ApprovalHRLearningDetailComponent],
   imports: [
     
     CommonModule,
@@ -58,18 +56,14 @@ import { RouterLink } from '@angular/router';
     FormControlDirective,
     ButtonDirective,
     HttpClientModule,
-    ApprovalFinalApprovalDetailRoutingModule,
+    ApprovalHRLearningDetailRoutingModule,
     ButtonGroupComponent,
     RouterLink,
     CardHeaderComponent,
-    CardBodyComponent,
-    ButtonDirective,
-    ButtonGroupComponent,
-    ButtonModule,
-    ButtonToolbarComponent,
+    CardBodyComponent
     
     
   ],
   providers: [HttpClientModule]
 })
-export class ApprovalFinalApprovalDetailModule { }
+export class ApprovalHRLearningDetailModule { }

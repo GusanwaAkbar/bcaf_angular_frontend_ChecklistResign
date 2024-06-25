@@ -54,7 +54,12 @@ export const routes: Routes = [
 
       {
         path: 'approval-hrtalent',
-        loadChildren: () => import('./views/approval-hrtalent-list/approval-hrtalent-list.module').then((m) => m.ApprovalHRTalentListModule)
+        loadChildren: () => import('./views/approval-hrlearning-list/approval-hrlearning-list.module').then((m) => m.ApprovalHRLearningListModule)
+      },
+
+      {
+        path: 'approval-hrlearning',
+        loadChildren: () => import('./views/approval-hrlearning-list/approval-hrlearning-list.module').then((m) => m.ApprovalHRLearningListModule)
       },
 
 

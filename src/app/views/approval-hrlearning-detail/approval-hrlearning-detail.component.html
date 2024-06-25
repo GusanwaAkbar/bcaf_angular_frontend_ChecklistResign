@@ -1,0 +1,202 @@
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h3>Form Approval HR Learning</h3>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="approvalHRLearningData">
+        <c-card>
+          <c-card-header>
+            <h5>Data Karyawan Resign</h5>
+          </c-card-header>
+          <c-card-body>
+            <c-container>
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{ userDetailResign?.nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>NIP</th>
+                    <td>{{ userDetailResign?.user_username }}</td>
+                  </tr>
+                  <tr>
+                    <th>Cabang</th>
+                    <td>{{ userDetailResign?.cabang }}</td>
+                  </tr>
+                  <tr>
+                    <th>Divisi</th>
+                    <td>{{ userDetailResign?.divisi }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{ userDetailResign?.email }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Aktif</th>
+                    <td>{{ userDetailResign?.emailAktif }}</td>
+                  </tr>
+                  <tr>
+                    <th>External User</th>
+                    <td>{{ userDetailResign?.externalUser }}</td>
+                  </tr>
+                  <tr>
+                    <th>Jabatan</th>
+                    <td>{{ userDetailResign?.jabatan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Nomor WA</th>
+                    <td>{{ userDetailResign?.nomerWA }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email Atasan</th>
+                    <td>{{ resignationData?.emailAtasan }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Berakhir Bekerja</th>
+                    <td>{{ resignationData?.tanggalBerakhirBekerja }}</td>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Pembuatan Akun HRIS</th>
+                    <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </c-container>
+          </c-card-body>
+        </c-card>
+      </div>
+
+      <c-card>
+        <c-card-header>
+          <h4>Hal-hal yang harus dilakukan</h4>
+        </c-card-header>
+        <c-card-body>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Serah Terima Tugas -->
+                  <tr>
+                    <th>Serah Terima Tugas</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Serah Terima Tugas">
+                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="belum dilakukan" id="serahTerimaTugas1" />
+                        <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="selesai" id="serahTerimaTugas2" />
+                        <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
+
+                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="tidak ada" id="serahTerimaTugas3" />
+                        <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Notebook -->
+                  <tr>
+                    <th>Pengembalian Notebook</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Notebook">
+                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="belum dilakukan" id="pengembalianNotebook1" />
+                        <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="selesai" id="pengembalianNotebook2" />
+                        <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="tidak ada" id="pengembalianNotebook3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Kunci Loker -->
+                  <tr>
+                    <th>Pengembalian Kunci Loker</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
+                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="belum dilakukan" id="pengembalianKunciLoker1" />
+                        <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="selesai" id="pengembalianKunciLoker2" />
+                        <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="tidak ada" id="pengembalianKunciLoker3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Pengembalian Kunci Ruangan -->
+                  <tr>
+                    <th>Pengembalian Kunci Ruangan</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
+                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="belum dilakukan" id="pengembalianKunciRuangan1" />
+                        <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="selesai" id="pengembalianKunciRuangan2" />
+                        <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
+
+                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="tidak ada" id="pengembalianKunciRuangan3" />
+                        <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Penyerahan Surat Pengunduran Diri -->
+                  <tr>
+                    <th>Penyerahan Surat Pengunduran Diri</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
+                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" />
+                        <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
+
+                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="selesai" id="penyerahanSuratPengunduranDiri2" />
+                        <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
+
+                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="tidak ada" id="penyerahanSuratPengunduranDiri3" />
+                        <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Approval HR Learning Status -->
+                  <tr>
+                    <th>Approval HR Learning Status</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Approval HR Learning Status">
+                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="pending" id="approvalHRLearningStatus1" />
+                        <label class="btn btn-outline-warning" for="approvalHRLearningStatus1">Pending</label>
+
+                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="approved" id="approvalHRLearningStatus2" />
+                        <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Approved</label>
+
+                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="rejected" id="approvalHRLearningStatus3" />
+                        <label class="btn btn-outline-danger" for="approvalHRLearningStatus3">Rejected</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks" rows="3"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- <button type="submit" color="primary" [disabled]="form.invalid">Submit</button> -->
+              </div>
+            </form>
+          </div>
+        </c-card-body>
+      </c-card>
+    </c-card-body>
+  </c-card>
+</c-container>

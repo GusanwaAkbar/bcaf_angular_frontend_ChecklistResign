@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApprovalDepartementService } from 'src/app/services/approval-departement-service.service';
 import { ApiResponse } from 'src/app/models/api-response';
 import { UserDetail } from 'src/app/models/user-detail';
+import { ApprovalAtasanGet } from 'src/app/models/approval-atasan';
 
 @Component({
   selector: 'app-final-approval',
@@ -11,9 +12,23 @@ import { UserDetail } from 'src/app/models/user-detail';
 })
 export class ApprovalFinalApprovalDetailComponent implements OnInit {
 
-  approvalData: any | null = null;
+  approvalData: any;
   userDetailResign: UserDetail | null = null;
   userDetailAtasan: UserDetail | null = null;
+  approvalAtasanData: ApprovalAtasanGet | undefined 
+
+  //Approval atasan
+  approvalAtasan: any;
+  approvalGeneralService: any;
+  approvalHRIR: any;
+  approvalHRTalent:any;
+  approvalHRLearning: any;
+  approvalHRPayroll: any;
+  approvalHRServicesAdmin: any;
+  approvalSecurityAdministrator:any;
+  approvalTreasury: any;
+
+  
 
   constructor(
     private approvalDepartementService: ApprovalDepartementService,
@@ -30,8 +45,29 @@ export class ApprovalFinalApprovalDetailComponent implements OnInit {
   loadFinalApproval(id: number): void {
     this.approvalDepartementService.getApprovalFinalApprovalById(id).subscribe((response: ApiResponse<any>) => {
       this.approvalData = response.data;
-      this.userDetailResign = this.approvalData.userDetailResign;
-      this.userDetailAtasan = this.approvalData.userDetailAtasan;
+      let responseData = this.approvalData;
+
+      this.userDetailResign = responseData.userDetailResign;
+      this.userDetailAtasan = responseData.userDetailAtasan;
+      this.approvalAtasanData = responseData.approvalAtasan;
+
+
+      console.log("finalresponsedata")
+      console.log(responseData)
+
+      //fetch approvals data
+      this.approvalGeneralService = responseData.approvalGeneralServices;
+      this.approvalAtasan = responseData.approvalAtasan;
+      this.approvalHRIR = responseData.approvalHRIR;
+      this.approvalHRLearning = responseData.approvalHRLearning;
+      this.approvalHRPayroll = responseData.approvalHRPayroll;
+      this.approvalHRServicesAdmin = responseData.approvalHRServicesAdmin;
+      this.approvalSecurityAdministrator = responseData.approvalSecurityAdministrator;
+      this.approvalTreasury = responseData.approvalTreasury;
+      
+      console.log("hrir")
+      console.log(this.approvalHRIR)
+
       console.log("Full Approval Data:", this.approvalData);
     });
   }
