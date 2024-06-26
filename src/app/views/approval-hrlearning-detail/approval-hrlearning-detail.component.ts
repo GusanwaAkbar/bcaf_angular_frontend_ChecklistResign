@@ -26,11 +26,7 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.form = this.fb.group({
-      serahTerimaTugas: [''],
-      pengembalianNotebook: [''],
-      pengembalianKunciLoker: [''],
-      pengembalianKunciRuangan: [''],
-      penyerahanSuratPengunduranDiri: [''],
+      pengecekanBiayaTraining: [''],
       approvalHRLearningStatus: [''],
       remarks: ['']
     });
@@ -46,7 +42,7 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
 
   loadApprovalHRLearning(id: number): void {
     this.approvalDepartementService.getApprovalHRLearningById(id).subscribe((response: ApiResponse<any>) => {
-      this.approvalHRLearningData = response.data[0];
+      this.approvalHRLearningData = response.data;
       this.userDetailResign = this.approvalHRLearningData.approvalAtasan?.pengajuanResign?.userDetailResign || {} as UserDetail;
       this.resignationData = this.approvalHRLearningData.approvalAtasan?.pengajuanResign;
 
@@ -55,11 +51,7 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
       console.log("resignation data", this.resignationData);
 
       this.form.patchValue({
-        serahTerimaTugas: this.approvalHRLearningData.approvalAtasan.serahTerimaTugas,
-        pengembalianNotebook: this.approvalHRLearningData.approvalAtasan.pengembalianNotebook,
-        pengembalianKunciLoker: this.approvalHRLearningData.approvalAtasan.pengembalianKunciLoker,
-        pengembalianKunciRuangan: this.approvalHRLearningData.approvalAtasan.pengembalianKunciRuangan,
-        penyerahanSuratPengunduranDiri: this.approvalHRLearningData.approvalAtasan.penyerahanSuratPengunduranDiri,
+        pengecekanBiayaTraining: this.approvalHRLearningData.pengecekanBiayaTraining,
         approvalHRLearningStatus: this.approvalHRLearningData.approvalHRLearningStatus,
         remarks: this.approvalHRLearningData.remarks
       });

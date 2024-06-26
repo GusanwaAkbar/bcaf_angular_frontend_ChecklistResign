@@ -78,87 +78,20 @@
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <table class="table table-bordered">
                 <tbody>
-                  <!-- Serah Terima Tugas -->
+
+                  <!-- Pengecekan Biaya Training -->
                   <tr>
-                    <th>Serah Terima Tugas</th>
+                    <th>Pengecekan Biaya Training</th>
                     <td>
-                      <c-button-group role="group" aria-label="Serah Terima Tugas">
-                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="belum dilakukan" id="serahTerimaTugas1" />
-                        <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
+                      <c-button-group role="group" aria-label="Pengecekan Biaya Training">
+                        <input class="btn-check" formControlName="pengecekanBiayaTraining" type="radio" value="belum dilakukan" id="pengecekanBiayaTraining1" />
+                        <label class="btn btn-outline-danger" for="pengecekanBiayaTraining1">Belum Dilakukan</label>
 
-                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="selesai" id="serahTerimaTugas2" />
-                        <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
+                        <input class="btn-check" formControlName="pengecekanBiayaTraining" type="radio" value="selesai" id="pengecekanBiayaTraining2" />
+                        <label class="btn btn-outline-success" for="pengecekanBiayaTraining2">Selesai</label>
 
-                        <input class="btn-check" formControlName="serahTerimaTugas" type="radio" value="tidak ada" id="serahTerimaTugas3" />
-                        <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
-                      </c-button-group>
-                    </td>
-                  </tr>
-
-                  <!-- Pengembalian Notebook -->
-                  <tr>
-                    <th>Pengembalian Notebook</th>
-                    <td>
-                      <c-button-group role="group" aria-label="Pengembalian Notebook">
-                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="belum dilakukan" id="pengembalianNotebook1" />
-                        <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
-
-                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="selesai" id="pengembalianNotebook2" />
-                        <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
-
-                        <input class="btn-check" formControlName="pengembalianNotebook" type="radio" value="tidak ada" id="pengembalianNotebook3" />
-                        <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
-                      </c-button-group>
-                    </td>
-                  </tr>
-
-                  <!-- Pengembalian Kunci Loker -->
-                  <tr>
-                    <th>Pengembalian Kunci Loker</th>
-                    <td>
-                      <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
-                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="belum dilakukan" id="pengembalianKunciLoker1" />
-                        <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
-
-                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="selesai" id="pengembalianKunciLoker2" />
-                        <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
-
-                        <input class="btn-check" formControlName="pengembalianKunciLoker" type="radio" value="tidak ada" id="pengembalianKunciLoker3" />
-                        <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
-                      </c-button-group>
-                    </td>
-                  </tr>
-
-                  <!-- Pengembalian Kunci Ruangan -->
-                  <tr>
-                    <th>Pengembalian Kunci Ruangan</th>
-                    <td>
-                      <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
-                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="belum dilakukan" id="pengembalianKunciRuangan1" />
-                        <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
-
-                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="selesai" id="pengembalianKunciRuangan2" />
-                        <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
-
-                        <input class="btn-check" formControlName="pengembalianKunciRuangan" type="radio" value="tidak ada" id="pengembalianKunciRuangan3" />
-                        <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
-                      </c-button-group>
-                    </td>
-                  </tr>
-
-                  <!-- Penyerahan Surat Pengunduran Diri -->
-                  <tr>
-                    <th>Penyerahan Surat Pengunduran Diri</th>
-                    <td>
-                      <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
-                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" />
-                        <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
-
-                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="selesai" id="penyerahanSuratPengunduranDiri2" />
-                        <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
-
-                        <input class="btn-check" formControlName="penyerahanSuratPengunduranDiri" type="radio" value="tidak ada" id="penyerahanSuratPengunduranDiri3" />
-                        <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
+                        <input class="btn-check" formControlName="pengecekanBiayaTraining" type="radio" value="tidak ada" id="pengecekanBiayaTraining3" />
+                        <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining3">Tidak Ada</label>
                       </c-button-group>
                     </td>
                   </tr>
