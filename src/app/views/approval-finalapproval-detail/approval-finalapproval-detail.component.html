@@ -8,9 +8,9 @@
 
 
 
-        <table cTable>
+        <table [striped]="true" cTable>
 
-    
+          
 
           <thead cTableColor="dark">
 
@@ -139,6 +139,14 @@
                 <input class="btn-check" type="radio" name="approvalGeneralServicesStatus" value="tidak ada" id="approvalGeneralServicesStatus3" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'tidak ada'" disabled />
                 <label class="btn btn-outline-secondary" for="approvalGeneralServicesStatus3">Tidak Ada</label>
               </c-button-group>
+            </td>
+          </tr>
+
+          <tr>
+            <th>Remarks</th>
+
+            <td>
+              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalGeneralService.remarks }}</textarea>
             </td>
           </tr>
          
@@ -331,7 +339,13 @@
 
 
           
-          <tr><th> do </th></tr>
+          <tr>
+            <th>Remarks</th>
+
+            <td>
+              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalAtasan.remarks }}</textarea>
+            </td>
+          </tr>
 
 
 
@@ -386,58 +400,79 @@
                                     </td>
                                   </tr>
           
+                                  <tr>
+                                    <th>Remarks</th>
+                        
+                                    <td>
+                                      <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRIR.remarks }}</textarea>
+                                    </td>
+                                  </tr>
           
     
         </tbody>
 
             
 
-        <thead cTableColor="dark">
-
-          <tr>
-            <th colspan="2">
-              <c-card-header>
-                <h4>approval HR Learning</h4>
-              </c-card-header>
-            </th>
-          </tr>
-  
-        </thead>
 
       
-
+          
+        
+        
+        <thead cTableColor="dark">
+          <tr>
+            <th colspan="2">
+       
+                <h4>Approval HR Learning</h4>
+            
+            </th>
+          </tr>
+        </thead>
+        
+      
         <tbody>
-          <tr><th>Pengecekan Biaya Status</th>
+            <tr>
+            <th>Pengecekan Biaya Status</th>
             <td>
               <c-button-group role="group" aria-label="Pengecekan Biaya Status">
                 <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="belum dilakukan" id="pengecekanBiayaTraining1" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'belum dilakukan'" disabled />
                 <label class="btn btn-outline-danger" for="pengecekanBiayaTraining1">Belum Dilakukan</label>
-
+        
                 <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="selesai" id="pengecekanBiayaTraining2" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'selesai'" disabled />
                 <label class="btn btn-outline-success" for="pengecekanBiayaTraining2">Selesai</label>
-
+        
                 <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="tidak ada" id="pengecekanBiayaTraining3" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'tidak ada'" disabled />
                 <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining3">Tidak Ada</label>
               </c-button-group>
             </td>
           </tr>
-
-          <tr><th>Approval HR Learning</th>
+        
+          <tr>
+            <th>Approval HR Learning</th>
             <td>
               <c-button-group role="group" aria-label="Approval HR Learning">
                 <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="belum dilakukan" id="approvalHRLearningStatus1" [checked]="approvalHRLearning.approvalHRLearningStatus === 'belum dilakukan'" disabled />
                 <label class="btn btn-outline-danger" for="approvalHRLearningStatus1">Belum Dilakukan</label>
-
+        
                 <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="selesai" id="approvalHRLearningStatus2" [checked]="approvalHRLearning.approvalHRLearningStatus === 'selesai'" disabled />
                 <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Selesai</label>
-
+        
                 <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="tidak ada" id="approvalHRLearningStatus3" [checked]="approvalHRLearning.approvalHRLearningStatus === 'tidak ada'" disabled />
                 <label class="btn btn-outline-secondary" for="approvalHRLearningStatus3">Tidak Ada</label>
               </c-button-group>
             </td>
           </tr>
+        
+          <tr>
+            <th>Remarks</th>
 
+            <td>
+              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRLearning.remarks }}</textarea>
+            </td>
+          </tr>
+        
         </tbody>
+        
+        
 
          
          
@@ -455,9 +490,9 @@
                             <!-- Approval IT -->
                             <tr>
                               <th colspan="2">
-                                <c-card-header>
+                             
                                   <h4>Approval HR Payroll</h4>
-                                </c-card-header>
+                         
                               </th>
                             </tr>
            
@@ -580,6 +615,14 @@
           </td>
         </tr>
 
+        <tr>
+          <th>Remarks</th>
+
+          <td>
+            <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRPayroll.remarks }}</textarea>
+          </td>
+        </tr>
+
           </tbody>
   
 
@@ -658,6 +701,14 @@
               </td>
             </tr>
 
+            <tr>
+              <th>Remarks</th>
+  
+              <td>
+                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRServicesAdmin.remarks }}</textarea>
+              </td>
+            </tr>
+
           </tbody>
 
         
@@ -704,6 +755,14 @@
                       <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="tidak ada" id="approvalHRTalentStatus3" [checked]="approvalHRTalent.approvalHRTalentStatus === 'tidak ada'" disabled />
                       <label class="btn btn-outline-secondary" for="approvalHRTalentStatus3">Tidak Ada</label>
                     </c-button-group>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>Remarks</th>
+      
+                  <td>
+                    <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRTalent.remarks }}</textarea>
                   </td>
                 </tr>
 
@@ -787,6 +846,14 @@
           </td>
         </tr>
 
+        <tr>
+          <th>Remarks</th>
+
+          <td>
+            <textarea cFormControl id="floatingTextarea" readonly>{{ approvalSecurityAdministrator.remarks }}</textarea>
+          </td>
+        </tr>
+
           </tbody>
 
 
@@ -848,6 +915,14 @@
                   <input class="btn-check" type="radio" name="approvalTreasuryStatus" value="tidak ada" id="approvalTreasuryStatus3" [checked]="approvalTreasury.approvalTreasuryStatus === 'tidak ada'" disabled />
                   <label class="btn btn-outline-secondary" for="approvalTreasuryStatus3">Tidak Ada</label>
                 </c-button-group>
+              </td>
+            </tr>
+
+            <tr>
+              <th>Remarks</th>
+  
+              <td>
+                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalTreasury.remarks }}</textarea>
               </td>
             </tr>
 
