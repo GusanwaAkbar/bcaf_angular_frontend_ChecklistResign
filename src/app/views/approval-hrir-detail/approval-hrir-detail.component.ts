@@ -63,6 +63,13 @@ export class ApprovalHRIRDetailComponent implements OnInit {
     if (this.form.valid) {
       const id = this.idApproval;
       const approvalData: IApprovalHRIRPost = this.form.value;
+
+      console.log("form value")
+      console.log(this.form.value)
+
+      console.log("approval Data")
+      console.log(approvalData)
+
       this.approvalDepartementService.putApprovalHRIRById(id, approvalData).subscribe(response => {
         // Handle response here
         console.log('Approval submitted:', response);

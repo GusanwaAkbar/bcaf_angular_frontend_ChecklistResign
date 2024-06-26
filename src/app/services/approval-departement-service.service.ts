@@ -72,7 +72,7 @@ export class ApprovalDepartementService {
   putApprovalHRIRById(id: number, data: object): Observable<any> 
   {
 
-    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-ir/${id}`, data)
+    return this.http.put<any>(`${this.apiUrl}/api/approval-hr-ir/${id}`, data)
   }
 
 
@@ -131,13 +131,13 @@ export class ApprovalDepartementService {
   getApprovalSecurityAdminById(id: number): Observable<any> 
   {
 
-    return this.http.get<any>(`${this.apiUrl}/api/approval-security-administrator${id}`)
+    return this.http.get<any>(`${this.apiUrl}/api/approval-security-administrator/${id}`)
   }
 
   putApprovalSecurityAdminById(id: number, data:object): Observable<any> 
   {
 
-    return this.http.put<any>(`${this.apiUrl}/api/approval-security-administrator${id}`, data)
+    return this.http.put<any>(`${this.apiUrl}/api/approval-security-administrator/${id}`, data)
   }
 
 

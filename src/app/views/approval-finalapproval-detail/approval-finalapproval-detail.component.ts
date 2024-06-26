@@ -64,9 +64,14 @@ export class ApprovalFinalApprovalDetailComponent implements OnInit {
       this.approvalHRServicesAdmin = responseData.approvalHRServicesAdmin;
       this.approvalSecurityAdministrator = responseData.approvalSecurityAdministrator;
       this.approvalTreasury = responseData.approvalTreasury;
+      this.approvalHRTalent = responseData.approvalHRTalent;
       
       console.log("hrir")
       console.log(this.approvalHRIR)
+
+
+      console.log("hr talent")
+      console.log(this.approvalHRTalent)
 
       console.log("Full Approval Data:", this.approvalData);
     });

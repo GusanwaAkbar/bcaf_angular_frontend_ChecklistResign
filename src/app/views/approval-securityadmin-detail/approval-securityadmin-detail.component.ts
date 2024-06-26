@@ -67,6 +67,10 @@ export class ApprovalSecurityAdminDetailComponent implements OnInit {
     if (this.form.valid) {
       const id = this.idApproval;
       const approvalData: IApprovalSecurityAdminPost = this.form.value;
+
+      console.log("form value")
+      console.log(this.form.value)
+
       this.approvalDepartementService.putApprovalSecurityAdminById(id, approvalData).subscribe(response => {
         // Handle response here
         console.log('Approval submitted:', response);
