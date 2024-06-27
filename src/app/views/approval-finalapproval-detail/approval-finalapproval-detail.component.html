@@ -7,7 +7,7 @@
       <div *ngIf="approvalData">
 
 
-
+<c-card>
         <table [striped]="true" cTable>
 
           
@@ -39,9 +39,12 @@
           </tbody>
             <!-- Approval General Services -->
 
+          </table>
+</c-card>
 
 
-
+<c-card>
+  <table [striped]="true" cTable>
             <thead cTableColor="dark">
 
               <tr>
@@ -152,8 +155,12 @@
          
         </tbody>
 
-     
+      </table>
+    </c-card>
 
+
+    <c-card>
+      <table [striped]="true" cTable>
         <thead cTableColor="dark">
                       <!-- Approval IT -->
                       <tr>
@@ -350,6 +357,9 @@
 
 
         </tbody>
+
+      </table>
+    </c-card>
             
 
         <thead cTableColor="dark">
@@ -484,7 +494,7 @@
 
 
           
-           
+           <table cTable [striped]="true">
 
           <thead cTableColor="dark">
                             <!-- Approval IT -->
