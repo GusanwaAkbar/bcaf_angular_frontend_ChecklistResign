@@ -100,16 +100,12 @@
                   <tr>
                     <th>Approval HR Learning Status</th>
                     <td>
-                      <c-button-group role="group" aria-label="Approval HR Learning Status">
-                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="pending" id="approvalHRLearningStatus1" />
-                        <label class="btn btn-outline-warning" for="approvalHRLearningStatus1">Pending</label>
-
-                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="approved" id="approvalHRLearningStatus2" />
-                        <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Approved</label>
-
-                        <input class="btn-check" formControlName="approvalHRLearningStatus" type="radio" value="rejected" id="approvalHRLearningStatus3" />
-                        <label class="btn btn-outline-danger" for="approvalHRLearningStatus3">Rejected</label>
-                      </c-button-group>
+                      <select class="form-control" formControlName="approvalHRLearningStatus">
+                        <option value="">Pilih Status</option>
+                        <option value="accept">Accept</option>
+                        <option value="reject">Reject</option>
+                        <option value="pending">Pending</option>
+                      </select>
                     </td>
                   </tr>
 

@@ -6,11 +6,30 @@
   id="sidebar1"
   visible
 >
-  <c-sidebar-header class="border-bottom">
-    <c-sidebar-brand [routerLink]="[]">
-      <svg [class]="{icon: false}" cIcon class="sidebar-brand-full" height="32" name="logo" title="CoreUI Logo"></svg>
-      <svg cIcon class="sidebar-brand-narrow" height="32" name="signet" title="CoreUI Logo"></svg>
-    </c-sidebar-brand>
+<c-sidebar-header class="border-bottom">
+  <c-sidebar-brand [brandFull] = "{
+    src:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIgdi3gwYcK3CnL0U7isb4mIcnBnWG6n09E2etXEvrQKiyebhFBG1kw8xJFZtMxD7YmKi4TIvRCJZoi425yUZOgB4EiV8i3X2KX1a53lV7PjzWwZAjoU90CvT_yUJub7UhgryOZPHJA_GXeV7SWIb1mQHZudTW8HvRvstkXapsz_bUBgh4am3yKUwZeIPQ/w320-h56/BCA%20Finance.png',
+    width:230,
+    height:30,
+    alt: 'BCA Finance'
+  }"
+
+  [brandNarrow] = "{
+    src: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIgdi3gwYcK3CnL0U7isb4mIcnBnWG6n09E2etXEvrQKiyebhFBG1kw8xJFZtMxD7YmKi4TIvRCJZoi425yUZOgB4EiV8i3X2KX1a53lV7PjzWwZAjoU90CvT_yUJub7UhgryOZPHJA_GXeV7SWIb1mQHZudTW8HvRvstkXapsz_bUBgh4am3yKUwZeIPQ/w320-h56/BCA%20Finance.png',
+    width: 46,
+    height: 40,
+    alt: 'BCA Finance'
+  }"
+
+  routerLink="./" />
+
+
+  <!-- <c-sidebar-brand [routerLink]="[]">
+    <svg [class]="{icon: false}" cIcon class="sidebar-brand-full" height="32" name="logo" title="CoreUI Logo"></svg>
+    <svg cIcon class="sidebar-brand-narrow" height="32" name="signet" title="CoreUI Logo"></svg>
+  </c-sidebar-brand> -->
+
+
   </c-sidebar-header>
 
   <ng-scrollbar #scrollbar="ngScrollbar" (updated)="onScrollbarUpdate(scrollbar.state)" class="overflow" pointerEventsMethod="scrollbar" visibility="hover">
