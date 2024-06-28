@@ -27,6 +27,7 @@ import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { IconDirective } from '@coreui/icons-angular';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { delay, filter, map, tap } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-default-header',
@@ -35,6 +36,10 @@ import { delay, filter, map, tap } from 'rxjs/operators';
   imports: [ContainerComponent, HeaderTogglerDirective, SidebarToggleDirective, IconDirective, HeaderNavComponent, NavItemComponent, NavLinkDirective, RouterLink, RouterLinkActive, NgTemplateOutlet, BreadcrumbRouterComponent, ThemeDirective, DropdownComponent, DropdownToggleDirective, TextColorDirective, AvatarComponent, DropdownMenuDirective, DropdownHeaderDirective, DropdownItemDirective, BadgeComponent, DropdownDividerDirective, ProgressBarDirective, ProgressComponent, NgStyle]
 })
 export class DefaultHeaderComponent extends HeaderComponent {
+
+  // public navItems = navItems;
+  public username: string | undefined;
+  public nama: string | undefined;
 
   readonly #activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   readonly #colorModeService = inject(ColorModeService);
@@ -52,7 +57,7 @@ export class DefaultHeaderComponent extends HeaderComponent {
     return this.colorModes.find(mode=> mode.name === currentMode)?.icon ?? 'cilSun';
   });
 
-  constructor() {
+  constructor(private authService: AuthService) {
     super();
     this.#colorModeService.localStorageItemName.set('coreui-free-angular-admin-template-theme-default');
     this.#colorModeService.eventName.set('ColorSchemeChange');
@@ -68,6 +73,15 @@ export class DefaultHeaderComponent extends HeaderComponent {
         takeUntilDestroyed(this.#destroyRef)
       )
       .subscribe();
+  }
+
+  ngOnInit(): void {
+    this.authService.currentUser.subscribe(user => {
+      if (user) {
+        this.username = user.username;
+        this.nama = user.userDetail?.nama;
+      }
+    });
   }
 
   @Input() sidebarId: string = 'sidebar1';

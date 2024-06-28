@@ -9,10 +9,13 @@ export const navItems: INavData[] = [
     name: 'Pengajuan Resign Baru',
     url: '/pengajuan-resign',
     iconComponent: { name: 'cil-pencil' },
-    badge: {
-      color: 'info',
-      text: 'NEW'
-    }
+
+
+    //bawah adalah notif
+    // badge: {
+    //   color: 'info',
+    //   text: 'NEW'
+    // }
   },
   {
     name: 'Progress Approval',

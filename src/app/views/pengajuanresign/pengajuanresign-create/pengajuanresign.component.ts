@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResignationService } from '../../../services/resignation.service';
 import { Resignation } from '../../../models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pengajuanresign-form',
@@ -15,11 +16,12 @@ export class PengajuanResignComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private resignationService: ResignationService) {
     this.resignationForm = this.fb.group({
-      isiUntukOrangLain: [false, Validators.required],
       tanggalPembuatanAkunHRIS: ['', Validators.required],
       tanggalBerakhirBekerja: ['', Validators.required],
       emailAtasan: ['', [Validators.required, Validators.email]],
-      nipAtasan: ['', Validators.required]
+      nipAtasan: ['', Validators.required],
+      emailAktif: ['', [Validators.required, Validators.email]],
+      nomerWA: ['', Validators.required]
     });
   }
 
@@ -40,15 +42,30 @@ export class PengajuanResignComponent implements OnInit {
     );
   }
 
+  confirmSubmit(): void {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you really want to submit the resignation form?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, submit it!',
+      cancelButtonText: 'No, cancel!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.onSubmit();
+      }
+    });
+  }
+
   onSubmit(): void {
     if (this.resignationForm.valid) {
       const resignationData: Resignation = this.resignationForm.value;
       this.resignationService.postResignation(resignationData).subscribe(
         response => {
-          console.log('Resignation submitted successfully', response);
+          Swal.fire('Submitted!', 'Your resignation form has been submitted.', 'success');
         },
         error => {
-          console.error('Error submitting resignation', error);
+          Swal.fire('Error!', 'There was an error submitting your resignation form.', 'error');
         }
       );
     }

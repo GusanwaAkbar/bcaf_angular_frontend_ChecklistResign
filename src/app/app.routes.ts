@@ -4,7 +4,7 @@ import { DefaultLayoutComponent } from './layout';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pengjuan-resign',
+    redirectTo: 'pengajuan-resign',
     pathMatch: 'full'
   },
   {

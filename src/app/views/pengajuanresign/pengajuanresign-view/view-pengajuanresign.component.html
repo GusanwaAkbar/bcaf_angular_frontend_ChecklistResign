@@ -1,67 +1,87 @@
 <!-- src/app/components/resignation/resignation.component.html -->
 
-<div *ngFor="let resignation of resignations">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <th>ID</th>
-        <td>{{ resignation.id }}</td>
-      </tr>
-      <tr>
-        <th>Isi Untuk Orang Lain</th>
-        <td>{{ resignation.isiUntukOrangLain }}</td>
-      </tr>
-      <tr>
-        <th>Tanggal Pembuatan Akun HRIS</th>
-        <td>{{ resignation.tanggalPembuatanAkunHRIS }}</td>
-      </tr>
-      <tr>
-        <th>Tanggal Berakhir Bekerja</th>
-        <td>{{ resignation.tanggalBerakhirBekerja }}</td>
-      </tr>
-      <tr>
-        <th colspan="2">User Detail Resign</th>
-      </tr>
-      <tr>
-        <th>Nama</th>
-        <td>{{ resignation.userDetailResign.nama }}</td>
-      </tr>
-      <tr>
-        <th>Email</th>
-        <td>{{ resignation.userDetailResign.email }}</td>
-      </tr>
-      <tr>
-        <th>Cabang</th>
-        <td>{{ resignation.userDetailResign.cabang }}</td>
-      </tr>
-      <tr>
-        <th>Divisi</th>
-        <td>{{ resignation.userDetailResign.divisi }}</td>
-      </tr>
-      <tr>
-        <th>Jabatan</th>
-        <td>{{ resignation.userDetailResign.jabatan }}</td>
-      </tr>
-      <tr>
-        <th>Email Aktif</th>
-        <td>{{ resignation.userDetailResign.emailAktif }}</td>
-      </tr>
-      <tr>
-        <th>Nomor WA</th>
-        <td>{{ resignation.userDetailResign.nomerWA }}</td>
-      </tr>
-      <tr>
-        <th>Username</th>
-        <td>{{ resignation.userDetailResign.user_username }}</td>
-      </tr>
-      <tr>
-        <th>NIP Atasan</th>
-        <td>{{ resignation.nipAtasan }}</td>
-      </tr>
-      <tr>
-        <th>Email Atasan</th>
-        <td>{{ resignation.emailAtasan }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+<c-container>
+
+  <c-card>
+
+    <c-card-header>
+      <h4>Pengajuan Resign Anda</h4>
+    </c-card-header>
+
+    <c-card-body>
+
+      <div *ngFor="let resignation of resignations">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <td>{{ resignation.id }}</td>
+            </tr>
+            <tr>
+              <th>Isi Untuk Orang Lain</th>
+              <td>{{ resignation.isiUntukOrangLain }}</td>
+            </tr>
+            <tr>
+              <th>Tanggal Pembuatan Akun HRIS</th>
+              <td>{{ resignation.tanggalPembuatanAkunHRIS }}</td>
+            </tr>
+            <tr>
+              <th>Tanggal Berakhir Bekerja</th>
+              <td>{{ resignation.tanggalBerakhirBekerja }}</td>
+            </tr>
+            <tr>
+              <th colspan="2">User Detail Resign</th>
+            </tr>
+            <tr>
+              <th>Nama</th>
+              <td>{{ resignation.userDetailResign.nama }}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ resignation.userDetailResign.email }}</td>
+            </tr>
+            <tr>
+              <th>Cabang</th>
+              <td>{{ resignation.userDetailResign.cabang }}</td>
+            </tr>
+            <tr>
+              <th>Divisi</th>
+              <td>{{ resignation.userDetailResign.divisi }}</td>
+            </tr>
+            <tr>
+              <th>Jabatan</th>
+              <td>{{ resignation.userDetailResign.jabatan }}</td>
+            </tr>
+            <tr>
+              <th>Email Aktif</th>
+              <td>{{ resignation.userDetailResign.emailAktif }}</td>
+            </tr>
+            <tr>
+              <th>Nomor WA</th>
+              <td>{{ resignation.userDetailResign.nomerWA }}</td>
+            </tr>
+            <tr>
+              <th>Username</th>
+              <td>{{ resignation.userDetailResign.user_username }}</td>
+            </tr>
+            <tr>
+              <th>NIP Atasan</th>
+              <td>{{ resignation.nipAtasan }}</td>
+            </tr>
+            <tr>
+              <th>Email Atasan</th>
+              <td>{{ resignation.emailAtasan }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </c-card-body>
+
+  </c-card>
+
+</c-container>
+
+
+
