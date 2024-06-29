@@ -28,6 +28,12 @@ export class ApprovalDepartementService {
     return this.http.get<ApiResponse<IApprovalTreasuryGet>>(`${this.apiUrl}/api/approval-treasury/${id}`)
   }
 
+  getApprovalTreasuryByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-treasury/karyawan-resign)`);
+  }
+
   putApprovalTreasuryById(id: number,data: IApprovalTreasuryPost): Observable<any>
   {
 
@@ -47,6 +53,13 @@ export class ApprovalDepartementService {
   {
 
     return this.http.get<any>(`${this.apiUrl}/api/approval-hr-payroll/${id}`)
+  }
+
+
+  getApprovalHRPayrollByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-payroll/karyawan-resign)`);
   }
 
   putApprovalHRPayrollById(id: number, data: object): Observable<any> 
@@ -76,6 +89,13 @@ export class ApprovalDepartementService {
   }
 
 
+  getApprovalHRIRByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-ir/karyawan-resign)`);
+  }
+
+
   //General Service Session
   // /api/approval-general-services
   getApprovalGeneralServiceList(): Observable<any> 
@@ -96,6 +116,12 @@ export class ApprovalDepartementService {
     return this.http.put<any>(`${this.apiUrl}/api/approval-general-services/${id}`, data)
   }
 
+  getApprovalGeneralServiceByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-general-services/karyawan-resign)`);
+  }
+
 
   // HR Service Session
   // {{base_url}}/api/approval-hr-services-admin/1
@@ -110,6 +136,12 @@ export class ApprovalDepartementService {
   {
 
     return this.http.get<any>(`${this.apiUrl}/api/approval-hr-services-admin/${id}`)
+  }
+
+  getApprovalHRServiceByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-service-admin/karyawan-resign)`);
   }
 
   putApprovalHRServiceById(id: number, data: object): Observable<any> 
@@ -132,6 +164,12 @@ export class ApprovalDepartementService {
   {
 
     return this.http.get<any>(`${this.apiUrl}/api/approval-security-administrator/${id}`)
+  }
+
+  getApprovalSecurityAdminByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-security-administrator/karyawan-resign)`);
   }
 
   putApprovalSecurityAdminById(id: number, data:object): Observable<any> 
@@ -158,6 +196,12 @@ export class ApprovalDepartementService {
     return this.http.get<any>(`${this.apiUrl}/api/approval-hr-talent/${id}`)
   }
 
+  getApprovalHRTalentByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-talent/karyawan-resign)`);
+  }
+
   putApprovalHRTalentById(id: number, data: object): Observable<any> 
   {
 
@@ -178,6 +222,12 @@ export class ApprovalDepartementService {
 
 
     return this.http.get<any>(`${this.apiUrl}/api/approval-hr-learning/${id}`)
+  }
+
+  getApprovalHRLearningByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-learning/karyawan-resign)`);
   }
 
   putApprovalHRLearningById(id: number, data: object): Observable<any>

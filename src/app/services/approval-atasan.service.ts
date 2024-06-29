@@ -33,6 +33,12 @@ export class ApprovalAtasanService {
     return this.http.get<ApiResponse<ApprovalAtasanGet>>(`${this.apiUrl}/api/approval-atasan/${id}`);
   }
 
+  getApprovalAtasanByKaryawan(): Observable<any>
+  {
+
+    return this.http.get<any>(`${this.apiUrl}/api/approval-atasan/karyawan-resign)`);
+  }
+
 
   }
 
