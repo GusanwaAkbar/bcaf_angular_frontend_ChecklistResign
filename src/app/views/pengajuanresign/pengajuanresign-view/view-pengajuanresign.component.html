@@ -141,131 +141,13 @@
 <c-container>
   <c-card>
     <c-card-header>
-      <h3>Final Approval Summary</h3>
+      <h3>Status Approval Resign Anda</h3>
     </c-card-header>
     <c-card-body>
       <div *ngIf="approvalGeneralServices">
 
 
 <c-row>
-  <c-card>
-    <table class="uniform-table" [striped]="true" cTable>
-              <thead cTableColor="dark">
-  
-                <tr>
-                  <th colspan="2">
-                    <c-card-header>
-                      <h5>Approval General Services</h5>
-                    </c-card-header>
-                  </th>
-                </tr>
-  
-  
-              </thead>
-  
-            <tbody>
-            <tr><th>Penutupan PIN</th>
-              <td>
-                <c-button-group role="group" aria-label="Penutupan PIN">
-                  <input class="btn-check" type="radio" name="penutupanPin" value="belum dilakukan" id="penutupanPin1" [checked]="approvalGeneralServices.penutupanPin === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="penutupanPin1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="penutupanPin" value="selesai" id="penutupanPin2" [checked]="approvalGeneralServices.penutupanPin === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="penutupanPin2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="penutupanPin" value="tidak ada" id="penutupanPin3" [checked]="approvalGeneralServices.penutupanPin === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="penutupanPin3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Kendaraan Dinas</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Kendaraan Dinas">
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="belum dilakukan" id="pengembalianKendaraanDinas1" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianKendaraanDinas1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="selesai" id="pengembalianKendaraanDinas2" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianKendaraanDinas2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="tidak ada" id="pengembalianKendaraanDinas3" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanDinas3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Inventaris Kantor</th>
-              <td>
-                <c-button-group role="group" aria-label="Inventaris Kantor">
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="belum dilakukan" id="inventarisKantor1" [checked]="approvalGeneralServices.inventarisKantor === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="inventarisKantor1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="selesai" id="inventarisKantor2" [checked]="approvalGeneralServices.inventarisKantor === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="inventarisKantor2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="tidak ada" id="inventarisKantor3" [checked]="approvalGeneralServices.inventarisKantor === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="inventarisKantor3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Aktiva</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Aktiva">
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="belum dilakukan" id="pengembalianAktiva1" [checked]="approvalGeneralServices.pengembalianAktiva === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianAktiva1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="selesai" id="pengembalianAktiva2" [checked]="approvalGeneralServices.pengembalianAktiva === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianAktiva2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="tidak ada" id="pengembalianAktiva3" [checked]="approvalGeneralServices.pengembalianAktiva === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianAktiva3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Kendaraan UMK3</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Kendaraan UMK3">
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="belum dilakukan" id="pengembalianKendaraanUMK31" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianKendaraanUMK31">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="selesai" id="pengembalianKendaraanUMK32" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianKendaraanUMK32">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="tidak ada" id="pengembalianKendaraanUMK33" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanUMK33">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr>
-              <th>Status</th>
-              <td>
-                <c-button-group role="group" aria-label="Approval General Services Status">
-                  <!-- Use appropriate classes for each status -->
-                  <input class="btn-check" type="radio" name="btnStatus" value="pending" id="approvalGeneralServicesStatus2" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'pending'" disabled />
-                  <label class="btn btn-outline-warning status-pending" for="approvalGeneralServicesStatus2">Pending</label>
-            
-                  <input class="btn-check" type="radio" name="btnStatus" value="accept" id="approvalGeneralServicesStatus3" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'accept'" disabled />
-                  <label class="btn btn-outline-success status-accept" for="approvalGeneralServicesStatus3">Accept</label>
-                </c-button-group>
-              </td>
-            </tr>
-            
-  
-            <tr>
-              <th>Remarks</th>
-  
-              <td>
-                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalGeneralServices.remarks }}</textarea>
-              </td>
-            </tr>
-           
-          </tbody>
-  
-        </table>
-      </c-card>
-</c-row>
-
-
-
-
     <c-card>
       <table class="uniform-table" [striped]="true" cTable>
         <thead cTableColor="dark">
@@ -464,8 +346,129 @@
 
       </table>
     </c-card>
-            
+  </c-row>
 
+<c-row>
+  <c-card>
+    <table class="uniform-table" [striped]="true" cTable>
+              <thead cTableColor="dark">
+  
+                <tr>
+                  <th colspan="2">
+                    <c-card-header>
+                      <h5>Approval General Services</h5>
+                    </c-card-header>
+                  </th>
+                </tr>
+  
+  
+              </thead>
+  
+            <tbody>
+            <tr><th>Penutupan PIN</th>
+              <td>
+                <c-button-group role="group" aria-label="Penutupan PIN">
+                  <input class="btn-check" type="radio" name="penutupanPin" value="belum dilakukan" id="penutupanPin1" [checked]="approvalGeneralServices.penutupanPin === 'belum dilakukan'" disabled />
+                  <label class="btn btn-outline-danger" for="penutupanPin1">Belum Dilakukan</label>
+  
+                  <input class="btn-check" type="radio" name="penutupanPin" value="selesai" id="penutupanPin2" [checked]="approvalGeneralServices.penutupanPin === 'selesai'" disabled />
+                  <label class="btn btn-outline-success" for="penutupanPin2">Selesai</label>
+  
+                  <input class="btn-check" type="radio" name="penutupanPin" value="tidak ada" id="penutupanPin3" [checked]="approvalGeneralServices.penutupanPin === 'tidak ada'" disabled />
+                  <label class="btn btn-outline-secondary" for="penutupanPin3">Tidak Ada</label>
+                </c-button-group>
+              </td>
+            </tr>
+            <tr><th>Pengembalian Kendaraan Dinas</th>
+              <td>
+                <c-button-group role="group" aria-label="Pengembalian Kendaraan Dinas">
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="belum dilakukan" id="pengembalianKendaraanDinas1" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'belum dilakukan'" disabled />
+                  <label class="btn btn-outline-danger" for="pengembalianKendaraanDinas1">Belum Dilakukan</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="selesai" id="pengembalianKendaraanDinas2" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'selesai'" disabled />
+                  <label class="btn btn-outline-success" for="pengembalianKendaraanDinas2">Selesai</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="tidak ada" id="pengembalianKendaraanDinas3" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'tidak ada'" disabled />
+                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanDinas3">Tidak Ada</label>
+                </c-button-group>
+              </td>
+            </tr>
+            <tr><th>Inventaris Kantor</th>
+              <td>
+                <c-button-group role="group" aria-label="Inventaris Kantor">
+                  <input class="btn-check" type="radio" name="inventarisKantor" value="belum dilakukan" id="inventarisKantor1" [checked]="approvalGeneralServices.inventarisKantor === 'belum dilakukan'" disabled />
+                  <label class="btn btn-outline-danger" for="inventarisKantor1">Belum Dilakukan</label>
+  
+                  <input class="btn-check" type="radio" name="inventarisKantor" value="selesai" id="inventarisKantor2" [checked]="approvalGeneralServices.inventarisKantor === 'selesai'" disabled />
+                  <label class="btn btn-outline-success" for="inventarisKantor2">Selesai</label>
+  
+                  <input class="btn-check" type="radio" name="inventarisKantor" value="tidak ada" id="inventarisKantor3" [checked]="approvalGeneralServices.inventarisKantor === 'tidak ada'" disabled />
+                  <label class="btn btn-outline-secondary" for="inventarisKantor3">Tidak Ada</label>
+                </c-button-group>
+              </td>
+            </tr>
+            <tr><th>Pengembalian Aktiva</th>
+              <td>
+                <c-button-group role="group" aria-label="Pengembalian Aktiva">
+                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="belum dilakukan" id="pengembalianAktiva1" [checked]="approvalGeneralServices.pengembalianAktiva === 'belum dilakukan'" disabled />
+                  <label class="btn btn-outline-danger" for="pengembalianAktiva1">Belum Dilakukan</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="selesai" id="pengembalianAktiva2" [checked]="approvalGeneralServices.pengembalianAktiva === 'selesai'" disabled />
+                  <label class="btn btn-outline-success" for="pengembalianAktiva2">Selesai</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="tidak ada" id="pengembalianAktiva3" [checked]="approvalGeneralServices.pengembalianAktiva === 'tidak ada'" disabled />
+                  <label class="btn btn-outline-secondary" for="pengembalianAktiva3">Tidak Ada</label>
+                </c-button-group>
+              </td>
+            </tr>
+            <tr><th>Pengembalian Kendaraan UMK3</th>
+              <td>
+                <c-button-group role="group" aria-label="Pengembalian Kendaraan UMK3">
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="belum dilakukan" id="pengembalianKendaraanUMK31" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'belum dilakukan'" disabled />
+                  <label class="btn btn-outline-danger" for="pengembalianKendaraanUMK31">Belum Dilakukan</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="selesai" id="pengembalianKendaraanUMK32" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'selesai'" disabled />
+                  <label class="btn btn-outline-success" for="pengembalianKendaraanUMK32">Selesai</label>
+  
+                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="tidak ada" id="pengembalianKendaraanUMK33" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'tidak ada'" disabled />
+                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanUMK33">Tidak Ada</label>
+                </c-button-group>
+              </td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td>
+                <c-button-group role="group" aria-label="Approval General Services Status">
+                  <!-- Use appropriate classes for each status -->
+                  <input class="btn-check" type="radio" name="btnStatus" value="pending" id="approvalGeneralServicesStatus2" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'pending'" disabled />
+                  <label class="btn btn-outline-warning status-pending" for="approvalGeneralServicesStatus2">Pending</label>
+            
+                  <input class="btn-check" type="radio" name="btnStatus" value="accept" id="approvalGeneralServicesStatus3" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'accept'" disabled />
+                  <label class="btn btn-outline-success status-accept" for="approvalGeneralServicesStatus3">Accept</label>
+                </c-button-group>
+              </td>
+            </tr>
+            
+  
+            <tr>
+              <th>Remarks</th>
+  
+              <td>
+                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalGeneralServices.remarks }}</textarea>
+              </td>
+            </tr>
+           
+          </tbody>
+  
+        </table>
+      </c-card>
+</c-row>
+
+
+
+
+            
+<c-row>
     <c-card>
       <table class="uniform-table" [striped]="true" cTable>
 
@@ -532,7 +535,9 @@
 
 
     </c-card>
+  </c-row>
 
+  <c-row>
     <c-card>
       <table class="uniform-table" [striped]="true" cTable>
 
@@ -591,12 +596,12 @@
       </table>
 
     </c-card>
-
+  </c-row>
   
 
 
             
-
+<c-row>
     <c-card>
       <table class="uniform-table" [striped]="true" cTable>
 
@@ -740,8 +745,11 @@
 
       </table>
       </c-card>
+</c-row>
 
 
+            
+<c-row>
       <c-card>
         <table class="uniform-table" [striped]="true" cTable>
           <thead cTableColor="dark">
@@ -827,8 +835,10 @@
   
         </table>
         </c-card>
+      </c-row>
 
 
+      <c-row>
         <c-card>
           <table class="uniform-table" [striped]="true" cTable>
     
@@ -886,10 +896,11 @@
     
           </table>
           </c-card>
+        </c-row>
       
           
         
-        
+        <c-row>
           <c-card>
             <table class="uniform-table" [striped]="true" cTable>
 
@@ -1024,8 +1035,9 @@
               </tbody>
               </table>
               </c-card>
+            </c-row>
         
-        
+            <c-row>
           <c-card>
             <table class="uniform-table" [striped]="true" cTable>
 
@@ -1117,6 +1129,7 @@
               
               </table>
               </c-card>
+            </c-row>
          
          
   
