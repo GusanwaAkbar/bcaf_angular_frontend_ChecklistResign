@@ -135,17 +135,16 @@
               <th>Status</th>
               <td>
                 <c-button-group role="group" aria-label="Approval General Services Status">
-                  <input class="btn-check" type="radio" name="approvalGeneralServicesStatus" value="belum dilakukan" id="approvalGeneralServicesStatus1" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="approvalGeneralServicesStatus1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="approvalGeneralServicesStatus" value="selesai" id="approvalGeneralServicesStatus2" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="approvalGeneralServicesStatus2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="approvalGeneralServicesStatus" value="tidak ada" id="approvalGeneralServicesStatus3" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="approvalGeneralServicesStatus3">Tidak Ada</label>
+                  <!-- Use appropriate classes for each status -->
+                  <input class="btn-check" type="radio" name="btnStatus" value="pending" id="approvalGeneralServicesStatus2" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'pending'" disabled />
+                  <label class="btn btn-outline-warning status-pending" for="approvalGeneralServicesStatus2">Pending</label>
+            
+                  <input class="btn-check" type="radio" name="btnStatus" value="accept" id="approvalGeneralServicesStatus3" [checked]="approvalData.approvalGeneralServices.approvalGeneralServicesStatus === 'accept'" disabled />
+                  <label class="btn btn-outline-success status-accept" for="approvalGeneralServicesStatus3">Accept</label>
                 </c-button-group>
               </td>
             </tr>
+            
   
             <tr>
               <th>Remarks</th>
@@ -337,14 +336,11 @@
                       <tr><th>Approval Status Atasan</th>
             <td>
               <c-button-group role="group" aria-label="Approval Status Atasan">
-                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="belum dilakukan" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="approvalStatusAtasan1">Belum Dilakukan</label>
+                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="pending" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'pending'" disabled />
+                <label class="btn btn-outline-warning" for="approvalStatusAtasan1">Pending</label>
 
-                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="selesai" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="approvalStatusAtasan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="tidak ada" id="approvalStatusAtasan3" [checked]="approvalAtasan.approvalStatusAtasan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="approvalStatusAtasan3">Tidak Ada</label>
+                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="accept" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'accept'" disabled />
+                <label class="btn btn-outline-success" for="approvalStatusAtasan2">Accept</label>
               </c-button-group>
             </td>
           </tr>
@@ -406,14 +402,12 @@
                                 <tr><th>Approval HRIR Status</th>
                       <td>
                         <c-button-group role="group" aria-label="Approval HRIR Status">
-                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="belum dilakukan" id="approvalHRIRStatus1" [checked]="approvalHRIR.approvalHRIRStatus === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="approvalHRIRStatus1">Belum Dilakukan</label>
+                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="pending" id="approvalHRIRStatus1" [checked]="approvalHRIR.approvalHRIRStatus === 'pending'" disabled />
+                          <label class="btn btn-outline-warning" for="approvalHRIRStatus1">Pending</label>
         
-                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="selesai" id="approvalHRIRStatus2" [checked]="approvalHRIR.approvalHRIRStatus === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="approvalHRIRStatus2">Selesai</label>
+                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="accept" id="approvalHRIRStatus2" [checked]="approvalHRIR.approvalHRIRStatus === 'accept'" disabled />
+                          <label class="btn btn-outline-success" for="approvalHRIRStatus2">Accept</label>
         
-                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="tidak ada" id="approvalHRIRStatus3" [checked]="approvalHRIR.approvalHRIRStatus === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="approvalHRIRStatus3">Tidak Ada</label>
                         </c-button-group>
                       </td>
                     </tr>
@@ -460,25 +454,24 @@
         
                 <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="selesai" id="pengecekanBiayaTraining2" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'selesai'" disabled />
                 <label class="btn btn-outline-success" for="pengecekanBiayaTraining2">Selesai</label>
-        
-                <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="tidak ada" id="pengecekanBiayaTraining3" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining3">Tidak Ada</label>
+
+                <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="tidak ada" id="pengecekanBiayaTraining2" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining2">Tidak Ada</label>
+     
               </c-button-group>
             </td>
           </tr>
-        
+
+          
           <tr>
             <th>Approval HR Learning</th>
             <td>
               <c-button-group role="group" aria-label="Approval HR Learning">
-                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="belum dilakukan" id="approvalHRLearningStatus1" [checked]="approvalHRLearning.approvalHRLearningStatus === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="approvalHRLearningStatus1">Belum Dilakukan</label>
+                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="pending" id="approvalHRLearningStatus1" [checked]="approvalHRLearning.approvalHRLearningStatus === 'pending'" disabled />
+                <label class="btn btn-outline-warning" for="approvalHRLearningStatus1">Pending</label>
         
-                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="selesai" id="approvalHRLearningStatus2" [checked]="approvalHRLearning.approvalHRLearningStatus === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Selesai</label>
-        
-                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="tidak ada" id="approvalHRLearningStatus3" [checked]="approvalHRLearning.approvalHRLearningStatus === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="approvalHRLearningStatus3">Tidak Ada</label>
+                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="accept" id="approvalHRLearningStatus2" [checked]="approvalHRLearning.approvalHRLearningStatus === 'accept'" disabled />
+                <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Accept</label>
               </c-button-group>
             </td>
           </tr>
@@ -622,14 +615,12 @@
                 <tr><th>Approval HR Payroll Status</th>
                 <td>
                 <c-button-group role="group" aria-label="Approval HR Payroll Status">
-                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="belum dilakukan" id="approvalHRPayrollStatus1" [checked]="approvalHRLearning.approvalHRPayrollStatus === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="approvalHRPayrollStatus1">Belum Dilakukan</label>
+                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="pending" id="approvalHRPayrollStatus1" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'pending'" disabled />
+                <label class="btn btn-outline-warning" for="approvalHRPayrollStatus1">Pending</label>
 
-                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="selesai" id="approvalHRPayrollStatus2" [checked]="approvalHRLearning.approvalHRPayrollStatus === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="approvalHRPayrollStatus2">Selesai</label>
+                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="accept" id="approvalHRPayrollStatus2" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'accept'" disabled />
+                <label class="btn btn-outline-success" for="approvalHRPayrollStatus2">Accept</label>
 
-                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="tidak ada" id="approvalHRPayrollStatus3" [checked]="approvalHRLearning.approvalHRPayrollStatus === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="approvalHRPayrollStatus3">Tidak Ada</label>
                 </c-button-group>
                 </td>
                 </tr>
@@ -693,18 +684,15 @@
               </td>
             </tr>
             
-            
+          
                         <tr><th>Penonaktifan Kartu Elektronik</th>
               <td>
                 <c-button-group role="group" aria-label="Penonaktifan Kartu Elektronik">
-                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="belum dilakukan" id="penonaktifanKartuElektronik1" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'belum dilakukan'" disabled />
+                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="pending" id="penonaktifanKartuElektronik1" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'belum dilakukan'" disabled />
                   <label class="btn btn-outline-danger" for="penonaktifanKartuElektronik1">Belum Dilakukan</label>
     
-                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="selesai" id="penonaktifanKartuElektronik2" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="penonaktifanKartuElektronik2">Selesai</label>
-    
-                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="tidak ada" id="penonaktifanKartuElektronik3" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="penonaktifanKartuElektronik3">Tidak Ada</label>
+                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="accept" id="penonaktifanKartuElektronik2" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'accept'" disabled />
+                  <label class="btn btn-outline-success" for="penonaktifanKartuElektronik2">Accept</label>
                 </c-button-group>
               </td>
             </tr>
@@ -713,14 +701,13 @@
                         <tr><th>Approval HR Services Admin Status</th>
               <td>
                 <c-button-group role="group" aria-label="Approval HR Services Admin Status">
-                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="belum dilakukan" id="approvalHRServicesAdminStatus1" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="approvalHRServicesAdminStatus1">Belum Dilakukan</label>
+                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="pending" id="approvalHRServicesAdminStatus1" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'pending'" disabled />
+                  <label class="btn btn-outline-warning" for="approvalHRServicesAdminStatus1">Pending</label>
     
-                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="selesai" id="approvalHRServicesAdminStatus2" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="approvalHRServicesAdminStatus2">Selesai</label>
+                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="accept" id="approvalHRServicesAdminStatus2" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'accept'" disabled />
+                  <label class="btn btn-outline-success" for="approvalHRServicesAdminStatus2">Accept</label>
     
-                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="tidak ada" id="approvalHRServicesAdminStatus3" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="approvalHRServicesAdminStatus3">Tidak Ada</label>
+
                 </c-button-group>
               </td>
             </tr>
@@ -776,14 +763,11 @@
           <tr><th>Approval HR Talent Status</th>
                     <td>
                       <c-button-group role="group" aria-label="Approval HR Talent Status">
-                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="belum dilakukan" id="approvalHRTalentStatus1" [checked]="approvalHRTalent.approvalHRTalentStatus === 'belum dilakukan'" disabled />
-                        <label class="btn btn-outline-danger" for="approvalHRTalentStatus1">Belum Dilakukan</label>
+                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="pending" id="approvalHRTalentStatus1" [checked]="approvalHRTalent.approvalHRTalentStatus === 'pending'" disabled />
+                        <label class="btn btn-outline-warning" for="approvalHRTalentStatus1">Pending</label>
   
-                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="selesai" id="approvalHRTalentStatus2" [checked]="approvalHRTalent.approvalHRTalentStatus === 'selesai'" disabled />
-                        <label class="btn btn-outline-success" for="approvalHRTalentStatus2">Selesai</label>
-  
-                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="tidak ada" id="approvalHRTalentStatus3" [checked]="approvalHRTalent.approvalHRTalentStatus === 'tidak ada'" disabled />
-                        <label class="btn btn-outline-secondary" for="approvalHRTalentStatus3">Tidak Ada</label>
+                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="accept" id="approvalHRTalentStatus2" [checked]="approvalHRTalent.approvalHRTalentStatus === 'accept'" disabled />
+                        <label class="btn btn-outline-success" for="approvalHRTalentStatus2">Accept</label>
                       </c-button-group>
                     </td>
                   </tr>
@@ -906,34 +890,25 @@
                         class="btn-check"
                         type="radio"
                         name="approvalTreasuryStatus"
-                        value="belum dilakukan"
+                        value="pending"
                         id="approvalTreasuryStatus1"
-                        [checked]="approvalTreasury.approvalTreasuryStatus === 'belum dilakukan'"
+                        [checked]="approvalTreasury.approvalTreasuryStatus === 'pending'"
                         disabled
                       />
-                      <label class="btn btn-outline-danger" for="approvalTreasuryStatus1">Belum Dilakukan</label>
+                      <label class="btn btn-outline-warning" for="approvalTreasuryStatus1">Pending</label>
               
                       <input
                         class="btn-check"
                         type="radio"
                         name="approvalTreasuryStatus"
-                        value="selesai"
+                        value="accept"
                         id="approvalTreasuryStatus2"
-                        [checked]="approvalTreasury.approvalTreasuryStatus === 'selesai'"
+                        [checked]="approvalTreasury.approvalTreasuryStatus === 'accept'"
                         disabled
                       />
-                      <label class="btn btn-outline-success" for="approvalTreasuryStatus2">Selesai</label>
+                      <label class="btn btn-outline-success" for="approvalTreasuryStatus2">Accept</label>
               
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="approvalTreasuryStatus"
-                        value="tidak ada"
-                        id="approvalTreasuryStatus3"
-                        [checked]="approvalTreasury.approvalTreasuryStatus === 'tidak ada'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-secondary" for="approvalTreasuryStatus3">Tidak Ada</label>
+
                     </c-button-group>
                   </td>
                 </tr>
@@ -1017,14 +992,13 @@
                     <tr><th>Approval Security Administrator Status</th>
           <td>
             <c-button-group role="group" aria-label="Approval Security Administrator Status">
-              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="belum dilakukan" id="ApprovalSecurityAdministratorStatus1" [checked]="approvalSecurityAdministrator.ApprovalSecurityAdministratorStatus === 'belum dilakukan'" disabled />
-              <label class="btn btn-outline-danger" for="ApprovalSecurityAdministratorStatus1">Belum Dilakukan</label>
+              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="pending" id="ApprovalSecurityAdministratorStatus1" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'pending'" disabled />
+              <label class="btn btn-outline-warning" for="ApprovalSecurityAdministratorStatus1">Pending</label>
 
-              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="selesai" id="ApprovalSecurityAdministratorStatus2" [checked]="approvalSecurityAdministrator.ApprovalSecurityAdministratorStatus === 'selesai'" disabled />
-              <label class="btn btn-outline-success" for="ApprovalSecurityAdministratorStatus2">Selesai</label>
+              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="accept" id="ApprovalSecurityAdministratorStatus2" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'accept'" disabled />
+              <label class="btn btn-outline-success" for="ApprovalSecurityAdministratorStatus2">Accept</label>
 
-              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="tidak ada" id="ApprovalSecurityAdministratorStatus3" [checked]="approvalSecurityAdministrator.ApprovalSecurityAdministratorStatus === 'tidak ada'" disabled />
-              <label class="btn btn-outline-secondary" for="ApprovalSecurityAdministratorStatus3">Tidak Ada</label>
+   
             </c-button-group>
           </td>
         </tr>
