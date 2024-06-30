@@ -1,15 +1,19 @@
 import { HttpInterceptorFn, HttpRequest, HttpHandlerFn, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth-service.service';
+import {LoadingService} from './services/loading.service'
 import { Router } from '@angular/router';
 
 export const TokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const authService = inject(AuthService); // Inject AuthService
   const router = inject(Router); // Inject Router
+  const loadingService = inject(LoadingService)
 
   const authToken = localStorage.getItem('token');
+
+  loadingService.show();
 
     // Exclude login request from interception
     if (req.url.endsWith('/api/auth/signin')) {
@@ -29,7 +33,8 @@ export const TokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
           router.navigate(['/login']); // Redirect to login page
         }
         return throwError(error);
-      })
+      }),
+      finalize(() => loadingService.hide())
     );
   } else {
     // Optionally, you can redirect to login page or show a message
@@ -37,3 +42,5 @@ export const TokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
     return throwError({ status: 401, message: 'Authentication token is missing' });
   }
 };
+
+

@@ -6,6 +6,7 @@ import { IApprovalGeneralServiceGet, IApprovalGeneralServicePost } from 'src/app
 import { ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse } from 'src/app/models/api-response';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-approval-general-service',
@@ -20,10 +21,12 @@ export class ApprovalGeneralServiceDetailComponent implements OnInit {
   userDetailAtasan!: UserDetail;
   userDetailResign!: UserDetail;
   idApproval!: number;
+  isLoading$ = this.loadingService.loading$;
 
   constructor(
     private fb: FormBuilder,
     private approvalDepartementService: ApprovalDepartementService,
+    private loadingService: LoadingService,
     private route: ActivatedRoute
   ) {
     this.form = this.fb.group({

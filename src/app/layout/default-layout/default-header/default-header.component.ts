@@ -84,6 +84,12 @@ export class DefaultHeaderComponent extends HeaderComponent {
     });
   }
 
+
+  logout(): void {
+    // Add your logout logic here
+    this.authService.logout();
+  }
+
   @Input() sidebarId: string = 'sidebar1';
 
   public newMessages = [
