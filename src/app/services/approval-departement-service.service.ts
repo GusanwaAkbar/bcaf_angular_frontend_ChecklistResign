@@ -141,7 +141,7 @@ export class ApprovalDepartementService {
   getApprovalHRServiceByKaryawan(): Observable<any>
   {
 
-    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-service-admin/karyawan-resign)`);
+    return this.http.get<any>(`${this.apiUrl}/api/approval-hr-services-admin/karyawan-resign)`);
   }
 
   putApprovalHRServiceById(id: number, data: object): Observable<any> 
