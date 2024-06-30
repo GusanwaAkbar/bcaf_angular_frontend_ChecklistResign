@@ -24,9 +24,18 @@ export class ResignationService {
     return this.http.get<ApiResponse<UserDetail>>(url);
   }
 
+
+  //this function to get all resignations
   getResignation(): Observable<ApiResponse<Resignation>> {
     return this.http.get<ApiResponse<ResignationGet>>(this.apiUrl)
   }
+
+  //this function to get by user
+  getResignationByUser(): Observable<ApiResponse<Resignation>> {
+    return this.http.get<ApiResponse<ResignationGet>>(`${environment.base_url}/api/resignations/karyawan-resign`)
+  }
+
+
 
  
   

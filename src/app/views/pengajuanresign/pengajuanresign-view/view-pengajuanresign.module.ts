@@ -19,12 +19,16 @@ import {
   InputGroupComponent,
   InputGroupTextDirective,
   FormControlDirective,
-  ButtonDirective
+  ButtonDirective,
+  TableModule,
+  ButtonModule,
+  ButtonGroupModule
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,  ColDirective,  } from '@coreui/angular';
+import { ButtonGroupsComponent } from '../../buttons/button-groups/button-groups.component';
 
 @NgModule({
   declarations: [ViewPengajuanResignComponent],
@@ -54,7 +58,12 @@ import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheck
     FormControlDirective,
     ButtonDirective,
     HttpClientModule,
-    ViewPengajuanResignRoutingModule
+    ViewPengajuanResignRoutingModule,
+    TableModule,
+    ButtonGroupsComponent,
+    ButtonDirective,
+    ButtonGroupModule
+
     
   ],
   providers: [HttpClientModule]

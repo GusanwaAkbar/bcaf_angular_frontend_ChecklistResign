@@ -25,6 +25,7 @@ import {
   ButtonToolbarComponent,
   TableModule,
   TableActiveDirective,
+  ButtonGroupModule,
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -71,6 +72,8 @@ import { RouterLink } from '@angular/router';
     ButtonToolbarComponent,
     TableModule,
     TableActiveDirective,
+    ButtonModule,
+    ButtonGroupModule
     
     
   ],

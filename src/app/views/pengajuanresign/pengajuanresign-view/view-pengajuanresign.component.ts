@@ -12,13 +12,13 @@ export class ViewPengajuanResignComponent implements OnInit {
 
   resignations: any;
   approvalAtasan: any;
-  approvalGeneralService: any;
+  approvalGeneralServices: any;
   approvalHRIR: any;
   approvalHRLearning: any;
   approvalHRPayroll: any;
-  approvalHRService: any;
+  approvalHRServicesAdmin: any;
   approvalHRTalent: any;
-  approvalSecurityAdmin: any;
+  approvalSecurityAdministrator: any;
   approvalTreasury: any;
 
   constructor(
@@ -28,7 +28,7 @@ export class ViewPengajuanResignComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.resignationService.getResignation().subscribe(response => {
+    this.resignationService.getResignationByUser().subscribe(response => {
       if (response.success) {
         this.resignations = response.data;
       }
@@ -44,9 +44,9 @@ export class ViewPengajuanResignComponent implements OnInit {
 
     this.approvalDepartementService.getApprovalGeneralServiceByKaryawan().subscribe(response => {
       if (response.success) {
-        this.approvalGeneralService = response.data;
+        this.approvalGeneralServices = response.data;
         console.log("approval general service");
-        console.log(this.approvalGeneralService);
+        console.log(this.approvalGeneralServices);
       }
     });
 
@@ -76,9 +76,9 @@ export class ViewPengajuanResignComponent implements OnInit {
 
     this.approvalDepartementService.getApprovalHRServiceByKaryawan().subscribe(response => {
       if (response.success) {
-        this.approvalHRService = response.data;
+        this.approvalHRServicesAdmin = response.data;
         console.log("approval HR Service");
-        console.log(this.approvalHRService);
+        console.log(this.approvalHRServicesAdmin);
       }
     });
 
@@ -92,9 +92,9 @@ export class ViewPengajuanResignComponent implements OnInit {
 
     this.approvalDepartementService.getApprovalSecurityAdminByKaryawan().subscribe(response => {
       if (response.success) {
-        this.approvalSecurityAdmin = response.data;
+        this.approvalSecurityAdministrator = response.data;
         console.log("approval Security Admin");
-        console.log(this.approvalSecurityAdmin);
+        console.log(this.approvalSecurityAdministrator);
       }
     });
 
