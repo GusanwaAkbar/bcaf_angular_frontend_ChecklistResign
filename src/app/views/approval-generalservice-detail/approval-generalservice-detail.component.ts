@@ -7,6 +7,7 @@ import { ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse } from 'src/app/models/api-response';
 import { LoadingService } from 'src/app/services/loading.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approval-general-service',
@@ -21,6 +22,8 @@ export class ApprovalGeneralServiceDetailComponent implements OnInit {
   userDetailAtasan!: UserDetail;
   userDetailResign!: UserDetail;
   idApproval!: number;
+
+  //loading
   isLoading$ = this.loadingService.loading$;
 
   constructor(
@@ -74,10 +77,16 @@ export class ApprovalGeneralServiceDetailComponent implements OnInit {
     if (this.form.valid) {
       const id = this.idApproval;
       const approvalData: IApprovalGeneralServicePost = this.form.value;
-      this.approvalDepartementService.putApprovalGeneralServiceById(id, approvalData).subscribe(response => {
-        // Handle response here
-        console.log('Approval submitted:', response);
-      });
+      this.approvalDepartementService.putApprovalGeneralServiceById(id, approvalData).subscribe(
+        response => {
+          Swal.fire('Submitted!', 'Pengajuan Resign telah disetujui.', 'success');
+        },
+        error => {
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
+        }
+      );
     }
   }
+
+  
 }

@@ -299,4 +299,13 @@
 
 
 
+<div *ngIf="isLoading$ | async" class="loading-spinner">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Loading...</span>
+</div>
+
+<!-- Your component content -->
+<router-outlet></router-outlet>
+
+
 

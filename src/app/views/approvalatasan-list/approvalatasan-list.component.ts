@@ -9,6 +9,7 @@ import { Resignation, ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse, ApiResponseList } from 'src/app/models/api-response';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-approval-atasan',
@@ -19,8 +20,9 @@ export class ApprovalAtasanListComponent implements OnInit {
 
   approvals: any[] = [];
   username: string = '20000022'; // Example username, you can change as needed
+  isLoading$ = this.loadingService.loading$;
 
-  constructor(private approvalAtasanService: ApprovalAtasanService,private router: Router) { }
+  constructor(private approvalAtasanService: ApprovalAtasanService,private router: Router, private loadingService:LoadingService) { }
 
   ngOnInit(): void {
     this.getApprovalList();

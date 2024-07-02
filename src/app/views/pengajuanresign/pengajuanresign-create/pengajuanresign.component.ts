@@ -18,10 +18,7 @@ export class PengajuanResignComponent implements OnInit {
     this.resignationForm = this.fb.group({
       tanggalPembuatanAkunHRIS: ['', Validators.required],
       tanggalBerakhirBekerja: ['', Validators.required],
-      emailAtasan: ['', [Validators.required, Validators.email]],
       nipAtasan: ['', Validators.required],
-      emailAktif: ['', [Validators.required, Validators.email]],
-      nomerWA: ['', Validators.required]
     });
   }
 
@@ -59,15 +56,19 @@ export class PengajuanResignComponent implements OnInit {
 
   onSubmit(): void {
     if (this.resignationForm.valid) {
+      console.log('Form is valid:', this.resignationForm.value); // Add this line for debugging
       const resignationData: Resignation = this.resignationForm.value;
       this.resignationService.postResignation(resignationData).subscribe(
         response => {
-          Swal.fire('Submitted!', 'Your resignation form has been submitted.', 'success');
+          Swal.fire('Submitted!', 'Pengajuan ResigFn telah disetujui.', 'success');
         },
         error => {
-          Swal.fire('Error!', 'There was an error submitting your resignation form.', 'error');
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
         }
       );
+    } else {
+      console.log('Form is invalid:', this.resignationForm.errors); // Add this line for debugging
     }
   }
+  
 }

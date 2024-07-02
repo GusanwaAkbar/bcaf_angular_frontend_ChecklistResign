@@ -11,19 +11,25 @@
       <svg cIcon name="cilMenu" size="lg"></svg>
     </button>
     <c-header-nav class="d-none d-md-flex">
-      <!-- Add username and nama here -->
       <span class="d-flex align-items-center ms-auto me-3">
         <strong>{{ username }}</strong> - {{ nama }}
       </span>
     </c-header-nav>
 
-    <c-header-nav class="d-none d-md-flex ms-auto ">
-      <a cNavLink>
+    <c-header-nav class="d-none d-md-flex ms-auto">
+      <a cNavLink (click)="toggleNotifications()">
         <svg cIcon class="my-1" name="cilBell" size="lg"></svg>
       </a>
       <a cNavLink>
         <svg cIcon class="my-1" name="cilEnvelopeOpen" size="lg"></svg>
       </a>
+      <c-dropdown *ngIf="showNotifications" [popperOptions]="{ placement: 'bottom-start' }" variant="nav-item">
+        <ul cDropdownMenu class="pt-0 w-auto">
+          <li *ngFor="let notification of notifications">
+            <a cDropdownItem>{{ notification }}</a>
+          </li>
+        </ul>
+      </c-dropdown>
     </c-header-nav>
 
     <c-header-nav class="ms-auto ms-md-0">
@@ -62,16 +68,14 @@
         <a cDropdownItem routerLink="/apps/email/inbox">
           <svg cIcon class="me-2" name="cilEnvelopeOpen"></svg>
           Messages
-          <c-badge class="ms-2 float-end" color="success">
-            42
-          </c-badge>
+          <c-badge class="ms-2 float-end" color="success">42</c-badge>
         </a>
       </li>
       <li>
         <a cDropdownItem routerLink="">
           <svg cIcon class="me-2" name="cilTask"></svg>
           Tasks
-          <c-badge class="ms-2 float-end" color="danger"> 42</c-badge>
+          <c-badge class="ms-2 float-end" color="danger">42</c-badge>
         </a>
       </li>
       <li>
@@ -90,18 +94,16 @@
       <svg cIcon [name]="icons()" size="lg"></svg>
     </button>
     <div cDropdownMenu>
-      @for (mode of colorModes; track mode.name) {
-        <button
-          (click)="colorMode.set(mode.name)"
-          [active]="colorMode()===mode.name"
-          [routerLink]="[]"
-          cDropdownItem
-          class="d-flex align-items-center"
-        >
-          <svg cIcon class="me-2" [name]="mode.icon" size="lg"></svg>
-          {{ mode.text }}
-        </button>
-      }
+      <!-- <button
+        *ngFor="let mode of colorModes; trackBy: trackByFn"
+        (click)="colorMode.set(mode.name)"
+        [active]="colorMode() === mode.name"
+        cDropdownItem
+        class="d-flex align-items-center"
+      > -->
+        <!-- <svg cIcon class="me-2" [name]="mode.icon" size="lg"></svg>
+        {{ mode.text }}
+      </button> -->
     </div>
   </c-dropdown>
 </ng-template>

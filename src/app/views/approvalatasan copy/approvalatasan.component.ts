@@ -6,6 +6,8 @@ import { ApprovalAtasanGet } from '../../models/approval-atasan';
 import { ApprovalAtasanPost } from '../../models/approval-atasan';
 import { ResignationGet } from '../../models/resignation.model';
 import { UserDetail } from '../../models/user-detail';
+import { LoadingService } from 'src/app/services/loading.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approval-atasan',
@@ -21,12 +23,15 @@ export class ApprovalAtasanComponent implements OnInit {
   userDetailResign!: UserDetail;
   idApproval!: number;
 
+  isLoading$ = this.loadingService.loading$;
+
   pengajuanResignData: ResignationGet | undefined;
 
   constructor(
     private fb: FormBuilder,
     private approvalAtasanService: ApprovalAtasanService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loadingService: LoadingService
   ) {
     this.form = this.fb.group({
       serahTerimaTugas: [''],
@@ -88,10 +93,14 @@ export class ApprovalAtasanComponent implements OnInit {
       let id = this.idApproval
 
       const approvalData: ApprovalAtasanPost = this.form.value;
-      this.approvalAtasanService.submitApproval(id, approvalData).subscribe(response => {
-        // Handle response here
-        console.log('Approval submitted:', response);
-      });
+      this.approvalAtasanService.submitApproval(id, approvalData).subscribe(
+        response => {
+          Swal.fire('Submitted!', 'Pengajuan Resign telah disetujui.', 'success');
+        },
+        error => {
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
+        }
+      );
     }
   }
 }

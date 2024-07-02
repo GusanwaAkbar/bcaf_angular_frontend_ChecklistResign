@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { ApprovalFinalApprovalDetailComponent } from './approval-finalapproval-detail.component';
 import { ApprovalFinalApprovalDetailRoutingModule } from './approval-finalapproval-detail-routing.module'
 import { NgStyle } from '@angular/common';
@@ -73,7 +73,8 @@ import { RouterLink } from '@angular/router';
     TableModule,
     TableActiveDirective,
     ButtonModule,
-    ButtonGroupModule
+    ButtonGroupModule,
+    
     
     
   ],

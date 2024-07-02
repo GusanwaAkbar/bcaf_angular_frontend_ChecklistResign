@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, LoadChildren } from '@angular/router';
 import { ApprovalDepartementService } from 'src/app/services/approval-departement-service.service';
 import { ApiResponse } from 'src/app/models/api-response';
 import { ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
+import { LoadingService } from 'src/app/services/loading.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approval-hr-learning',
@@ -20,10 +22,13 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
   userDetailResign!: UserDetail;
   idApproval!: number;
 
+  isLoading$ = this.loadingService.loading$;
+
   constructor(
     private fb: FormBuilder,
     private approvalDepartementService: ApprovalDepartementService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loadingService: LoadingService
   ) {
     this.form = this.fb.group({
       pengecekanBiayaTraining: [''],
@@ -62,10 +67,14 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
     if (this.form.valid) {
       const id = this.idApproval;
       const approvalData = this.form.value;
-      this.approvalDepartementService.putApprovalHRLearningById(id, approvalData).subscribe(response => {
-        // Handle response here
-        console.log('Approval submitted:', response);
-      });
+      this.approvalDepartementService.putApprovalHRLearningById(id, approvalData).subscribe(
+        response => {
+          Swal.fire('Submitted!', 'Pengajuan Resign telah disetujui.', 'success');
+        },
+        error => {
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
+        }
+      );
     }
   }
 }

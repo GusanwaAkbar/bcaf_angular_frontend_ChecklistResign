@@ -6,6 +6,8 @@ import { IApprovalHRServiceGet, IApprovalHRServicePost } from 'src/app/models/IA
 import { ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse } from 'src/app/models/api-response';
+import { LoadingService } from 'src/app/services/loading.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approval-hr-services',
@@ -20,11 +22,13 @@ export class ApprovalHRServiceDetailComponent implements OnInit {
   userDetailAtasan!: UserDetail;
   userDetailResign!: UserDetail;
   idApproval!: number;
+  isLoading$ = this.loadingService.loading$;
 
   constructor(
     private fb: FormBuilder,
     private approvalDepartementService: ApprovalDepartementService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loadingService: LoadingService
   ) {
     this.form = this.fb.group({
       excessOfClaim: [''],
@@ -67,10 +71,14 @@ export class ApprovalHRServiceDetailComponent implements OnInit {
     if (this.form.valid) {
       const id = this.idApproval;
       const approvalData: IApprovalHRServicePost = this.form.value;
-      this.approvalDepartementService.putApprovalHRServiceById(id, approvalData).subscribe(response => {
-        // Handle response here
-        console.log('Approval submitted:', response);
-      });
+      this.approvalDepartementService.putApprovalHRServiceById(id, approvalData).subscribe(
+        response => {
+          Swal.fire('Submitted!', 'Pengajuan Resign telah disetujui.', 'success');
+        },
+        error => {
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
+        }
+      );
     }
   }
 }

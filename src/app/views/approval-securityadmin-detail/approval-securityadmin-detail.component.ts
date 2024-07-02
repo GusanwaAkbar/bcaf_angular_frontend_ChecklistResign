@@ -6,6 +6,8 @@ import { IApprovalSecurityAdminGet, IApprovalSecurityAdminPost } from 'src/app/m
 import { ResignationGet } from 'src/app/models/resignation.model';
 import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse } from 'src/app/models/api-response';
+import { LoadingService } from 'src/app/services/loading.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approval-security-admin',
@@ -21,10 +23,13 @@ export class ApprovalSecurityAdminDetailComponent implements OnInit {
   userDetailResign!: UserDetail;
   idApproval!: number;
 
+  isLoading$ = this.loadingService.loading$;
+
   constructor(
     private fb: FormBuilder,
     private approvalDepartementService: ApprovalDepartementService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loadingService: LoadingService
   ) {
     this.form = this.fb.group({
       permohonanPenutupanUser: [''],
@@ -71,10 +76,14 @@ export class ApprovalSecurityAdminDetailComponent implements OnInit {
       console.log("form value")
       console.log(this.form.value)
 
-      this.approvalDepartementService.putApprovalSecurityAdminById(id, approvalData).subscribe(response => {
-        // Handle response here
-        console.log('Approval submitted:', response);
-      });
+      this.approvalDepartementService.putApprovalSecurityAdminById(id, approvalData).subscribe(
+        response => {
+          Swal.fire('Submitted!', 'Pengajuan Resign telah disetujui.', 'success');
+        },
+        error => {
+          Swal.fire('Error!', 'Pastikan semua form terisi selesai/tidak ada jika accept, atau pilih pending', 'error');
+        }
+      );
     }
   }
 }
