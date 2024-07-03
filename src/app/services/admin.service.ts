@@ -20,6 +20,12 @@ export class AdminService {
     return this.http.post<any>(`${this.apiUrl}/api/auth/changeRole`, data);
   }
 
+  //get Admin of user
+  // /api/admin/non-user-authorities
+
+  getUsersAdmin(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/admin/non-user-authorities`);
+  }
 
   }
 

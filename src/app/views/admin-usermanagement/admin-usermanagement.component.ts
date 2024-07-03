@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import Swal from 'sweetalert2';
@@ -8,10 +8,11 @@ import Swal from 'sweetalert2';
   templateUrl: './admin-usermanagement.component.html',
   styleUrls: ['./admin-usermanagement.component.scss']
 })
-export class AdminUserManagementComponent {
+export class AdminUserManagementComponent implements OnInit {
   changeRoleForm: FormGroup;
   roles = ['ADMIN', 'TREASURY', 'HRPAYROLL', 'HRIR', 'GENERALSERVICES', 'HRSERVICE', 'SECURITYADMIN', 'HRTALENT', 'HRLEARNING'];
   selectedRole: string = 'Select Role';
+  users: any[] = []; // Add a property to store the users
 
   constructor(
     private fb: FormBuilder,
@@ -23,16 +24,31 @@ export class AdminUserManagementComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.getUsersAdmin();
+  }
+
+  getUsersAdmin(): void {
+    this.adminService.getUsersAdmin().subscribe({
+      next: response => {
+        if (response.success) {
+          this.users = response.data;
+        } else {
+          Swal.fire('Error!', response.message, 'error');
+        }
+      },
+      error: err => {
+        Swal.fire('Error!', 'There was an error fetching the users.', 'error');
+      }
+    });
+  }
+
   onSelectRole(role: string) {
     this.selectedRole = role;
     this.changeRoleForm.get('role')?.setValue(role);
   }
 
   onSubmit() {
-
-
-    console.log(this.changeRoleForm)
-
     if (this.changeRoleForm.valid) {
       Swal.fire({
         title: 'Are you sure?',

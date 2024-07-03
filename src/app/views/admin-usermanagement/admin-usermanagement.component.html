@@ -39,3 +39,39 @@
     </form>
   </div>
 </div>
+
+<div class="card mt-4">
+  <div class="card-header">
+    <h3> List Admin Checklist Resign </h3>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Branch</th>
+          <th>Division</th>
+          <th>Position</th>
+          <th>Authorities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.userDetails.nama }}</td>
+          <td>{{ user.userDetails.email }}</td>
+          <td>{{ user.userDetails.cabang }}</td>
+          <td>{{ user.userDetails.divisi }}</td>
+          <td>{{ user.userDetails.jabatan }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let authority of user.authorities">{{ authority }}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
