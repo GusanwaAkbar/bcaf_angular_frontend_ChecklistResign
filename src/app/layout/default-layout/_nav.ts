@@ -148,6 +148,12 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-pencil' },
 
   },
+  {
+    name: 'Daftar Pengajuan Resign',
+    url: '/admin-pengajuanresign',
+    iconComponent: { name: 'cil-pencil' },
+
+  },
 
 
 

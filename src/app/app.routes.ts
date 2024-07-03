@@ -73,6 +73,11 @@ export const routes: Routes = [
         loadChildren: () => import('./views/admin-usermanagement/admin-usermanagement.module').then((m) => m.AdminUserManagementModule )
       },
 
+      {
+        path: 'admin-pengajuanresign',
+        loadChildren: () => import('./views/admin-pengajuanresign-list/admin-pengajuanresign-list.module').then((m) => m.AdminPengajuanResignListModule )
+      },
+
 
       {
         path: 'buttons',

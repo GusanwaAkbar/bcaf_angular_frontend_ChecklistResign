@@ -27,6 +27,11 @@ export class AdminService {
     return this.http.get<any>(`${this.apiUrl}/api/admin/non-user-authorities`);
   }
 
+    //this function to get all resignations
+    getResignationAdmin(): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}/api/resignations`)
+    }
+
   }
 
 
