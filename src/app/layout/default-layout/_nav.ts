@@ -138,6 +138,17 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-pencil' },
 
   },
+  {
+    name: 'Admin',
+    title: true
+  },
+  {
+    name: 'User Management',
+    url: '/admin-usermanagement',
+    iconComponent: { name: 'cil-pencil' },
+
+  },
+
 
 
 

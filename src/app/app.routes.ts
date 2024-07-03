@@ -68,6 +68,11 @@ export const routes: Routes = [
         loadChildren: () => import('./views/approval-finalapproval-list/approval-finalapproval-list.module').then((m) => m.ApprovalFinalApprovalListModule)
       },
 
+      {
+        path: 'admin-usermanagement',
+        loadChildren: () => import('./views/admin-usermanagement/admin-usermanagement.module').then((m) => m.AdminUserManagementModule )
+      },
+
 
       {
         path: 'buttons',
