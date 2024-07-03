@@ -5,8 +5,7 @@ import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/api-response';
-import { UserDetail } from '../models/user-detail';
-import {LoginResponse} from '../models/login-response'
+import { LoginResponse } from '../models/login-response';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +27,10 @@ export class AuthService {
     return this.http.post<ApiResponse<LoginResponse>>(`${environment.base_url}/api/auth/signin`, { username, password })
       .pipe(
         map(response => {
-          console.log("Complete response:", response); // Log the complete response
-          const user = response.data; // Access the 'data' property of the response
-          console.log("User data:", user); // Log the user data
+          const user = response.data; 
+
+          console.log("check auth")
+          console.log(user)
 
           if (user && user.token) {
             localStorage.setItem('currentUser', JSON.stringify(user));
@@ -53,6 +53,11 @@ export class AuthService {
   isAuthenticated(): boolean {
     const currentUser = this.currentUserValue;
     return currentUser && currentUser.token ? true : false;
+  }
+
+  getUserAuthorities(): string[] {
+    const currentUser = this.currentUserValue;
+    return currentUser && currentUser.authorities ? currentUser.authorities.map((auth: { authority: string }) => auth.authority) : [];
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
