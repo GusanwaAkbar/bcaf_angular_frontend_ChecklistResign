@@ -10,4 +10,5 @@ export interface UserDetail {
   emailAktif: string | null;
   nomerWA: string | null;
   user_username: string;
+  nipAtasan: string;
 }
