@@ -134,9 +134,225 @@
             </c-col>
             
           </c-row>
+
+<br>
+
+          <c-row>
+            <c-card>
+
+              <c-card-header>
+                <h4>Approval Atasan</h4>
+              </c-card-header>
+
+              <c-card-body>
+                <table class="uniform-table" [striped]="true" cTable>
+                
+                  <!-- <thead cTableColor="dark"> -->
+                                <!-- Approval IT -->
+                                <!-- <tr>
+                                  <th colspan="2">
+                                    <c-card-header>
+                                      <h5>Approval Atasan</h5>
+                                    </c-card-header>
+                                  </th>
+                                </tr> -->
+                  <!-- </thead> -->
+          
+                  <tbody>
+          
+          
+                    <tr><th>Serah Terima Tugas</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Serah Terima Tugas">
+                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="belum dilakukan" id="serahTerimaTugas1" [checked]="approvalAtasan.serahTerimaTugas === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="selesai" id="serahTerimaTugas2" [checked]="approvalAtasan.serahTerimaTugas === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="tidak ada" id="serahTerimaTugas3" [checked]="approvalAtasan.serahTerimaTugas === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                    
+                                <tr><th>Pengembalian Notebook</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Pengembalian Notebook">
+                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="belum dilakukan" id="pengembalianNotebook1" [checked]="approvalAtasan.pengembalianNotebook === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="selesai" id="pengembalianNotebook2" [checked]="approvalAtasan.pengembalianNotebook === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="tidak ada" id="pengembalianNotebook3" [checked]="approvalAtasan.pengembalianNotebook === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    <tr><th>Pengembalian Kunci Loker</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
+                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="belum dilakukan" id="pengembalianKunciLoker1" [checked]="approvalAtasan.pengembalianKunciLoker === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="selesai" id="pengembalianKunciLoker2" [checked]="approvalAtasan.pengembalianKunciLoker === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="tidak ada" id="pengembalianKunciLoker3" [checked]="approvalAtasan.pengembalianKunciLoker === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                            <tr><th>Pengembalian Kunci Ruangan</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
+                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="belum dilakukan" id="pengembalianKunciRuangan1" [checked]="approvalAtasan.pengembalianKunciRuangan === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="selesai" id="pengembalianKunciRuangan2" [checked]="approvalAtasan.pengembalianKunciRuangan === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="tidak ada" id="pengembalianKunciRuangan3" [checked]="approvalAtasan.pengembalianKunciRuangan === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    <tr><th>Penyerahan Surat Pengunduran Diri</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
+                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="selesai" id="penyerahanSuratPengunduranDiri2" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="tidak ada" id="penyerahanSuratPengunduranDiri3" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+          
+                    <tr><th>Pengembalian Id Card</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Pengembalian Id Card">
+                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="belum dilakukan" id="pengembalianIdCard1" [checked]="approvalAtasan.pengembalianIdCard === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="pengembalianIdCard1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="selesai" id="pengembalianIdCard2" [checked]="approvalAtasan.pengembalianIdCard === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="pengembalianIdCard2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="tidak ada" id="pengembalianIdCard3" [checked]="approvalAtasan.pengembalianIdCard === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="pengembalianIdCard3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                    <tr><th>hapus Aplikasi Mobile</th>
+                      <td>
+                        <c-button-group role="group" aria-label="hapus Aplikasi Mobile">
+                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="belum dilakukan" id="hapusAplikasiMobile1" [checked]="approvalAtasan.hapusAplikasiMobile === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="hapusAplikasiMobile1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="selesai" id="hapusAplikasiMobile2" [checked]="approvalAtasan.hapusAplikasiMobile === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="hapusAplikasiMobile2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="tidak ada" id="hapusAplikasiMobile3" [checked]="approvalAtasan.hapusAplikasiMobile === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="hapusAplikasiMobile3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+            
+            
+            
+                        <tr><th>Uninstall Software Notebook</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Uninstall Software Notebook">
+                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="belum dilakukan" id="uninstallSoftwareNotebook1" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="uninstallSoftwareNotebook1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="selesai" id="uninstallSoftwareNotebook2" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="uninstallSoftwareNotebook2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="tidak ada" id="uninstallSoftwareNotebook3" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="uninstallSoftwareNotebook3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                    
+                                <tr><th>Uninstall SoftwareUnit Kerja</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Uninstall SoftwareUnit Kerja">
+                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="belum dilakukan" id="uninstallSoftwareUnitKerja1" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="uninstallSoftwareUnitKerja1">Belum Dilakukan</label>
+          
+                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="selesai" id="uninstallSoftwareUnitKerja2" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="uninstallSoftwareUnitKerja2">Selesai</label>
+          
+                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="tidak ada" id="uninstallSoftwareUnitKerja3" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="uninstallSoftwareUnitKerja3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                                <tr><th>Approval Status Atasan</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Approval Status Atasan">
+                          <input class="btn-check" type="radio" name="approvalStatusAtasan" value="pending" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'pending'" disabled />
+                          <label class="btn btn-outline-warning" for="approvalStatusAtasan1">Pending</label>
+          
+                          <input class="btn-check" type="radio" name="approvalStatusAtasan" value="accept" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'accept'" disabled />
+                          <label class="btn btn-outline-success" for="approvalStatusAtasan2">Accept</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+          
+          
+                    
+                    <tr>
+                      <th>Remarks</th>
+          
+                      <td>
+                        <textarea cFormControl id="floatingTextarea" readonly>{{ approvalAtasan.remarks }}</textarea>
+                      </td>
+                    </tr>
+          
+          
+          
+                  </tbody>
+          
+                </table>
+              </c-card-body>
+
+
+
+            </c-card>
+          </c-row>
       </c-container>
 
 <br>
+
+
 
 <c-container>
   <c-card>
@@ -147,206 +363,7 @@
       <div *ngIf="approvalGeneralServices">
 
 
-<c-row>
-    <c-card>
-      <table class="uniform-table" [striped]="true" cTable>
-        <thead cTableColor="dark">
-                      <!-- Approval IT -->
-                      <tr>
-                        <th colspan="2">
-                          <c-card-header>
-                            <h5>Approval Atasan</h5>
-                          </c-card-header>
-                        </th>
-                      </tr>
-        </thead>
 
-        <tbody>
-
-
-          <tr><th>Serah Terima Tugas</th>
-            <td>
-              <c-button-group role="group" aria-label="Serah Terima Tugas">
-                <input class="btn-check" type="radio" name="serahTerimaTugas" value="belum dilakukan" id="serahTerimaTugas1" [checked]="approvalAtasan.serahTerimaTugas === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="serahTerimaTugas" value="selesai" id="serahTerimaTugas2" [checked]="approvalAtasan.serahTerimaTugas === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="serahTerimaTugas" value="tidak ada" id="serahTerimaTugas3" [checked]="approvalAtasan.serahTerimaTugas === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-          
-                      <tr><th>Pengembalian Notebook</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengembalian Notebook">
-                <input class="btn-check" type="radio" name="pengembalianNotebook" value="belum dilakukan" id="pengembalianNotebook1" [checked]="approvalAtasan.pengembalianNotebook === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="pengembalianNotebook" value="selesai" id="pengembalianNotebook2" [checked]="approvalAtasan.pengembalianNotebook === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="pengembalianNotebook" value="tidak ada" id="pengembalianNotebook3" [checked]="approvalAtasan.pengembalianNotebook === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-          
-          
-          <tr><th>Pengembalian Kunci Loker</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
-                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="belum dilakukan" id="pengembalianKunciLoker1" [checked]="approvalAtasan.pengembalianKunciLoker === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="selesai" id="pengembalianKunciLoker2" [checked]="approvalAtasan.pengembalianKunciLoker === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="tidak ada" id="pengembalianKunciLoker3" [checked]="approvalAtasan.pengembalianKunciLoker === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-                  <tr><th>Pengembalian Kunci Ruangan</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
-                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="belum dilakukan" id="pengembalianKunciRuangan1" [checked]="approvalAtasan.pengembalianKunciRuangan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="selesai" id="pengembalianKunciRuangan2" [checked]="approvalAtasan.pengembalianKunciRuangan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="tidak ada" id="pengembalianKunciRuangan3" [checked]="approvalAtasan.pengembalianKunciRuangan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-          
-          
-          
-          <tr><th>Penyerahan Surat Pengunduran Diri</th>
-            <td>
-              <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
-                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="selesai" id="penyerahanSuratPengunduranDiri2" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="tidak ada" id="penyerahanSuratPengunduranDiri3" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-
-          <tr><th>Pengembalian Id Card</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengembalian Id Card">
-                <input class="btn-check" type="radio" name="pengembalianIdCard" value="belum dilakukan" id="pengembalianIdCard1" [checked]="approvalAtasan.pengembalianIdCard === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengembalianIdCard1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="pengembalianIdCard" value="selesai" id="pengembalianIdCard2" [checked]="approvalAtasan.pengembalianIdCard === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengembalianIdCard2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="pengembalianIdCard" value="tidak ada" id="pengembalianIdCard3" [checked]="approvalAtasan.pengembalianIdCard === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengembalianIdCard3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-          <tr><th>hapus Aplikasi Mobile</th>
-            <td>
-              <c-button-group role="group" aria-label="hapus Aplikasi Mobile">
-                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="belum dilakukan" id="hapusAplikasiMobile1" [checked]="approvalAtasan.hapusAplikasiMobile === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="hapusAplikasiMobile1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="selesai" id="hapusAplikasiMobile2" [checked]="approvalAtasan.hapusAplikasiMobile === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="hapusAplikasiMobile2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="tidak ada" id="hapusAplikasiMobile3" [checked]="approvalAtasan.hapusAplikasiMobile === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="hapusAplikasiMobile3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-  
-  
-  
-              <tr><th>Uninstall Software Notebook</th>
-            <td>
-              <c-button-group role="group" aria-label="Uninstall Software Notebook">
-                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="belum dilakukan" id="uninstallSoftwareNotebook1" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="uninstallSoftwareNotebook1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="selesai" id="uninstallSoftwareNotebook2" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="uninstallSoftwareNotebook2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="tidak ada" id="uninstallSoftwareNotebook3" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="uninstallSoftwareNotebook3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-          
-                      <tr><th>Uninstall SoftwareUnit Kerja</th>
-            <td>
-              <c-button-group role="group" aria-label="Uninstall SoftwareUnit Kerja">
-                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="belum dilakukan" id="uninstallSoftwareUnitKerja1" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="uninstallSoftwareUnitKerja1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="selesai" id="uninstallSoftwareUnitKerja2" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="uninstallSoftwareUnitKerja2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="tidak ada" id="uninstallSoftwareUnitKerja3" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="uninstallSoftwareUnitKerja3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-          
-          
-                      <tr><th>Approval Status Atasan</th>
-            <td>
-              <c-button-group role="group" aria-label="Approval Status Atasan">
-                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="pending" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'pending'" disabled />
-                <label class="btn btn-outline-warning" for="approvalStatusAtasan1">Pending</label>
-
-                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="accept" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'accept'" disabled />
-                <label class="btn btn-outline-success" for="approvalStatusAtasan2">Accept</label>
-              </c-button-group>
-            </td>
-          </tr>
-
-
-          
-          <tr>
-            <th>Remarks</th>
-
-            <td>
-              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalAtasan.remarks }}</textarea>
-            </td>
-          </tr>
-
-
-
-        </tbody>
-
-      </table>
-    </c-card>
-  </c-row>
 
 <c-row>
   <c-card>
