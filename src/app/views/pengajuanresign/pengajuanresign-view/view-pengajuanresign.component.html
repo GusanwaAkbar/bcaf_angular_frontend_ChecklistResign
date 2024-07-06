@@ -362,15 +362,13 @@
       <div *ngIf="resignations">
         <div class="d-grid gap-2">
           <c-row>
-
             <table [striped]="true" cTable>
               <thead>
                 <tr>
-                <th scope="col"> Progress Approval </th>
-                <th scope="col"> Upload Document yang diperlukan </th>
-              </tr>
+                  <th scope="col">Progress Approval</th>
+                  <th scope="col">Upload Document yang diperlukan</th>
+                </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td>
@@ -378,98 +376,115 @@
                       Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalAtasan')">
+                    <!-- <button cButton (click)="uploadApprovalAtasanDocument()">Upload Document Atasan</button> -->
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalGeneralServices?.approvalStatusGeneralServices)">
+                      Approval General Services Status: {{ approvalGeneralServices?.approvalStatusGeneralServices }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalGeneralServices')">
+                    <button cButton (click)="uploadApprovalGeneralServicesDocument()">Upload Document General Services</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalHRIR?.approvalStatusHRIR)">
+                      Approval HR IR Status: {{ approvalHRIR?.approvalStatusHRIR }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalHRIR')">
+                    <button cButton (click)="uploadApprovalHRIRDocument()">Upload Document HR IR</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalHRLearning?.approvalStatusHRLearning)">
+                      Approval HR Learning Status: {{ approvalHRLearning?.approvalStatusHRLearning }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalHRLearning')">
+                    <button cButton (click)="uploadApprovalHRLearningDocument()">Upload Document HR Learning</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalHRPayroll?.approvalStatusHRPayroll)">
+                      Approval HR Payroll Status: {{ approvalHRPayroll?.approvalStatusHRPayroll }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalHRPayroll')">
+                    <button cButton (click)="uploadApprovalHRPayrollDocument()">Upload Document HR Payroll</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalHRServicesAdmin?.approvalStatusHRServicesAdmin)">
+                      Approval HR Services Admin Status: {{ approvalHRServicesAdmin?.approvalStatusHRServicesAdmin }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalHRServicesAdmin')">
+                    <button cButton (click)="uploadApprovalHRServicesAdminDocument()">Upload Document HR Services Admin</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalHRTalent?.approvalStatusHRTalent)">
+                      Approval HR Talent Status: {{ approvalHRTalent?.approvalStatusHRTalent }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalHRTalent')">
+                    <button cButton (click)="uploadApprovalHRTalentDocument()">Upload Document HR Talent</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalSecurityAdministrator?.approvalStatusSecurityAdministrator)">
+                      Approval Security Administrator Status: {{ approvalSecurityAdministrator?.approvalStatusSecurityAdministrator }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalSecurityAdministrator')">
+                    <button cButton (click)="uploadApprovalSecurityAdministratorDocument()">Upload Document Security Administrator</button>
+                  </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
-                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    <button cButton [color]="getStatusColor(approvalTreasury?.approvalStatusTreasury)">
+                      Approval Treasury Status: {{ approvalTreasury?.approvalStatusTreasury }}
                     </button>
                   </td>
-                  <td> upload document diperlukan</td>
+                  <td>
+                    <input type="file" (change)="onFileSelected($event, 'approvalTreasury')">
+                    <button cButton (click)="uploadApprovalTreasuryDocument()">Upload Document Treasury</button>
+                    <button (click)="download()">Download PDF</button>
+                  </td>
                 </tr>
-
-                
-                
               </tbody>
             </table>
-
-        
-            
             <c-col>
-
             </c-col>
           </c-row>
-
         </div>
       </div>
     </c-card-body>
-  </c-card>
-</c-container>
+    </c-card>
+    </c-container>
+    
+
+    
+
+
 
 
 
