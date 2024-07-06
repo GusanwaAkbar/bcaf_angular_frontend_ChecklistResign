@@ -57,4 +57,21 @@
   .uniform-table th:nth-child(3), .uniform-table td:nth-child(3) {
     width: 250px; /* Example width for the third column */
   }
+
+
+  .accept {
+    background-color: green;
+    color: white;
+  }
+  
+  .pending {
+    background-color: orange;
+    color: white;
+  }
+  
+  .rejected {
+    background-color: red;
+    color: white;
+  }
+  
   

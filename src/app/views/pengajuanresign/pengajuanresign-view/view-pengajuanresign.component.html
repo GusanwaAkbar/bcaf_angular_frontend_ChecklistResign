@@ -117,10 +117,7 @@
                             <th>Jabatan</th>
                             <td>{{ approvalAtasan.userDetailAtasan.jabatan }}</td>
                           </tr>
-                          <tr>
-                            <th>Nomor WA</th>
-                            <td>{{ approvalAtasan.userDetailAtasan.nomerWA }}</td>
-                          </tr>
+   
                           <tr>
                             <th>Username</th>
                             <td>{{ approvalAtasan.userDetailAtasan.user_username }}</td>
@@ -135,7 +132,7 @@
             
           </c-row>
 
-<br>
+<br>  
 
           <c-row>
             <c-card>
@@ -351,6 +348,128 @@
       </c-container>
 
 <br>
+
+
+<c-container>
+  <c-card>
+    <c-card-header>
+      <h4>
+        Progress List Approval
+      </h4>
+    </c-card-header>
+
+    <c-card-body>
+      <div *ngIf="resignations">
+        <div class="d-grid gap-2">
+          <c-row>
+
+            <table [striped]="true" cTable>
+              <thead>
+                <tr>
+                <th scope="col"> Progress Approval </th>
+                <th scope="col"> Upload Document yang diperlukan </th>
+              </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <button cButton [color]="getStatusColor(approvalAtasan?.approvalStatusAtasan)">
+                      Approval Atasan Status: {{ approvalAtasan?.approvalStatusAtasan }}
+                    </button>
+                  </td>
+                  <td> upload document diperlukan</td>
+                </tr>
+
+                
+                
+              </tbody>
+            </table>
+
+        
+            
+            <c-col>
+
+            </c-col>
+          </c-row>
+
+        </div>
+      </div>
+    </c-card-body>
+  </c-card>
+</c-container>
 
 
 

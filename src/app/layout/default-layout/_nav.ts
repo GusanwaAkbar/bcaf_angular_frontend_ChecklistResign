@@ -38,10 +38,7 @@ export const navItems: INavData[] = [
   //   linkProps: { fragment: 'headings' },
   //   iconComponent: { name: 'cil-pencil' }
   // },
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval Treasury',
     url: '/approval-treasury',
@@ -50,20 +47,13 @@ export const navItems: INavData[] = [
   },
 
   {
-    name: 'Bucket Approval',
-    title: true
-  },
-  {
     name: 'Form Approval HR Payroll',
     url: '/approval-hrpayroll',
     iconComponent: { name: 'cil-pencil' },
 
   },
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval HRIR',
     url: '/approval-hrir',
@@ -71,10 +61,7 @@ export const navItems: INavData[] = [
 
   },
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval General Services',
     url: '/approval-generalservice',
@@ -82,10 +69,7 @@ export const navItems: INavData[] = [
 
   },
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval HR Service',
     url: '/approval-hrservice',
@@ -94,10 +78,7 @@ export const navItems: INavData[] = [
   },
 
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval Security Admin',
     url: '/approval-securityadmin',
@@ -105,10 +86,7 @@ export const navItems: INavData[] = [
 
   },
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval HR Talent',
     url: '/approval-hrtalent',
@@ -116,10 +94,7 @@ export const navItems: INavData[] = [
 
   },
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval HR Learning',
     url: '/approval-hrlearning',
@@ -128,20 +103,14 @@ export const navItems: INavData[] = [
   },
 
 
-  {
-    name: 'Bucket Approval',
-    title: true
-  },
+
   {
     name: 'Form Approval Final',
     url: '/approval-finalapproval',
     iconComponent: { name: 'cil-pencil' },
 
   },
-  {
-    name: 'Admin',
-    title: true
-  },
+
   {
     name: 'User Management',
     url: '/admin-usermanagement',
@@ -157,107 +126,6 @@ export const navItems: INavData[] = [
 
 
 
-
-  {
-    name: 'Buttons',
-    url: '/buttons',
-    iconComponent: { name: 'cil-cursor' },
-    children: [
-      {
-        name: 'Buttons',
-        url: '/buttons/buttons',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Button groups',
-        url: '/buttons/button-groups',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Dropdowns',
-        url: '/buttons/dropdowns',
-        icon: 'nav-icon-bullet'
-      }
-    ]
-  },
-  {
-    name: 'Forms',
-    url: '/forms',
-    iconComponent: { name: 'cil-notes' },
-    children: [
-      {
-        name: 'Form Control',
-        url: '/forms/form-control',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Select',
-        url: '/forms/select',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Checks & Radios',
-        url: '/forms/checks-radios',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Range',
-        url: '/forms/range',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Input Group',
-        url: '/forms/input-group',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Floating Labels',
-        url: '/forms/floating-labels',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Layout',
-        url: '/forms/layout',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Validation',
-        url: '/forms/validation',
-        icon: 'nav-icon-bullet'
-      }
-    ]
-  },
-  {
-    name: 'Charts',
-    iconComponent: { name: 'cil-chart-pie' },
-    url: '/charts'
-  },
-  {
-    name: 'Icons',
-    iconComponent: { name: 'cil-star' },
-    url: '/icons',
-    children: [
-      {
-        name: 'CoreUI Free',
-        url: '/icons/coreui-icons',
-        icon: 'nav-icon-bullet',
-        badge: {
-          color: 'success',
-          text: 'FREE'
-        }
-      },
-      {
-        name: 'CoreUI Flags',
-        url: '/icons/flags',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'CoreUI Brands',
-        url: '/icons/brands',
-        icon: 'nav-icon-bullet'
-      }
-    ]
-  },
   {
     name: 'Notifications',
     url: '/notifications',
@@ -285,51 +153,7 @@ export const navItems: INavData[] = [
       }
     ]
   },
-  {
-    name: 'Widgets',
-    url: '/widgets',
-    iconComponent: { name: 'cil-calculator' },
-    badge: {
-      color: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    title: true,
-    name: 'Extras'
-  },
-  {
-    name: 'Pages',
-    url: '/login',
-    iconComponent: { name: 'cil-star' },
-    children: [
-      {
-        name: 'Login',
-        url: '/login',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Register',
-        url: '/register',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Error 404',
-        url: '/404',
-        icon: 'nav-icon-bullet'
-      },
-      {
-        name: 'Error 500',
-        url: '/500',
-        icon: 'nav-icon-bullet'
-      }
-    ]
-  },
-  {
-    title: true,
-    name: 'Links',
-    class: 'mt-auto'
-  },
+  
   {
     name: 'Docs',
     url: 'https://coreui.io/angular/docs/5.x/',

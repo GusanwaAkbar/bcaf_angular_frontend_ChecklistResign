@@ -54,6 +54,11 @@ export class ApprovalAtasanComponent implements OnInit {
       this.loadApprovalAtasan(id);
       this.idApproval = +params['id'];
     });
+
+    // Listen to form changes
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalAtasan(id: number): void {
@@ -63,13 +68,6 @@ export class ApprovalAtasanComponent implements OnInit {
       this.userDetailAtasan = data.userDetailAtasan;
       this.pengajuanResignData = data.pengajuanResign;
       this.userDetailResign = data.pengajuanResign.userDetailResign;
-
-      console.log("full data", data);
-      console.log("user detail atasan", this.userDetailAtasan);
-      console.log("resignation data", this.resignationData);
-      console.log("pengajuan resign data", this.pengajuanResignData);
-
-      
 
       this.form.patchValue({
         serahTerimaTugas: data.serahTerimaTugas,
@@ -87,11 +85,43 @@ export class ApprovalAtasanComponent implements OnInit {
     });
   }
 
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+
+    const allFinished = [
+      formValues.serahTerimaTugas,
+      formValues.pengembalianNotebook,
+      formValues.pengembalianKunciLoker,
+      formValues.pengembalianKunciRuangan,
+      formValues.penyerahanSuratPengunduranDiri,
+      formValues.pengembalianIdCard,
+      formValues.hapusAplikasiMobile,
+      formValues.uninstallSoftwareNotebook,
+      formValues.uninstallSoftwareUnitKerja
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+
+    const anyPending = [
+      formValues.serahTerimaTugas,
+      formValues.pengembalianNotebook,
+      formValues.pengembalianKunciLoker,
+      formValues.pengembalianKunciRuangan,
+      formValues.penyerahanSuratPengunduranDiri,
+      formValues.pengembalianIdCard,
+      formValues.hapusAplikasiMobile,
+      formValues.uninstallSoftwareNotebook,
+      formValues.uninstallSoftwareUnitKerja
+    ].some(value => value === 'belum dilakukan');
+
+    if (allFinished) {
+      this.form.patchValue({ approvalStatusAtasan: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalStatusAtasan: 'pending' }, { emitEvent: false });
+    }
+  }
+
   onSubmit(): void {
     if (this.form.valid) {
-
-      let id = this.idApproval
-
+      const id = this.idApproval;
       const approvalData: ApprovalAtasanPost = this.form.value;
       this.approvalAtasanService.submitApproval(id, approvalData).subscribe(
         response => {

@@ -106,4 +106,22 @@ export class ViewPengajuanResignComponent implements OnInit {
       }
     });
   }
+
+
+  getStatusColor(status: string): string {
+    switch (status?.toLowerCase()) {
+      case 'accept':
+        return 'success';
+      case 'pending':
+        return 'warning';
+      case null:
+      case undefined:
+      case '':
+        return 'secondary';
+      default:
+        return 'secondary'; // atau warna default jika status tidak diketahui
+    }
+  }
+
+
 }
