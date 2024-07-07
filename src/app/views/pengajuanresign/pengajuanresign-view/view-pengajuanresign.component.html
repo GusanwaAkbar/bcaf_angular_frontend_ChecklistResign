@@ -1,7 +1,8 @@
 <!-- src/app/components/resignation/resignation.component.html -->
 
 
-<c-container>
+
+<c-container *ngIf="resignations; else notAvailable">
 
   <c-card>
 
@@ -134,218 +135,220 @@
 
 <br>  
 
-          <c-row>
-            <c-card>
-
-              <c-card-header>
-                <h4>Approval Atasan</h4>
-              </c-card-header>
-
-              <c-card-body>
-                <table class="uniform-table" [striped]="true" cTable>
-                
-                  <!-- <thead cTableColor="dark"> -->
-                                <!-- Approval IT -->
-                                <!-- <tr>
-                                  <th colspan="2">
-                                    <c-card-header>
-                                      <h5>Approval Atasan</h5>
-                                    </c-card-header>
-                                  </th>
-                                </tr> -->
-                  <!-- </thead> -->
-          
-                  <tbody>
-          
-          
-                    <tr><th>Serah Terima Tugas</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Serah Terima Tugas">
-                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="belum dilakukan" id="serahTerimaTugas1" [checked]="approvalAtasan.serahTerimaTugas === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="selesai" id="serahTerimaTugas2" [checked]="approvalAtasan.serahTerimaTugas === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="serahTerimaTugas" value="tidak ada" id="serahTerimaTugas3" [checked]="approvalAtasan.serahTerimaTugas === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    
-                                <tr><th>Pengembalian Notebook</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Pengembalian Notebook">
-                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="belum dilakukan" id="pengembalianNotebook1" [checked]="approvalAtasan.pengembalianNotebook === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="selesai" id="pengembalianNotebook2" [checked]="approvalAtasan.pengembalianNotebook === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianNotebook" value="tidak ada" id="pengembalianNotebook3" [checked]="approvalAtasan.pengembalianNotebook === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    
-                    
-                    <tr><th>Pengembalian Kunci Loker</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
-                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="belum dilakukan" id="pengembalianKunciLoker1" [checked]="approvalAtasan.pengembalianKunciLoker === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="selesai" id="pengembalianKunciLoker2" [checked]="approvalAtasan.pengembalianKunciLoker === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="tidak ada" id="pengembalianKunciLoker3" [checked]="approvalAtasan.pengembalianKunciLoker === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                            <tr><th>Pengembalian Kunci Ruangan</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
-                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="belum dilakukan" id="pengembalianKunciRuangan1" [checked]="approvalAtasan.pengembalianKunciRuangan === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="selesai" id="pengembalianKunciRuangan2" [checked]="approvalAtasan.pengembalianKunciRuangan === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="tidak ada" id="pengembalianKunciRuangan3" [checked]="approvalAtasan.pengembalianKunciRuangan === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    
-                    
-                    
-                    <tr><th>Penyerahan Surat Pengunduran Diri</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
-                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="selesai" id="penyerahanSuratPengunduranDiri2" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="tidak ada" id="penyerahanSuratPengunduranDiri3" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-          
-                    <tr><th>Pengembalian Id Card</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Pengembalian Id Card">
-                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="belum dilakukan" id="pengembalianIdCard1" [checked]="approvalAtasan.pengembalianIdCard === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="pengembalianIdCard1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="selesai" id="pengembalianIdCard2" [checked]="approvalAtasan.pengembalianIdCard === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="pengembalianIdCard2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="pengembalianIdCard" value="tidak ada" id="pengembalianIdCard3" [checked]="approvalAtasan.pengembalianIdCard === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="pengembalianIdCard3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    <tr><th>hapus Aplikasi Mobile</th>
-                      <td>
-                        <c-button-group role="group" aria-label="hapus Aplikasi Mobile">
-                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="belum dilakukan" id="hapusAplikasiMobile1" [checked]="approvalAtasan.hapusAplikasiMobile === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="hapusAplikasiMobile1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="selesai" id="hapusAplikasiMobile2" [checked]="approvalAtasan.hapusAplikasiMobile === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="hapusAplikasiMobile2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="tidak ada" id="hapusAplikasiMobile3" [checked]="approvalAtasan.hapusAplikasiMobile === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="hapusAplikasiMobile3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-            
-            
-            
-                        <tr><th>Uninstall Software Notebook</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Uninstall Software Notebook">
-                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="belum dilakukan" id="uninstallSoftwareNotebook1" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="uninstallSoftwareNotebook1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="selesai" id="uninstallSoftwareNotebook2" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="uninstallSoftwareNotebook2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="tidak ada" id="uninstallSoftwareNotebook3" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="uninstallSoftwareNotebook3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    
-                                <tr><th>Uninstall SoftwareUnit Kerja</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Uninstall SoftwareUnit Kerja">
-                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="belum dilakukan" id="uninstallSoftwareUnitKerja1" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="uninstallSoftwareUnitKerja1">Belum Dilakukan</label>
-          
-                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="selesai" id="uninstallSoftwareUnitKerja2" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="uninstallSoftwareUnitKerja2">Selesai</label>
-          
-                          <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="tidak ada" id="uninstallSoftwareUnitKerja3" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="uninstallSoftwareUnitKerja3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                                <tr><th>Approval Status Atasan</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Approval Status Atasan">
-                          <input class="btn-check" type="radio" name="approvalStatusAtasan" value="pending" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'pending'" disabled />
-                          <label class="btn btn-outline-warning" for="approvalStatusAtasan1">Pending</label>
-          
-                          <input class="btn-check" type="radio" name="approvalStatusAtasan" value="accept" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'accept'" disabled />
-                          <label class="btn btn-outline-success" for="approvalStatusAtasan2">Accept</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-          
-          
-                    
-                    <tr>
-                      <th>Remarks</th>
-          
-                      <td>
-                        <textarea cFormControl id="floatingTextarea" readonly>{{ approvalAtasan.remarks }}</textarea>
-                      </td>
-                    </tr>
-          
-          
-          
-                  </tbody>
-          
-                </table>
-              </c-card-body>
+<c-row>
+  <c-card>
 
 
 
-            </c-card>
-          </c-row>
-      </c-container>
+    <c-card-body>
+      <table class="uniform-table" [striped]="true"  cTable>
+      <thead cTableColor="dark">
+        <tr>
+          <th colspan="2"> 
+            <c-row>
+              <h5>Approval Atasan</h5>
+            </c-row>
+              
+
+            <c-row> 
+                <c-col><p>Approved By: {{ approvalAtasan.approvedBy }}</p></c-col>
+                <c-col>  <p>Approved Date: {{ approvalAtasan.approvedDate | date:'short' }}</p> </c-col>
+                <c-col>   <p>Created Date: {{ approvalAtasan.createdDate | date:'short' }}</p> </c-col> 
+            </c-row>
+
+          </th>
+      </tr>
+      </thead>
+        <tbody>
+
+
+          <tr><th>Serah Terima Tugas</th>
+            <td>
+              <c-button-group role="group" aria-label="Serah Terima Tugas">
+                <input class="btn-check" type="radio" name="serahTerimaTugas" value="belum dilakukan" id="serahTerimaTugas1" [checked]="approvalAtasan.serahTerimaTugas === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="serahTerimaTugas1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="serahTerimaTugas" value="selesai" id="serahTerimaTugas2" [checked]="approvalAtasan.serahTerimaTugas === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="serahTerimaTugas2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="serahTerimaTugas" value="tidak ada" id="serahTerimaTugas3" [checked]="approvalAtasan.serahTerimaTugas === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="serahTerimaTugas3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+          
+                      <tr><th>Pengembalian Notebook</th>
+            <td>
+              <c-button-group role="group" aria-label="Pengembalian Notebook">
+                <input class="btn-check" type="radio" name="pengembalianNotebook" value="belum dilakukan" id="pengembalianNotebook1" [checked]="approvalAtasan.pengembalianNotebook === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="pengembalianNotebook1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="pengembalianNotebook" value="selesai" id="pengembalianNotebook2" [checked]="approvalAtasan.pengembalianNotebook === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="pengembalianNotebook2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="pengembalianNotebook" value="tidak ada" id="pengembalianNotebook3" [checked]="approvalAtasan.pengembalianNotebook === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="pengembalianNotebook3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+          
+          
+          <tr><th>Pengembalian Kunci Loker</th>
+            <td>
+              <c-button-group role="group" aria-label="Pengembalian Kunci Loker">
+                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="belum dilakukan" id="pengembalianKunciLoker1" [checked]="approvalAtasan.pengembalianKunciLoker === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="pengembalianKunciLoker1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="selesai" id="pengembalianKunciLoker2" [checked]="approvalAtasan.pengembalianKunciLoker === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="pengembalianKunciLoker2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="pengembalianKunciLoker" value="tidak ada" id="pengembalianKunciLoker3" [checked]="approvalAtasan.pengembalianKunciLoker === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="pengembalianKunciLoker3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+                  <tr><th>Pengembalian Kunci Ruangan</th>
+            <td>
+              <c-button-group role="group" aria-label="Pengembalian Kunci Ruangan">
+                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="belum dilakukan" id="pengembalianKunciRuangan1" [checked]="approvalAtasan.pengembalianKunciRuangan === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="pengembalianKunciRuangan1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="selesai" id="pengembalianKunciRuangan2" [checked]="approvalAtasan.pengembalianKunciRuangan === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="pengembalianKunciRuangan2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="pengembalianKunciRuangan" value="tidak ada" id="pengembalianKunciRuangan3" [checked]="approvalAtasan.pengembalianKunciRuangan === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="pengembalianKunciRuangan3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+          
+          
+          
+          <tr><th>Penyerahan Surat Pengunduran Diri</th>
+            <td>
+              <c-button-group role="group" aria-label="Penyerahan Surat Pengunduran Diri">
+                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="belum dilakukan" id="penyerahanSuratPengunduranDiri1" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="penyerahanSuratPengunduranDiri1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="selesai" id="penyerahanSuratPengunduranDiri2" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="penyerahanSuratPengunduranDiri2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="penyerahanSuratPengunduranDiri" value="tidak ada" id="penyerahanSuratPengunduranDiri3" [checked]="approvalAtasan.penyerahanSuratPengunduranDiri === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="penyerahanSuratPengunduranDiri3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+
+          <tr><th>Pengembalian Id Card</th>
+            <td>
+              <c-button-group role="group" aria-label="Pengembalian Id Card">
+                <input class="btn-check" type="radio" name="pengembalianIdCard" value="belum dilakukan" id="pengembalianIdCard1" [checked]="approvalAtasan.pengembalianIdCard === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="pengembalianIdCard1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="pengembalianIdCard" value="selesai" id="pengembalianIdCard2" [checked]="approvalAtasan.pengembalianIdCard === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="pengembalianIdCard2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="pengembalianIdCard" value="tidak ada" id="pengembalianIdCard3" [checked]="approvalAtasan.pengembalianIdCard === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="pengembalianIdCard3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+          <tr><th>hapus Aplikasi Mobile</th>
+            <td>
+              <c-button-group role="group" aria-label="hapus Aplikasi Mobile">
+                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="belum dilakukan" id="hapusAplikasiMobile1" [checked]="approvalAtasan.hapusAplikasiMobile === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="hapusAplikasiMobile1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="selesai" id="hapusAplikasiMobile2" [checked]="approvalAtasan.hapusAplikasiMobile === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="hapusAplikasiMobile2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="hapusAplikasiMobile" value="tidak ada" id="hapusAplikasiMobile3" [checked]="approvalAtasan.hapusAplikasiMobile === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="hapusAplikasiMobile3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+  
+  
+  
+              <tr><th>Uninstall Software Notebook</th>
+            <td>
+              <c-button-group role="group" aria-label="Uninstall Software Notebook">
+                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="belum dilakukan" id="uninstallSoftwareNotebook1" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="uninstallSoftwareNotebook1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="selesai" id="uninstallSoftwareNotebook2" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="uninstallSoftwareNotebook2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="uninstallSoftwareNotebook" value="tidak ada" id="uninstallSoftwareNotebook3" [checked]="approvalAtasan.uninstallSoftwareNotebook === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="uninstallSoftwareNotebook3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+          
+                      <tr><th>Uninstall SoftwareUnit Kerja</th>
+            <td>
+              <c-button-group role="group" aria-label="Uninstall SoftwareUnit Kerja">
+                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="belum dilakukan" id="uninstallSoftwareUnitKerja1" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'belum dilakukan'" disabled />
+                <label class="btn btn-outline-danger" for="uninstallSoftwareUnitKerja1">Belum Dilakukan</label>
+
+                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="selesai" id="uninstallSoftwareUnitKerja2" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'selesai'" disabled />
+                <label class="btn btn-outline-success" for="uninstallSoftwareUnitKerja2">Selesai</label>
+
+                <input class="btn-check" type="radio" name="uninstallSoftwareUnitKerja" value="tidak ada" id="uninstallSoftwareUnitKerja3" [checked]="approvalAtasan.uninstallSoftwareUnitKerja === 'tidak ada'" disabled />
+                <label class="btn btn-outline-secondary" for="uninstallSoftwareUnitKerja3">Tidak Ada</label>
+              </c-button-group>
+            </td>
+          </tr>
+          
+          
+                      <tr><th>Approval Status Atasan</th>
+            <td>
+              <c-button-group role="group" aria-label="Approval Status Atasan">
+                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="pending" id="approvalStatusAtasan1" [checked]="approvalAtasan.approvalStatusAtasan === 'pending'" disabled />
+                <label class="btn btn-outline-warning" for="approvalStatusAtasan1">Pending</label>
+
+                <input class="btn-check" type="radio" name="approvalStatusAtasan" value="accept" id="approvalStatusAtasan2" [checked]="approvalAtasan.approvalStatusAtasan === 'accept'" disabled />
+                <label class="btn btn-outline-success" for="approvalStatusAtasan2">Accept</label>
+              </c-button-group>
+            </td>
+          </tr>
+
+
+          
+          <tr>
+            <th>Remarks</th>
+
+            <td>
+              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalAtasan.remarks }}</textarea>
+            </td>
+          </tr>
+
+
+
+        </tbody>
+
+      </table>
+    </c-card-body>
+
+
+
+  </c-card>
+</c-row>
 
 <br>
 
@@ -377,7 +380,7 @@
                     </button>
                   </td>
                   <td>
-                    <input type="file" (change)="onFileSelected($event, 'approvalAtasan')">
+                    <!-- <input type="file" (change)="onFileSelected($event, 'approvalAtasan')"> -->
                     <!-- <button cButton (click)="uploadApprovalAtasanDocument()">Upload Document Atasan</button> -->
                   </td>
                 </tr>
@@ -389,7 +392,7 @@
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalGeneralServices')">
-                    <button cButton (click)="uploadApprovalGeneralServicesDocument()">Upload GS</button>
+                    <button cButton (click)="uploadApprovalGeneralServicesDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
@@ -471,7 +474,7 @@
 
                     <input type="file" (change)="onFileSelected($event, 'approvalTreasury')">
                     <button cButton (click)="uploadApprovalTreasuryDocument()">Upload</button>
-                    <button (click)="download()">Download PDF</button>
+                    <!-- <button (click)="download()">Download PDF</button> -->
                   </td>
                 </tr>
               </tbody>
@@ -483,7 +486,17 @@
       </div>
     </c-card-body>
     </c-card>
-    </c-container>
+</c-container>
+
+<br>
+
+  
+  </c-container>
+
+<br>
+
+
+
     
 
     
@@ -494,8 +507,9 @@
 
 <c-container>
   <c-card>
+
     <c-card-header>
-      <h3>Status Approval Resign Anda</h3>
+      <h3>Progress Status Approval Detail</h3>
     </c-card-header>
     <c-card-body>
       <div *ngIf="approvalGeneralServices">
@@ -503,787 +517,872 @@
 
 
 
-<c-row>
-  <c-card>
-    <table class="uniform-table" [striped]="true" cTable>
-              <thead cTableColor="dark">
-  
+    <c-row>
+      <c-card>
+        <c-card-body>
+        <table class="uniform-table" [striped]="true" cTable>
+                  <thead cTableColor="dark">
+      
+                    <tr>
+                      <th colspan="2"> 
+                        <c-row>
+                          <h5>Approval General Services</h5>
+                        </c-row>
+                          
+      
+                        <c-row> 
+                            <c-col><p>Approved By: {{ approvalGeneralServices.approvedBy }}</p></c-col>
+                            <c-col>  <p>Approved Date: {{ approvalGeneralServices.approvedDate | date:'short' }}</p> </c-col>
+                            <c-col>   <p>Created Date: {{ approvalGeneralServices.createdDate | date:'short' }}</p> </c-col> 
+                        </c-row>
+      
+                      </th>
+                    </tr>
+      
+      
+                  </thead>
+      
+                <tbody>
+                <tr><th>Penutupan PIN</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Penutupan PIN">
+                      <input class="btn-check" type="radio" name="penutupanPin" value="belum dilakukan" id="penutupanPin1" [checked]="approvalGeneralServices.penutupanPin === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="penutupanPin1">Belum Dilakukan</label>
+      
+                      <input class="btn-check" type="radio" name="penutupanPin" value="selesai" id="penutupanPin2" [checked]="approvalGeneralServices.penutupanPin === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="penutupanPin2">Selesai</label>
+      
+                      <input class="btn-check" type="radio" name="penutupanPin" value="tidak ada" id="penutupanPin3" [checked]="approvalGeneralServices.penutupanPin === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="penutupanPin3">Tidak Ada</label>
+                    </c-button-group>
+                  </td>
+                </tr>
+                <tr><th>Pengembalian Kendaraan Dinas</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Pengembalian Kendaraan Dinas">
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="belum dilakukan" id="pengembalianKendaraanDinas1" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="pengembalianKendaraanDinas1">Belum Dilakukan</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="selesai" id="pengembalianKendaraanDinas2" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="pengembalianKendaraanDinas2">Selesai</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="tidak ada" id="pengembalianKendaraanDinas3" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="pengembalianKendaraanDinas3">Tidak Ada</label>
+                    </c-button-group>
+                  </td>
+                </tr>
+                <tr><th>Inventaris Kantor</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Inventaris Kantor">
+                      <input class="btn-check" type="radio" name="inventarisKantor" value="belum dilakukan" id="inventarisKantor1" [checked]="approvalGeneralServices.inventarisKantor === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="inventarisKantor1">Belum Dilakukan</label>
+      
+                      <input class="btn-check" type="radio" name="inventarisKantor" value="selesai" id="inventarisKantor2" [checked]="approvalGeneralServices.inventarisKantor === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="inventarisKantor2">Selesai</label>
+      
+                      <input class="btn-check" type="radio" name="inventarisKantor" value="tidak ada" id="inventarisKantor3" [checked]="approvalGeneralServices.inventarisKantor === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="inventarisKantor3">Tidak Ada</label>
+                    </c-button-group>
+                  </td>
+                </tr>
+                <tr><th>Pengembalian Aktiva</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Pengembalian Aktiva">
+                      <input class="btn-check" type="radio" name="pengembalianAktiva" value="belum dilakukan" id="pengembalianAktiva1" [checked]="approvalGeneralServices.pengembalianAktiva === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="pengembalianAktiva1">Belum Dilakukan</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianAktiva" value="selesai" id="pengembalianAktiva2" [checked]="approvalGeneralServices.pengembalianAktiva === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="pengembalianAktiva2">Selesai</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianAktiva" value="tidak ada" id="pengembalianAktiva3" [checked]="approvalGeneralServices.pengembalianAktiva === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="pengembalianAktiva3">Tidak Ada</label>
+                    </c-button-group>
+                  </td>
+                </tr>
+                <tr><th>Pengembalian Kendaraan UMK3</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Pengembalian Kendaraan UMK3">
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="belum dilakukan" id="pengembalianKendaraanUMK31" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="pengembalianKendaraanUMK31">Belum Dilakukan</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="selesai" id="pengembalianKendaraanUMK32" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="pengembalianKendaraanUMK32">Selesai</label>
+      
+                      <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="tidak ada" id="pengembalianKendaraanUMK33" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="pengembalianKendaraanUMK33">Tidak Ada</label>
+                    </c-button-group>
+                  </td>
+                </tr>
                 <tr>
-                  <th colspan="2">
-                    <c-card-header>
-                      <h5>Approval General Services</h5>
-                    </c-card-header>
+                  <th>Status</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Approval General Services Status">
+                      <!-- Use appropriate classes for each status -->
+                      <input class="btn-check" type="radio" name="btnStatus" value="pending" id="approvalGeneralServicesStatus2" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'pending'" disabled />
+                      <label class="btn btn-outline-warning status-pending" for="approvalGeneralServicesStatus2">Pending</label>
+                
+                      <input class="btn-check" type="radio" name="btnStatus" value="accept" id="approvalGeneralServicesStatus3" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'accept'" disabled />
+                      <label class="btn btn-outline-success status-accept" for="approvalGeneralServicesStatus3">Accept</label>
+                    </c-button-group>
+                  </td>
+                </tr>
+                
+      
+                <tr>
+                  <th>Remarks</th>
+      
+                  <td>
+                    <textarea cFormControl id="floatingTextarea" readonly>{{ approvalGeneralServices.remarks }}</textarea>
+                  </td>
+                </tr>
+              
+              </tbody>
+      
+            </table>
+          </c-card-body>
+          </c-card>
+    </c-row>
+
+
+<br>
+
+            
+    <c-row>
+        <c-card>
+
+        <c-card-body>
+            <table class="uniform-table" [striped]="true" cTable>
+
+              <thead cTableColor="dark">
+                <!-- Approval IT -->
+                <tr>
+                  <th colspan="2"> 
+                    <c-row>
+                      <h5>Approval HRIR</h5>
+                    </c-row>
+                      
+
+                    <c-row> 
+                        <c-col><p>Approved By: {{ approvalHRIR.approvedBy }}</p></c-col>
+                        <c-col>  <p>Approved Date: {{ approvalHRIR.approvedDate | date:'short' }}</p> </c-col>
+                        <c-col>   <p>Created Date: {{ approvalHRIR.createdDate | date:'short' }}</p> </c-col> 
+                    </c-row>
+
                   </th>
                 </tr>
-  
-  
-              </thead>
-  
-            <tbody>
-            <tr><th>Penutupan PIN</th>
-              <td>
-                <c-button-group role="group" aria-label="Penutupan PIN">
-                  <input class="btn-check" type="radio" name="penutupanPin" value="belum dilakukan" id="penutupanPin1" [checked]="approvalGeneralServices.penutupanPin === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="penutupanPin1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="penutupanPin" value="selesai" id="penutupanPin2" [checked]="approvalGeneralServices.penutupanPin === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="penutupanPin2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="penutupanPin" value="tidak ada" id="penutupanPin3" [checked]="approvalGeneralServices.penutupanPin === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="penutupanPin3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Kendaraan Dinas</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Kendaraan Dinas">
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="belum dilakukan" id="pengembalianKendaraanDinas1" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianKendaraanDinas1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="selesai" id="pengembalianKendaraanDinas2" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianKendaraanDinas2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanDinas" value="tidak ada" id="pengembalianKendaraanDinas3" [checked]="approvalGeneralServices.pengembalianKendaraanDinas === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanDinas3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Inventaris Kantor</th>
-              <td>
-                <c-button-group role="group" aria-label="Inventaris Kantor">
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="belum dilakukan" id="inventarisKantor1" [checked]="approvalGeneralServices.inventarisKantor === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="inventarisKantor1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="selesai" id="inventarisKantor2" [checked]="approvalGeneralServices.inventarisKantor === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="inventarisKantor2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="inventarisKantor" value="tidak ada" id="inventarisKantor3" [checked]="approvalGeneralServices.inventarisKantor === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="inventarisKantor3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Aktiva</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Aktiva">
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="belum dilakukan" id="pengembalianAktiva1" [checked]="approvalGeneralServices.pengembalianAktiva === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianAktiva1">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="selesai" id="pengembalianAktiva2" [checked]="approvalGeneralServices.pengembalianAktiva === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianAktiva2">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianAktiva" value="tidak ada" id="pengembalianAktiva3" [checked]="approvalGeneralServices.pengembalianAktiva === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianAktiva3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr><th>Pengembalian Kendaraan UMK3</th>
-              <td>
-                <c-button-group role="group" aria-label="Pengembalian Kendaraan UMK3">
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="belum dilakukan" id="pengembalianKendaraanUMK31" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="pengembalianKendaraanUMK31">Belum Dilakukan</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="selesai" id="pengembalianKendaraanUMK32" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="pengembalianKendaraanUMK32">Selesai</label>
-  
-                  <input class="btn-check" type="radio" name="pengembalianKendaraanUMK3" value="tidak ada" id="pengembalianKendaraanUMK33" [checked]="approvalGeneralServices.pengembalianKendaraanUMK3 === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="pengembalianKendaraanUMK33">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            <tr>
-              <th>Status</th>
-              <td>
-                <c-button-group role="group" aria-label="Approval General Services Status">
-                  <!-- Use appropriate classes for each status -->
-                  <input class="btn-check" type="radio" name="btnStatus" value="pending" id="approvalGeneralServicesStatus2" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'pending'" disabled />
-                  <label class="btn btn-outline-warning status-pending" for="approvalGeneralServicesStatus2">Pending</label>
-            
-                  <input class="btn-check" type="radio" name="btnStatus" value="accept" id="approvalGeneralServicesStatus3" [checked]="approvalGeneralServices.approvalGeneralServicesStatus === 'accept'" disabled />
-                  <label class="btn btn-outline-success status-accept" for="approvalGeneralServicesStatus3">Accept</label>
-                </c-button-group>
-              </td>
-            </tr>
-            
-  
-            <tr>
-              <th>Remarks</th>
-  
-              <td>
-                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalGeneralServices.remarks }}</textarea>
-              </td>
-            </tr>
-           
-          </tbody>
-  
-        </table>
-      </c-card>
-</c-row>
-
-
-
-
-            
-<c-row>
-    <c-card>
-      <table class="uniform-table" [striped]="true" cTable>
-
-        <thead cTableColor="dark">
-          <!-- Approval IT -->
-          <tr>
-            <th colspan="2">
-              <c-card-header>
-                <h5>Approval HRIR</h5>
-              </c-card-header>
-            </th>
-          </tr>
-  </thead>
-  
-  
-  <tbody>
-  
-                    <!-- approval HRIR -->
-                    <tr><th>Exit Interview</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Exit Interview">
-                          <input class="btn-check" type="radio" name="exitInterview" value="belum dilakukan" id="exitInterview1" [checked]="approvalHRIR.exitInterview === 'belum dilakukan'" disabled />
-                          <label class="btn btn-outline-danger" for="exitInterview1">Belum Dilakukan</label>
-        
-                          <input class="btn-check" type="radio" name="exitInterview" value="selesai" id="exitInterview2" [checked]="approvalHRIR.exitInterview === 'selesai'" disabled />
-                          <label class="btn btn-outline-success" for="exitInterview2">Selesai</label>
-        
-                          <input class="btn-check" type="radio" name="exitInterview" value="tidak ada" id="exitInterview3" [checked]="approvalHRIR.exitInterview === 'tidak ada'" disabled />
-                          <label class="btn btn-outline-secondary" for="exitInterview3">Tidak Ada</label>
-                        </c-button-group>
-                      </td>
-                    </tr>
-                    
-                    
-                    
-                    
-                                <tr><th>Approval HRIR Status</th>
-                      <td>
-                        <c-button-group role="group" aria-label="Approval HRIR Status">
-                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="pending" id="approvalHRIRStatus1" [checked]="approvalHRIR.approvalHRIRStatus === 'pending'" disabled />
-                          <label class="btn btn-outline-warning" for="approvalHRIRStatus1">Pending</label>
-        
-                          <input class="btn-check" type="radio" name="approvalHRIRStatus" value="accept" id="approvalHRIRStatus2" [checked]="approvalHRIR.approvalHRIRStatus === 'accept'" disabled />
-                          <label class="btn btn-outline-success" for="approvalHRIRStatus2">Accept</label>
-        
-                        </c-button-group>
-                      </td>
-                    </tr>
-  
-                    <tr>
-                      <th>Remarks</th>
-          
-                      <td>
-                        <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRIR.remarks }}</textarea>
-                      </td>
-                    </tr>
-  
-  
-  </tbody>
-      
-      </table>
-
-
-
-
-    </c-card>
-  </c-row>
-
-  <c-row>
-    <c-card>
-      <table class="uniform-table" [striped]="true" cTable>
-
-        <thead cTableColor="dark">
-          <tr>
-            <th colspan="2">
-       
-                <h4>Approval HR Learning</h4>
-            
-            </th>
-          </tr>
         </thead>
         
-      
+        
         <tbody>
-            <tr>
-            <th>Pengecekan Biaya Status</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengecekan Biaya Status">
-                <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="belum dilakukan" id="pengecekanBiayaTraining1" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengecekanBiayaTraining1">Belum Dilakukan</label>
         
-                <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="selesai" id="pengecekanBiayaTraining2" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengecekanBiayaTraining2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="tidak ada" id="pengecekanBiayaTraining3" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining3">Tidak Ada</label>
-     
-              </c-button-group>
-            </td>
-          </tr>
+                          <!-- approval HRIR -->
+                          <tr><th>Exit Interview</th>
+                            <td>
+                              <c-button-group role="group" aria-label="Exit Interview">
+                                <input class="btn-check" type="radio" name="exitInterview" value="belum dilakukan" id="exitInterview1" [checked]="approvalHRIR.exitInterview === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="exitInterview1">Belum Dilakukan</label>
+              
+                                <input class="btn-check" type="radio" name="exitInterview" value="selesai" id="exitInterview2" [checked]="approvalHRIR.exitInterview === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="exitInterview2">Selesai</label>
+              
+                                <input class="btn-check" type="radio" name="exitInterview" value="tidak ada" id="exitInterview3" [checked]="approvalHRIR.exitInterview === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="exitInterview3">Tidak Ada</label>
+                              </c-button-group>
+                            </td>
+                          </tr>
+                          
+                          
+                          
+                          
+                                      <tr><th>Approval HRIR Status</th>
+                            <td>
+                              <c-button-group role="group" aria-label="Approval HRIR Status">
+                                <input class="btn-check" type="radio" name="approvalHRIRStatus" value="pending" id="approvalHRIRStatus1" [checked]="approvalHRIR.approvalHRIRStatus === 'pending'" disabled />
+                                <label class="btn btn-outline-warning" for="approvalHRIRStatus1">Pending</label>
+              
+                                <input class="btn-check" type="radio" name="approvalHRIRStatus" value="accept" id="approvalHRIRStatus2" [checked]="approvalHRIR.approvalHRIRStatus === 'accept'" disabled />
+                                <label class="btn btn-outline-success" for="approvalHRIRStatus2">Accept</label>
+              
+                              </c-button-group>
+                            </td>
+                          </tr>
         
-          <tr>
-            <th>Approval HR Learning</th>
-            <td>
-              <c-button-group role="group" aria-label="Approval HR Learning">
-                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="pending" id="approvalHRLearningStatus1" [checked]="approvalHRLearning.approvalHRLearningStatus === 'pending'" disabled />
-                <label class="btn btn-outline-warning" for="approvalHRLearningStatus1">Pending</label>
+                          <tr>
+                            <th>Remarks</th>
+                
+                            <td>
+                              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRIR.remarks }}</textarea>
+                            </td>
+                          </tr>
         
-                <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="accept" id="approvalHRLearningStatus2" [checked]="approvalHRLearning.approvalHRLearningStatus === 'accept'" disabled />
-                <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Accept</label>
-              </c-button-group>
-            </td>
-          </tr>
-        
-          <tr>
-            <th>Remarks</th>
-  
-            <td>
-              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRLearning.remarks }}</textarea>
-            </td>
-          </tr>
         
         </tbody>
-      
-      </table>
-
-    </c-card>
-  </c-row>
-  
-
-
             
-<c-row>
-    <c-card>
-      <table class="uniform-table" [striped]="true" cTable>
-
-                          <thead cTableColor="dark">
-                            <!-- Approval IT -->
-                            <tr>
-                              <th colspan="2">
-                            
-                                  <h4>Approval HR Payroll</h4>
-                        
-                              </th>
-                            </tr>
-
-                </thead>
-
-                <tbody>
-
-
-                <tr><th>Emergency Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Emergency Loan">
-                <input class="btn-check" type="radio" name="emergencyLoan" value="belum dilakukan" id="emergencyLoan1" [checked]="approvalHRPayroll.emergencyLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="emergencyLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="emergencyLoan" value="selesai" id="emergencyLoan2" [checked]="approvalHRPayroll.emergencyLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="emergencyLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="emergencyLoan" value="tidak ada" id="emergencyLoan3" [checked]="approvalHRPayroll.emergencyLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="emergencyLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>
-
-
-
-                <tr><th>Soft Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Soft Loan">
-                <input class="btn-check" type="radio" name="softLoan" value="belum dilakukan" id="softLoan1" [checked]="approvalHRPayroll.softLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="softLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="softLoan" value="selesai" id="softLoan2" [checked]="approvalHRPayroll.softLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="softLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="softLoan" value="tidak ada" id="softLoan3" [checked]="approvalHRPayroll.softLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="softLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>    
-
-
-                    <tr><th>Motor Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Motor Loan">
-                <input class="btn-check" type="radio" name="motorLoan" value="belum dilakukan" id="motorLoan1" [checked]="approvalHRPayroll.motorLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="motorLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="motorLoan" value="selesai" id="motorLoan2" [checked]="approvalHRPayroll.motorLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="motorLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="motorLoan" value="tidak ada" id="motorLoan3" [checked]="approvalHRPayroll.motorLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="motorLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>
-
-
-
-                    <tr><th>Smartphone Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Smartphone Loan">
-                <input class="btn-check" type="radio" name="smartphoneLoan" value="belum dilakukan" id="smartphoneLoan1" [checked]="approvalHRPayroll.smartphoneLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="smartphoneLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="smartphoneLoan" value="selesai" id="smartphoneLoan2" [checked]="approvalHRPayroll.smartphoneLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="smartphoneLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="smartphoneLoan" value="tidak ada" id="smartphoneLoan3" [checked]="approvalHRPayroll.smartphoneLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="smartphoneLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>
-
-
-                    <tr><th>Umk Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Umk Loan">
-                <input class="btn-check" type="radio" name="umkLoan" value="belum dilakukan" id="umkLoan1" [checked]="approvalHRPayroll.umkLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="umkLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="umkLoan" value="selesai" id="umkLoan2" [checked]="approvalHRPayroll.umkLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="umkLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="umkLoan" value="tidak ada" id="umkLoan3" [checked]="approvalHRPayroll.umkLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="umkLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>
-
-
-
-                    <tr><th>Laptop Loan</th>
-                <td>
-                <c-button-group role="group" aria-label="Laptop Loan">
-                <input class="btn-check" type="radio" name="laptopLoan" value="belum dilakukan" id="laptopLoan1" [checked]="approvalHRPayroll.laptopLoan === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="laptopLoan1">Belum Dilakukan</label>
-
-                <input class="btn-check" type="radio" name="laptopLoan" value="selesai" id="laptopLoan2" [checked]="approvalHRPayroll.laptopLoan === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="laptopLoan2">Selesai</label>
-
-                <input class="btn-check" type="radio" name="laptopLoan" value="tidak ada" id="laptopLoan3" [checked]="approvalHRPayroll.laptopLoan === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="laptopLoan3">Tidak Ada</label>
-                </c-button-group>
-                </td>
-                </tr>
-
-
-                <tr><th>Approval HR Payroll Status</th>
-                <td>
-                <c-button-group role="group" aria-label="Approval HR Payroll Status">
-                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="pending" id="approvalHRPayrollStatus1" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'pending'" disabled />
-                <label class="btn btn-outline-warning" for="approvalHRPayrollStatus1">Pending</label>
-
-                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="accept" id="approvalHRPayrollStatus2" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'accept'" disabled />
-                <label class="btn btn-outline-success" for="approvalHRPayrollStatus2">Accept</label>
-
-                </c-button-group>
-                </td>
-                </tr>
-
-                <tr>
-                <th>Remarks</th>
-
-                <td>
-                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRPayroll.remarks }}</textarea>
-                </td>
-                </tr>
-
-                </tbody>
-
-
-      </table>
-      </c-card>
-</c-row>
-
-
-            
-<c-row>
-      <c-card>
-        <table class="uniform-table" [striped]="true" cTable>
-          <thead cTableColor="dark">
-            <tr>
-              <th colspan="2">
-                <c-card-header>
-                  <h4>Approval HR Services Admin</h4>
-                </c-card-header>
-              </th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-            <tr><th>Excess Of Claim</th>
-              <td>
-                <c-button-group role="group" aria-label="Excess Of Claim">
-                  <input class="btn-check" type="radio" name="excessOfClaim" value="belum dilakukan" id="excessOfClaim1" [checked]="approvalHRServicesAdmin.excessOfClaim === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="excessOfClaim1">Belum Dilakukan</label>
-    
-                  <input class="btn-check" type="radio" name="excessOfClaim" value="selesai" id="excessOfClaim2" [checked]="approvalHRServicesAdmin.excessOfClaim === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="excessOfClaim2">Selesai</label>
-    
-                  <input class="btn-check" type="radio" name="excessOfClaim" value="tidak ada" id="excessOfClaim3" [checked]="approvalHRServicesAdmin.excessOfClaim === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="excessOfClaim3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            
-                        <tr><th>Penyelesaian Biaya di HR</th>
-              <td>
-                <c-button-group role="group" aria-label="Penyelesaian Biaya di HR">
-                  <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="belum dilakukan" id="penyelesaianBiayaHR1" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="penyelesaianBiayaHR1">Belum Dilakukan</label>
-    
-                  <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="selesai" id="penyelesaianBiayaHR2" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'selesai'" disabled />
-                  <label class="btn btn-outline-success" for="penyelesaianBiayaHR2">Selesai</label>
-    
-                  <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="tidak ada" id="penyelesaianBiayaHR3" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'tidak ada'" disabled />
-                  <label class="btn btn-outline-secondary" for="penyelesaianBiayaHR3">Tidak Ada</label>
-                </c-button-group>
-              </td>
-            </tr>
-            
-          
-                        <tr><th>Penonaktifan Kartu Elektronik</th>
-              <td>
-                <c-button-group role="group" aria-label="Penonaktifan Kartu Elektronik">
-                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="pending" id="penonaktifanKartuElektronik1" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'belum dilakukan'" disabled />
-                  <label class="btn btn-outline-danger" for="penonaktifanKartuElektronik1">Belum Dilakukan</label>
-    
-                  <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="accept" id="penonaktifanKartuElektronik2" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'accept'" disabled />
-                  <label class="btn btn-outline-success" for="penonaktifanKartuElektronik2">Accept</label>
-                </c-button-group>
-              </td>
-            </tr>
-            
-            
-                        <tr><th>Approval HR Services Admin Status</th>
-              <td>
-                <c-button-group role="group" aria-label="Approval HR Services Admin Status">
-                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="pending" id="approvalHRServicesAdminStatus1" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'pending'" disabled />
-                  <label class="btn btn-outline-warning" for="approvalHRServicesAdminStatus1">Pending</label>
-    
-                  <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="accept" id="approvalHRServicesAdminStatus2" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'accept'" disabled />
-                  <label class="btn btn-outline-success" for="approvalHRServicesAdminStatus2">Accept</label>
-    
-
-                </c-button-group>
-              </td>
-            </tr>
-
-            <tr>
-              <th>Remarks</th>
-  
-              <td>
-                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRServicesAdmin.remarks }}</textarea>
-              </td>
-            </tr>
-
-          </tbody>
-  
-  
-        </table>
+            </table>
+        </c-card-body>
         </c-card>
-      </c-row>
+    </c-row>
 
+<br>
 
-      <c-row>
-        <c-card>
-          <table class="uniform-table" [striped]="true" cTable>
-    
-            <thead cTableColor="dark">
-              <tr>
-                <th colspan="2">
-                  <c-card-header>
-                    <h4> Approval HR Talent</h4>
-                  </c-card-header>
-                </th>
-              </tr>
-              
-            </thead>
-            
-            <tbody>
-  
-          <tr><th>Pengecekan Biaya</th>
-            <td>
-              <c-button-group role="group" aria-label="Pengecekan Biaya">
-                <input class="btn-check" type="radio" name="pengecekanBiaya" value="belum dilakukan" id="pengecekanBiaya1" [checked]="approvalHRTalent.pengecekanBiaya === 'belum dilakukan'" disabled />
-                <label class="btn btn-outline-danger" for="pengecekanBiaya1">Belum Dilakukan</label>
-  
-                <input class="btn-check" type="radio" name="pengecekanBiaya" value="selesai" id="pengecekanBiaya2" [checked]="approvalHRTalent.pengecekanBiaya === 'selesai'" disabled />
-                <label class="btn btn-outline-success" for="pengecekanBiaya2">Selesai</label>
-  
-                <input class="btn-check" type="radio" name="pengecekanBiaya" value="tidak ada" id="pengecekanBiaya3" [checked]="approvalHRTalent.pengecekanBiaya === 'tidak ada'" disabled />
-                <label class="btn btn-outline-secondary" for="pengecekanBiaya3">Tidak Ada</label>
-              </c-button-group>
-            </td>
-          </tr>
-  
-  
-  
-          <tr><th>Approval HR Talent Status</th>
-                    <td>
-                      <c-button-group role="group" aria-label="Approval HR Talent Status">
-                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="pending" id="approvalHRTalentStatus1" [checked]="approvalHRTalent.approvalHRTalentStatus === 'pending'" disabled />
-                        <label class="btn btn-outline-warning" for="approvalHRTalentStatus1">Pending</label>
-  
-                        <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="accept" id="approvalHRTalentStatus2" [checked]="approvalHRTalent.approvalHRTalentStatus === 'accept'" disabled />
-                        <label class="btn btn-outline-success" for="approvalHRTalentStatus2">Accept</label>
-                      </c-button-group>
-                    </td>
-                  </tr>
-  
-                  <tr>
-                    <th>Remarks</th>
-        
-                    <td>
-                      <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRTalent.remarks }}</textarea>
-                    </td>
-                  </tr>
-  
-            </tbody>
-    
-          </table>
-          </c-card>
-        </c-row>
-      
-          
-        
-        <c-row>
-          <c-card>
+    <c-row>
+      <c-card>
+        <c-card-body>
             <table class="uniform-table" [striped]="true" cTable>
 
               <thead cTableColor="dark">
                 <tr>
-                  <th colspan="2">
-                    <c-card-header>
-                      <h4>Approval Treasury</h4>
-                    </c-card-header>
+                  <th colspan="2"> 
+                    <c-row>
+                      <h5>Approval HRLearning</h5>
+                    </c-row>
+                      
+
+                    <c-row> 
+                        <c-col><p>Approved By: {{ approvalHRLearning.approvedBy }}</p></c-col>
+                        <c-col>  <p>Approved Date: {{ approvalHRLearning.approvedDate | date:'short' }}</p> </c-col>
+                        <c-col>   <p>Created Date: {{ approvalHRLearning.createdDate | date:'short' }}</p> </c-col> 
+                    </c-row>
+
                   </th>
                 </tr>
               </thead>
-    
+              
+            
               <tbody>
-                <tr>
-                  <th>Biaya Advance</th>
+                  <tr>
+                  <th>Pengecekan Biaya Status</th>
                   <td>
-                    <c-button-group role="group" aria-label="Biaya Advance">
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="biayaAdvance"
-                        value="belum dilakukan"
-                        id="biayaAdvance1"
-                        [checked]="approvalTreasury.biayaAdvance === 'belum dilakukan'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-danger" for="biayaAdvance1">Belum Dilakukan</label>
+                    <c-button-group role="group" aria-label="Pengecekan Biaya Status">
+                      <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="belum dilakukan" id="pengecekanBiayaTraining1" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'belum dilakukan'" disabled />
+                      <label class="btn btn-outline-danger" for="pengecekanBiayaTraining1">Belum Dilakukan</label>
               
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="biayaAdvance"
-                        value="selesai"
-                        id="biayaAdvance2"
-                        [checked]="approvalTreasury.biayaAdvance === 'selesai'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-success" for="biayaAdvance2">Selesai</label>
-              
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="biayaAdvance"
-                        value="tidak ada"
-                        id="biayaAdvance3"
-                        [checked]="approvalTreasury.biayaAdvance === 'tidak ada'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-secondary" for="biayaAdvance3">Tidak Ada</label>
-                    </c-button-group>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <th>Blokir Fleet</th>
-                  <td>
-                    <c-button-group role="group" aria-label="Blokir Fleet">
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="blokirFleet"
-                        value="belum dilakukan"
-                        id="blokirFleet1"
-                        [checked]="approvalTreasury.blokirFleet === 'belum dilakukan'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-danger" for="blokirFleet1">Belum Dilakukan</label>
-              
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="blokirFleet"
-                        value="selesai"
-                        id="blokirFleet2"
-                        [checked]="approvalTreasury.blokirFleet === 'selesai'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-success" for="blokirFleet2">Selesai</label>
-              
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="blokirFleet"
-                        value="tidak ada"
-                        id="blokirFleet3"
-                        [checked]="approvalTreasury.blokirFleet === 'tidak ada'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-secondary" for="blokirFleet3">Tidak Ada</label>
-                    </c-button-group>
-                  </td>
-                </tr>
-              
-                <tr>
-                  <th>Approval Treasury Status</th>
-                  <td>
-                    <c-button-group role="group" aria-label="Approval Treasury Status">
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="approvalTreasuryStatus"
-                        value="pending"
-                        id="approvalTreasuryStatus1"
-                        [checked]="approvalTreasury.approvalTreasuryStatus === 'pending'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-warning" for="approvalTreasuryStatus1">Pending</label>
-              
-                      <input
-                        class="btn-check"
-                        type="radio"
-                        name="approvalTreasuryStatus"
-                        value="accept"
-                        id="approvalTreasuryStatus2"
-                        [checked]="approvalTreasury.approvalTreasuryStatus === 'accept'"
-                        disabled
-                      />
-                      <label class="btn btn-outline-success" for="approvalTreasuryStatus2">Accept</label>
-              
+                      <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="selesai" id="pengecekanBiayaTraining2" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'selesai'" disabled />
+                      <label class="btn btn-outline-success" for="pengecekanBiayaTraining2">Selesai</label>
 
+                      <input class="btn-check" type="radio" name="pengecekanBiayaTraining" value="tidak ada" id="pengecekanBiayaTraining3" [checked]="approvalHRLearning.pengecekanBiayaTraining === 'tidak ada'" disabled />
+                      <label class="btn btn-outline-secondary" for="pengecekanBiayaTraining3">Tidak Ada</label>
+          
+                    </c-button-group>
+                  </td>
+                </tr>
+              
+                <tr>
+                  <th>Approval HR Learning</th>
+                  <td>
+                    <c-button-group role="group" aria-label="Approval HR Learning">
+                      <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="pending" id="approvalHRLearningStatus1" [checked]="approvalHRLearning.approvalHRLearningStatus === 'pending'" disabled />
+                      <label class="btn btn-outline-warning" for="approvalHRLearningStatus1">Pending</label>
+              
+                      <input class="btn-check" type="radio" name="approvalHRLearningStatus" value="accept" id="approvalHRLearningStatus2" [checked]="approvalHRLearning.approvalHRLearningStatus === 'accept'" disabled />
+                      <label class="btn btn-outline-success" for="approvalHRLearningStatus2">Accept</label>
                     </c-button-group>
                   </td>
                 </tr>
               
                 <tr>
                   <th>Remarks</th>
+        
                   <td>
-                    <textarea cFormControl id="floatingTextarea" readonly>{{ approvalTreasury.remarks }}</textarea>
+                    <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRLearning.remarks }}</textarea>
                   </td>
                 </tr>
+              
               </tbody>
-              </table>
-              </c-card>
-            </c-row>
+            
+            </table>
+          </c-card-body>
+      </c-card>
+    </c-row>
+  
+
+<br>
+                
+    <c-row>
+        <c-card>
+            <c-card-body>
+                <table class="uniform-table" [striped]="true" cTable>
+
+                                    <thead cTableColor="dark">
+                                      <!-- Approval IT -->
+                                      <tr>
+                                        <th colspan="2"> 
+                                          <c-row>
+                                            <h5>Approval HR Payroll</h5>
+                                          </c-row>
+                                            
+                      
+                                          <c-row> 
+                                              <c-col><p>Approved By: {{ approvalHRPayroll.approvedBy }}</p></c-col>
+                                              <c-col>  <p>Approved Date: {{ approvalHRPayroll.approvedDate | date:'short' }}</p> </c-col>
+                                              <c-col>   <p>Created Date: {{ approvalHRPayroll.createdDate | date:'short' }}</p> </c-col> 
+                                          </c-row>
+                      
+                                        </th>
+                                      </tr>
+
+                                  </thead>
+
+                                <tbody>
+
+
+                                <tr><th>Emergency Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Emergency Loan">
+                                <input class="btn-check" type="radio" name="emergencyLoan" value="belum dilakukan" id="emergencyLoan1" [checked]="approvalHRPayroll.emergencyLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="emergencyLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="emergencyLoan" value="selesai" id="emergencyLoan2" [checked]="approvalHRPayroll.emergencyLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="emergencyLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="emergencyLoan" value="tidak ada" id="emergencyLoan3" [checked]="approvalHRPayroll.emergencyLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="emergencyLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+
+
+                                <tr><th>Soft Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Soft Loan">
+                                <input class="btn-check" type="radio" name="softLoan" value="belum dilakukan" id="softLoan1" [checked]="approvalHRPayroll.softLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="softLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="softLoan" value="selesai" id="softLoan2" [checked]="approvalHRPayroll.softLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="softLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="softLoan" value="tidak ada" id="softLoan3" [checked]="approvalHRPayroll.softLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="softLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>    
+
+
+                                    <tr><th>Motor Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Motor Loan">
+                                <input class="btn-check" type="radio" name="motorLoan" value="belum dilakukan" id="motorLoan1" [checked]="approvalHRPayroll.motorLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="motorLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="motorLoan" value="selesai" id="motorLoan2" [checked]="approvalHRPayroll.motorLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="motorLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="motorLoan" value="tidak ada" id="motorLoan3" [checked]="approvalHRPayroll.motorLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="motorLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+
+
+                                    <tr><th>Smartphone Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Smartphone Loan">
+                                <input class="btn-check" type="radio" name="smartphoneLoan" value="belum dilakukan" id="smartphoneLoan1" [checked]="approvalHRPayroll.smartphoneLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="smartphoneLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="smartphoneLoan" value="selesai" id="smartphoneLoan2" [checked]="approvalHRPayroll.smartphoneLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="smartphoneLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="smartphoneLoan" value="tidak ada" id="smartphoneLoan3" [checked]="approvalHRPayroll.smartphoneLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="smartphoneLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+
+                                    <tr><th>Umk Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Umk Loan">
+                                <input class="btn-check" type="radio" name="umkLoan" value="belum dilakukan" id="umkLoan1" [checked]="approvalHRPayroll.umkLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="umkLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="umkLoan" value="selesai" id="umkLoan2" [checked]="approvalHRPayroll.umkLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="umkLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="umkLoan" value="tidak ada" id="umkLoan3" [checked]="approvalHRPayroll.umkLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="umkLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+
+
+                                    <tr><th>Laptop Loan</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Laptop Loan">
+                                <input class="btn-check" type="radio" name="laptopLoan" value="belum dilakukan" id="laptopLoan1" [checked]="approvalHRPayroll.laptopLoan === 'belum dilakukan'" disabled />
+                                <label class="btn btn-outline-danger" for="laptopLoan1">Belum Dilakukan</label>
+
+                                <input class="btn-check" type="radio" name="laptopLoan" value="selesai" id="laptopLoan2" [checked]="approvalHRPayroll.laptopLoan === 'selesai'" disabled />
+                                <label class="btn btn-outline-success" for="laptopLoan2">Selesai</label>
+
+                                <input class="btn-check" type="radio" name="laptopLoan" value="tidak ada" id="laptopLoan3" [checked]="approvalHRPayroll.laptopLoan === 'tidak ada'" disabled />
+                                <label class="btn btn-outline-secondary" for="laptopLoan3">Tidak Ada</label>
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+
+                                <tr><th>Approval HR Payroll Status</th>
+                                <td>
+                                <c-button-group role="group" aria-label="Approval HR Payroll Status">
+                                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="pending" id="approvalHRPayrollStatus1" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'pending'" disabled />
+                                <label class="btn btn-outline-warning" for="approvalHRPayrollStatus1">Pending</label>
+
+                                <input class="btn-check" type="radio" name="approvalHRPayrollStatus" value="accept" id="approvalHRPayrollStatus2" [checked]="approvalHRPayroll.approvalHRPayrollStatus === 'accept'" disabled />
+                                <label class="btn btn-outline-success" for="approvalHRPayrollStatus2">Accept</label>
+
+                                </c-button-group>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                <th>Remarks</th>
+
+                                <td>
+                                <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRPayroll.remarks }}</textarea>
+                                </td>
+                                </tr>
+
+                                </tbody>
+                </table>
+
+            </c-card-body>
+        </c-card>
         
-            <c-row>
-          <c-card>
+    </c-row>
+
+<br>
+            
+    <c-row>
+      <c-card>
+
+        <c-card-body>
             <table class="uniform-table" [striped]="true" cTable>
 
-          <thead cTableColor="dark">
-            <tr>
-              <th colspan="2">
-                <c-card-header>
-                  <h4>Approval Security Administraror</h4>
-                </c-card-header>
-              </th>
-            </tr>
+                <thead cTableColor="dark">
+                  <tr>
+                    <th colspan="2"> 
+                      <c-row>
+                        <h5>Approval HR Service Admin</h5>
+                      </c-row>
+                        
+
+                      <c-row> 
+                          <c-col><p>Approved By: {{ approvalHRServicesAdmin.approvedBy }}</p></c-col>
+                          <c-col>  <p>Approved Date: {{ approvalHRServicesAdmin.approvedDate | date:'short' }}</p> </c-col>
+                          <c-col>   <p>Created Date: {{ approvalHRServicesAdmin.createdDate | date:'short' }}</p> </c-col> 
+                      </c-row>
+                    </th>
+                  </tr>
+
+                </thead>
+
+                <tbody>
+                  <tr><th>Excess Of Claim</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Excess Of Claim">
+                        <input class="btn-check" type="radio" name="excessOfClaim" value="belum dilakukan" id="excessOfClaim1" [checked]="approvalHRServicesAdmin.excessOfClaim === 'belum dilakukan'" disabled />
+                        <label class="btn btn-outline-danger" for="excessOfClaim1">Belum Dilakukan</label>
+          
+                        <input class="btn-check" type="radio" name="excessOfClaim" value="selesai" id="excessOfClaim2" [checked]="approvalHRServicesAdmin.excessOfClaim === 'selesai'" disabled />
+                        <label class="btn btn-outline-success" for="excessOfClaim2">Selesai</label>
+          
+                        <input class="btn-check" type="radio" name="excessOfClaim" value="tidak ada" id="excessOfClaim3" [checked]="approvalHRServicesAdmin.excessOfClaim === 'tidak ada'" disabled />
+                        <label class="btn btn-outline-secondary" for="excessOfClaim3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+                  
+                              <tr><th>Penyelesaian Biaya di HR</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Penyelesaian Biaya di HR">
+                        <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="belum dilakukan" id="penyelesaianBiayaHR1" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'belum dilakukan'" disabled />
+                        <label class="btn btn-outline-danger" for="penyelesaianBiayaHR1">Belum Dilakukan</label>
+          
+                        <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="selesai" id="penyelesaianBiayaHR2" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'selesai'" disabled />
+                        <label class="btn btn-outline-success" for="penyelesaianBiayaHR2">Selesai</label>
+          
+                        <input class="btn-check" type="radio" name="penyelesaianBiayaHR" value="tidak ada" id="penyelesaianBiayaHR3" [checked]="approvalHRServicesAdmin.penyelesaianBiayaHR === 'tidak ada'" disabled />
+                        <label class="btn btn-outline-secondary" for="penyelesaianBiayaHR3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+                  
+                
+                              <tr><th>Penonaktifan Kartu Elektronik</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Penonaktifan Kartu Elektronik">
+                        <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="pending" id="penonaktifanKartuElektronik1" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'belum dilakukan'" disabled />
+                        <label class="btn btn-outline-danger" for="penonaktifanKartuElektronik1">Belum Dilakukan</label>
+          
+                        <input class="btn-check" type="radio" name="penonaktifanKartuElektronik" value="accept" id="penonaktifanKartuElektronik2" [checked]="approvalHRServicesAdmin.penonaktifanKartuElektronik === 'accept'" disabled />
+                        <label class="btn btn-outline-success" for="penonaktifanKartuElektronik2">Accept</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+                  
+                  
+                              <tr><th>Approval HR Services Admin Status</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Approval HR Services Admin Status">
+                        <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="pending" id="approvalHRServicesAdminStatus1" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'pending'" disabled />
+                        <label class="btn btn-outline-warning" for="approvalHRServicesAdminStatus1">Pending</label>
+          
+                        <input class="btn-check" type="radio" name="approvalHRServicesAdminStatus" value="accept" id="approvalHRServicesAdminStatus2" [checked]="approvalHRServicesAdmin.approvalHRServicesAdminStatus === 'accept'" disabled />
+                        <label class="btn btn-outline-success" for="approvalHRServicesAdminStatus2">Accept</label>
+          
+
+                      </c-button-group>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>Remarks</th>
+        
+                    <td>
+                      <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRServicesAdmin.remarks }}</textarea>
+                    </td>
+                  </tr>
+
+                </tbody>
+      
+            </table>
+        </c-card-body>
+        </c-card>
+      </c-row>
+
+<br>
+
+      <c-row>
+        <c-card>
+
+            <c-card-body>
+                  <table class="uniform-table" [striped]="true" cTable>
             
-          </thead>
+                    <thead cTableColor="dark">
+                      <tr>
+                        <th colspan="2"> 
+                          <c-row>
+                            <h5>Approval HR Talent</h5>
+                          </c-row>
+                            
 
-          <tbody>
+                          <c-row> 
+                              <c-col><p>Approved By: {{ approvalHRTalent.approvedBy }}</p></c-col>
+                              <c-col>  <p>Approved Date: {{ approvalHRTalent.approvedDate | date:'short' }}</p> </c-col>
+                              <c-col>   <p>Created Date: {{ approvalHRTalent.createdDate | date:'short' }}</p> </c-col> 
+                          </c-row>
 
-        <tr><th>Permohonan Penutupan User</th>
-          <td>
-            <c-button-group role="group" aria-label="Permohonan Penutupan User">
-              <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="belum dilakukan" id="permohonanPenutupanUser1" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'belum dilakukan'" disabled />
-              <label class="btn btn-outline-danger" for="permohonanPenutupanUser1">Belum Dilakukan</label>
-
-              <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="selesai" id="permohonanPenutupanUser2" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'selesai'" disabled />
-              <label class="btn btn-outline-success" for="permohonanPenutupanUser2">Selesai</label>
-
-              <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="tidak ada" id="permohonanPenutupanUser3" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'tidak ada'" disabled />
-              <label class="btn btn-outline-secondary" for="permohonanPenutupanUser3">Tidak Ada</label>
-            </c-button-group>
-          </td>
-        </tr>
-
-
-        <tr><th>Penutupan email BCA</th>
-          <td>
-            <c-button-group role="group" aria-label="Penutupan email BCA">
-              <input class="btn-check" type="radio" name="penutupanEmailBCA" value="belum dilakukan" id="penutupanEmailBCA1" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'belum dilakukan'" disabled />
-              <label class="btn btn-outline-danger" for="penutupanEmailBCA1">Belum Dilakukan</label>
-
-              <input class="btn-check" type="radio" name="penutupanEmailBCA" value="selesai" id="penutupanEmailBCA2" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'selesai'" disabled />
-              <label class="btn btn-outline-success" for="penutupanEmailBCA2">Selesai</label>
-
-              <input class="btn-check" type="radio" name="penutupanEmailBCA" value="tidak ada" id="penutupanEmailBCA3" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'tidak ada'" disabled />
-              <label class="btn btn-outline-secondary" for="penutupanEmailBCA3">Tidak Ada</label>
-            </c-button-group>
-          </td>
-        </tr>
+                        </th>
+                      </tr>
+                      
+                    </thead>
+                    
+                    <tbody>
+          
+                  <tr><th>Pengecekan Biaya</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Pengecekan Biaya">
+                        <input class="btn-check" type="radio" name="pengecekanBiaya" value="belum dilakukan" id="pengecekanBiaya1" [checked]="approvalHRTalent.pengecekanBiaya === 'belum dilakukan'" disabled />
+                        <label class="btn btn-outline-danger" for="pengecekanBiaya1">Belum Dilakukan</label>
+          
+                        <input class="btn-check" type="radio" name="pengecekanBiaya" value="selesai" id="pengecekanBiaya2" [checked]="approvalHRTalent.pengecekanBiaya === 'selesai'" disabled />
+                        <label class="btn btn-outline-success" for="pengecekanBiaya2">Selesai</label>
+          
+                        <input class="btn-check" type="radio" name="pengecekanBiaya" value="tidak ada" id="pengecekanBiaya3" [checked]="approvalHRTalent.pengecekanBiaya === 'tidak ada'" disabled />
+                        <label class="btn btn-outline-secondary" for="pengecekanBiaya3">Tidak Ada</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+          
+          
+          
+                  <tr><th>Approval HR Talent Status</th>
+                            <td>
+                              <c-button-group role="group" aria-label="Approval HR Talent Status">
+                                <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="pending" id="approvalHRTalentStatus1" [checked]="approvalHRTalent.approvalHRTalentStatus === 'pending'" disabled />
+                                <label class="btn btn-outline-warning" for="approvalHRTalentStatus1">Pending</label>
+          
+                                <input class="btn-check" type="radio" name="approvalHRTalentStatus" value="accept" id="approvalHRTalentStatus2" [checked]="approvalHRTalent.approvalHRTalentStatus === 'accept'" disabled />
+                                <label class="btn btn-outline-success" for="approvalHRTalentStatus2">Accept</label>
+                              </c-button-group>
+                            </td>
+                          </tr>
+          
+                          <tr>
+                            <th>Remarks</th>
+                
+                            <td>
+                              <textarea cFormControl id="floatingTextarea" readonly>{{ approvalHRTalent.remarks }}</textarea>
+                            </td>
+                          </tr>
+          
+                    </tbody>
+            
+                  </table>
+            </c-card-body>
+       </c-card>
         
-    
+      </c-row>
+      
+<br>      
         
-        <tr><th>Pengembalian Token</th>
-          <td>
-            <c-button-group role="group" aria-label="Pengembalian Token">
-              <input class="btn-check" type="radio" name="pengembalianToken" value="belum dilakukan" id="pengembalianToken1" [checked]="approvalSecurityAdministrator.pengembalianToken === 'belum dilakukan'" disabled />
-              <label class="btn btn-outline-danger" for="pengembalianToken1">Belum Dilakukan</label>
+        <c-row>
+          <c-card>
 
-              <input class="btn-check" type="radio" name="pengembalianToken" value="selesai" id="pengembalianToken2" [checked]="approvalSecurityAdministrator.pengembalianToken === 'selesai'" disabled />
-              <label class="btn btn-outline-success" for="pengembalianToken2">Selesai</label>
+            <c-card-body>
+                <table class="uniform-table" [striped]="true" cTable>
 
-              <input class="btn-check" type="radio" name="pengembalianToken" value="tidak ada" id="pengembalianToken3" [checked]="approvalSecurityAdministrator.pengembalianToken === 'tidak ada'" disabled />
-              <label class="btn btn-outline-secondary" for="pengembalianToken3">Tidak Ada</label>
-            </c-button-group>
-          </td>
-        </tr>
+                      <thead cTableColor="dark">
+                        <tr>
+                          <th colspan="2"> 
+                            <c-row>
+                              <h5>Approval Treasury</h5>
+                            </c-row>
+                              
+
+                            <c-row> 
+                                <c-col><p>Approved By: {{ approvalTreasury.approvedBy }}</p></c-col>
+                                <c-col>  <p>Approved Date: {{ approvalTreasury.approvedDate | date:'short' }}</p> </c-col>
+                                <c-col>   <p>Created Date: {{ approvalTreasury.createdDate | date:'short' }}</p> </c-col> 
+                            </c-row>
+
+                          </th>
+                        </tr>
+                      </thead>
+            
+                      <tbody>
+                        <tr>
+                          <th>Biaya Advance</th>
+                          <td>
+                            <c-button-group role="group" aria-label="Biaya Advance">
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="biayaAdvance"
+                                value="belum dilakukan"
+                                id="biayaAdvance1"
+                                [checked]="approvalTreasury.biayaAdvance === 'belum dilakukan'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-danger" for="biayaAdvance1">Belum Dilakukan</label>
+                      
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="biayaAdvance"
+                                value="selesai"
+                                id="biayaAdvance2"
+                                [checked]="approvalTreasury.biayaAdvance === 'selesai'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-success" for="biayaAdvance2">Selesai</label>
+                      
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="biayaAdvance"
+                                value="tidak ada"
+                                id="biayaAdvance3"
+                                [checked]="approvalTreasury.biayaAdvance === 'tidak ada'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-secondary" for="biayaAdvance3">Tidak Ada</label>
+                            </c-button-group>
+                          </td>
+                        </tr>
+                      
+                        <tr>
+                          <th>Blokir Fleet</th>
+                          <td>
+                            <c-button-group role="group" aria-label="Blokir Fleet">
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="blokirFleet"
+                                value="belum dilakukan"
+                                id="blokirFleet1"
+                                [checked]="approvalTreasury.blokirFleet === 'belum dilakukan'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-danger" for="blokirFleet1">Belum Dilakukan</label>
+                      
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="blokirFleet"
+                                value="selesai"
+                                id="blokirFleet2"
+                                [checked]="approvalTreasury.blokirFleet === 'selesai'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-success" for="blokirFleet2">Selesai</label>
+                      
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="blokirFleet"
+                                value="tidak ada"
+                                id="blokirFleet3"
+                                [checked]="approvalTreasury.blokirFleet === 'tidak ada'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-secondary" for="blokirFleet3">Tidak Ada</label>
+                            </c-button-group>
+                          </td>
+                        </tr>
+                      
+                        <tr>
+                          <th>Approval Treasury Status</th>
+                          <td>
+                            <c-button-group role="group" aria-label="Approval Treasury Status">
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="approvalTreasuryStatus"
+                                value="pending"
+                                id="approvalTreasuryStatus1"
+                                [checked]="approvalTreasury.approvalTreasuryStatus === 'pending'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-warning" for="approvalTreasuryStatus1">Pending</label>
+                      
+                              <input
+                                class="btn-check"
+                                type="radio"
+                                name="approvalTreasuryStatus"
+                                value="accept"
+                                id="approvalTreasuryStatus2"
+                                [checked]="approvalTreasury.approvalTreasuryStatus === 'accept'"
+                                disabled
+                              />
+                              <label class="btn btn-outline-success" for="approvalTreasuryStatus2">Accept</label>
+                      
+
+                            </c-button-group>
+                          </td>
+                        </tr>
+                      
+                        <tr>
+                          <th>Remarks</th>
+                          <td>
+                            <textarea cFormControl id="floatingTextarea" readonly>{{ approvalTreasury.remarks }}</textarea>
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+            </c-card-body>
+
+          </c-card>
+        </c-row>
         
-        
-                    <tr><th>Approval Security Administrator Status</th>
-          <td>
-            <c-button-group role="group" aria-label="Approval Security Administrator Status">
-              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="pending" id="ApprovalSecurityAdministratorStatus1" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'pending'" disabled />
-              <label class="btn btn-outline-warning" for="ApprovalSecurityAdministratorStatus1">Pending</label>
+<br>
 
-              <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="accept" id="ApprovalSecurityAdministratorStatus2" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'accept'" disabled />
-              <label class="btn btn-outline-success" for="ApprovalSecurityAdministratorStatus2">Accept</label>
+            <c-row>
+                <c-card>
+                  <c-card-body>
+                    <table class="uniform-table" [striped]="true" cTable>
 
-   
-            </c-button-group>
-          </td>
-        </tr>
+                      <thead cTableColor="dark">
+                        <tr>
+                          <th colspan="2"> 
+                            <c-row>
+                              <h5>Approval Security Administrator</h5>
+                            </c-row>
+                              
 
-        <tr>
-          <th>Remarks</th>
+                            <c-row> 
+                                <c-col><p>Approved By: {{ approvalSecurityAdministrator.approvedBy }}</p></c-col>
+                                <c-col>  <p>Approved Date: {{ approvalSecurityAdministrator.approvedDate | date:'short' }}</p> </c-col>
+                                <c-col>   <p>Created Date: {{ approvalSecurityAdministrator.createdDate | date:'short' }}</p> </c-col> 
+                            </c-row>
 
-          <td>
-            <textarea cFormControl id="floatingTextarea" readonly>{{ approvalSecurityAdministrator.remarks }}</textarea>
-          </td>
-        </tr>
+                          </th>
+                        </tr>
+                        
+                      </thead>
 
-          </tbody>
+                      <tbody>
+
+                    <tr><th>Permohonan Penutupan User</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Permohonan Penutupan User">
+                          <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="belum dilakukan" id="permohonanPenutupanUser1" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="permohonanPenutupanUser1">Belum Dilakukan</label>
+
+                          <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="selesai" id="permohonanPenutupanUser2" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="permohonanPenutupanUser2">Selesai</label>
+
+                          <input class="btn-check" type="radio" name="permohonanPenutupanUser" value="tidak ada" id="permohonanPenutupanUser3" [checked]="approvalSecurityAdministrator.permohonanPenutupanUser === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="permohonanPenutupanUser3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+
+
+                    <tr><th>Penutupan email BCA</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Penutupan email BCA">
+                          <input class="btn-check" type="radio" name="penutupanEmailBCA" value="belum dilakukan" id="penutupanEmailBCA1" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="penutupanEmailBCA1">Belum Dilakukan</label>
+
+                          <input class="btn-check" type="radio" name="penutupanEmailBCA" value="selesai" id="penutupanEmailBCA2" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="penutupanEmailBCA2">Selesai</label>
+
+                          <input class="btn-check" type="radio" name="penutupanEmailBCA" value="tidak ada" id="penutupanEmailBCA3" [checked]="approvalSecurityAdministrator.penutupanEmailBCA === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="penutupanEmailBCA3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                
+                    
+                    <tr><th>Pengembalian Token</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Pengembalian Token">
+                          <input class="btn-check" type="radio" name="pengembalianToken" value="belum dilakukan" id="pengembalianToken1" [checked]="approvalSecurityAdministrator.pengembalianToken === 'belum dilakukan'" disabled />
+                          <label class="btn btn-outline-danger" for="pengembalianToken1">Belum Dilakukan</label>
+
+                          <input class="btn-check" type="radio" name="pengembalianToken" value="selesai" id="pengembalianToken2" [checked]="approvalSecurityAdministrator.pengembalianToken === 'selesai'" disabled />
+                          <label class="btn btn-outline-success" for="pengembalianToken2">Selesai</label>
+
+                          <input class="btn-check" type="radio" name="pengembalianToken" value="tidak ada" id="pengembalianToken3" [checked]="approvalSecurityAdministrator.pengembalianToken === 'tidak ada'" disabled />
+                          <label class="btn btn-outline-secondary" for="pengembalianToken3">Tidak Ada</label>
+                        </c-button-group>
+                      </td>
+                    </tr>
+                    
+                    
+                                <tr><th>Approval Security Administrator Status</th>
+                      <td>
+                        <c-button-group role="group" aria-label="Approval Security Administrator Status">
+                          <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="pending" id="ApprovalSecurityAdministratorStatus1" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'pending'" disabled />
+                          <label class="btn btn-outline-warning" for="ApprovalSecurityAdministratorStatus1">Pending</label>
+
+                          <input class="btn-check" type="radio" name="ApprovalSecurityAdministratorStatus" value="accept" id="ApprovalSecurityAdministratorStatus2" [checked]="approvalSecurityAdministrator.approvalSecurityAdministratorStatus === 'accept'" disabled />
+                          <label class="btn btn-outline-success" for="ApprovalSecurityAdministratorStatus2">Accept</label>
+
               
-              </table>
-              </c-card>
+                        </c-button-group>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>Remarks</th>
+
+                      <td>
+                        <textarea cFormControl id="floatingTextarea" readonly>{{ approvalSecurityAdministrator.remarks }}</textarea>
+                      </td>
+                    </tr>
+
+                      </tbody>
+                    
+                    </table>
+                  </c-card-body>
+                </c-card>
             </c-row>
          
          
@@ -1341,3 +1440,8 @@
 
 
 
+<ng-template #notAvailable>
+
+    <h2>Belum ada pengajuan Resign</h2>
+  
+</ng-template>

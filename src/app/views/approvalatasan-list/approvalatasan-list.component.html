@@ -53,10 +53,23 @@
 </div>
 
 
-<div *ngIf="isLoading$ | async" class="loading-spinner">
+<!-- <div *ngIf="isLoading$ | async" class="loading-spinner">
   <i class="spinner-grow spinner-grow-sm"></i>
   <span class="m-1">Loading...</span>
-</div>
+</div> -->
+
+<ng-template #loadingTemplate>
+  <div class="loading-overlay">
+    <div class="loading-content">
+      <i class="spinner-grow spinner-grow-sm"></i>
+      <span class="m-1">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="isLoading$ | async">
+  <ng-container *ngTemplateOutlet="loadingTemplate"></ng-container>
+</ng-container>
 
 <!-- Your component content -->
 <router-outlet></router-outlet>

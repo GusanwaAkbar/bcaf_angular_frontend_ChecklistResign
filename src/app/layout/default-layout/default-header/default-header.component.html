@@ -17,26 +17,33 @@
     </c-header-nav>
 
     <c-header-nav class="d-none d-md-flex ms-auto">
-      <a cNavLink (click)="toggleNotifications()">
-        <svg cIcon class="my-1" name="cilBell" size="lg"></svg>
-      </a>
-      <a cNavLink>
-        <svg cIcon class="my-1" name="cilEnvelopeOpen" size="lg"></svg>
-      </a>
-      <c-dropdown *ngIf="showNotifications" [popperOptions]="{ placement: 'bottom-start' }" variant="nav-item">
+      <c-dropdown alignment="end" variant="nav-item">
+        <button cDropdownToggle [caret]="false" class="py-0" aria-label="Show notifications">
+          <svg cIcon class="my-1" name="cilBell" size="lg"></svg>
+          <c-badge *ngIf="notifications.length > 0" color="danger" shape="rounded-pill" class="position-absolute top-0 end-0">
+            {{ notifications.length }}
+          </c-badge>
+        </button>
         <ul cDropdownMenu class="pt-0 w-auto">
           <li *ngFor="let notification of notifications">
             <a cDropdownItem>{{ notification }}</a>
           </li>
+          <li *ngIf="notifications.length === 0">
+            <a cDropdownItem>No new notifications</a>
+          </li>
         </ul>
       </c-dropdown>
+      <a cNavLink>
+        <svg cIcon class="my-1" name="cilEnvelopeOpen" size="lg"></svg>
+      </a>
     </c-header-nav>
 
     <c-header-nav class="ms-auto ms-md-0">
       <div class="nav-item py-1">
         <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
       </div>
-      <ng-container *ngTemplateOutlet="themeDropdown"></ng-container>
+      <!-- <ng-container *ngTemplateOutlet="themeDropdown"></ng-container> -->
+
       <div class="nav-item py-1">
         <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
       </div>

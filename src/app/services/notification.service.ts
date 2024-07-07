@@ -13,7 +13,7 @@ export class NotificationService {
   constructor(private http: HttpClient) { }
 
   getNotification(): Observable<string[]> {
-    return this.http.get<any>(`${this.apiUrl}/api/approval-atasan/get-approval-by-username`).pipe(
+    return this.http.get<any>(`${this.apiUrl}/api/notification`).pipe(
       map(response => response.data.map((item: any) => item.message))
     );
   }

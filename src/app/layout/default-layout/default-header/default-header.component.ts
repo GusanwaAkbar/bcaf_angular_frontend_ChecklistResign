@@ -14,6 +14,7 @@ import {
   HeaderComponent,
   HeaderNavComponent,
   HeaderTogglerDirective,
+  ModalModule,
   NavItemComponent,
   NavLinkDirective,
   ProgressBarDirective,
@@ -59,7 +60,8 @@ import { IconDirective } from '@coreui/icons-angular';
     DropdownDividerDirective,
     ProgressBarDirective,
     ProgressComponent,
-    NgStyle
+    NgStyle,
+    ModalModule
   ]
 })
 export class DefaultHeaderComponent extends HeaderComponent implements OnInit {
@@ -67,6 +69,7 @@ export class DefaultHeaderComponent extends HeaderComponent implements OnInit {
   public nama: string | undefined;
   public notifications: string[] = [];
   public showNotifications: boolean = false;
+  public modalVisible:boolean = false;
   
   readonly #activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   readonly #colorModeService = inject(ColorModeService);
@@ -107,7 +110,7 @@ trackByFn: TrackByFunction<{ name: string; text: string; icon: string; }> | unde
       if (user) {
         this.username = user.username;
         this.nama = user.userDetail?.nama;
-        
+        this.getNotifications();
       }
     });
   }
@@ -115,15 +118,22 @@ trackByFn: TrackByFunction<{ name: string; text: string; icon: string; }> | unde
   getNotifications(): void {
     this.notificationService.getNotification().subscribe(notifications => {
       this.notifications = notifications;
+      console.log(notifications[1])
     });
   }
 
   toggleNotifications(): void {
     this.showNotifications = !this.showNotifications;
-    if (this.showNotifications) {
-      this.getNotifications();
-    }
   }
+
+  // openModal(): void {
+  //   this.modalVisible = true;
+  // }
+
+  // closeModal(): void {
+  //   this.modalVisible = false;
+  // }
+
 
   logout(): void {
     this.authService.logout();
