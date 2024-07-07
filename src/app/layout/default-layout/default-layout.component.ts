@@ -71,6 +71,15 @@ export class DefaultLayoutComponent implements OnInit {
       if (item.name?.includes('Final')) {
         return authorities.includes('ROLE_ADMIN');
       }
+
+      if (item.name?.includes('Management')) {
+        return authorities.includes('ROLE_ADMIN');
+      }
+
+      if (item.name?.includes('Daftar')) {
+        return authorities.includes('ROLE_ADMIN');
+      }
+
       if (item.name?.includes('Treasury')) {
         return authorities.includes('ROLE_TREASURY');
       }
