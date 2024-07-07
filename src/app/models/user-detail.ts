@@ -11,4 +11,5 @@ export interface UserDetail {
   nomerWA: string | null;
   user_username: string;
   nipAtasan: string;
+  userUsername:string;
 }
