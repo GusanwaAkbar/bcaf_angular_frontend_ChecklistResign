@@ -12,6 +12,7 @@ export interface IApprovalHRPayrollGet {
     laptopLoan: string;
     approvalHRPayrollStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 export interface IApprovalHRPayrollPost {

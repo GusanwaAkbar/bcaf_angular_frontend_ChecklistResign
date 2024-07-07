@@ -6,6 +6,7 @@ export interface IApprovalHRLearningGet {
     pengecekanBiayaTraining: string;
     approvalHRLearningStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 export interface IApprovalHRLearningPost {

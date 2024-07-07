@@ -10,6 +10,7 @@ export interface IApprovalSecurityAdminGet
     pengembalianToken: string;
     approvalSecurityAdministratorStatus: string;
     remarks: string
+    documentPath: string;
 
 }
 

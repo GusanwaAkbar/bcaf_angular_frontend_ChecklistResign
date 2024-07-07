@@ -50,36 +50,27 @@
 
   <c-card>
 
-    <c-card-header>
-    <h4>Approval General Service</h4>
-    </c-card-header>
-
-
 
 <c-card-body>
 
     <table class="uniform-table" [striped]="true" cTable>
               <thead cTableColor="dark">
-  
                 <tr>
-                  <th colspan="2">
-                    <!-- <c-card-header>
-                      <h5>Approval General Services</h5>
-                    </c-card-header> -->
-
-
- 
-          <c-row> 
-            <c-col><p>Approved By: {{ approvalAtasan.approvedBy }}</p></c-col>
-            <c-col>  <p>Document Path: <a [href]="approvalAtasan.documentPath" target="_blank">{{ approvalAtasan.documentPath }}</a></p></c-col>
-            <c-col>  <p>Approved Date: {{ approvalAtasan.approvedDate | date:'short' }}</p> </c-col>
-            <c-col>   <p>Created Date: {{ approvalAtasan.createdDate | date:'short' }}</p> </c-col> 
-        </c-row>
-   
-                  </th>
-                </tr>
-  
-  
+                  <th colspan="2"> 
+                      <c-row>
+                        <h5>Approval General Services</h5>
+                      </c-row>
+                        
+    
+                      <c-row> 
+                          <c-col><p>Approved By: {{ approvalGeneralService.approvedBy }}</p></c-col>
+                          <c-col>  <p>Document Path: <a [href]="approvalGeneralService.documentPath" target="_blank">{{ approvalGeneralService.documentPath }}</a></p></c-col>
+                          <c-col>  <p>Approved Date: {{ approvalGeneralService.approvedDate | date:'short' }}</p> </c-col>
+                          <c-col>   <p>Created Date: {{ approvalGeneralService.createdDate | date:'short' }}</p> </c-col> 
+                      </c-row>
+    
+                    </th>
+                  </tr>
               </thead>
   
             <tbody>
@@ -196,9 +187,17 @@
                       <!-- Approval IT -->
                       <tr>
                         <th colspan="2">
-                          <c-card-header>
-                            <h5>Approval Atasan</h5>
-                          </c-card-header>
+                          <c-row>
+                            <h5>Approval Atasan Langsung</h5>
+                          </c-row>
+                            
+        
+                          <c-row> 
+                              <c-col><p>Approved By: {{ approvalAtasan.approvedBy }}</p></c-col>
+                              <c-col>  <p>Document Path: <a [href]="approvalAtasan.documentPath" target="_blank">{{ approvalGeneralService.documentPath }}</a></p></c-col>
+                              <c-col>  <p>Approved Date: {{ approvalAtasan.approvedDate | date:'short' }}</p> </c-col>
+                              <c-col>   <p>Created Date: {{ approvalAtasan.createdDate | date:'short' }}</p> </c-col> 
+                          </c-row>
                         </th>
                       </tr>
         </thead>

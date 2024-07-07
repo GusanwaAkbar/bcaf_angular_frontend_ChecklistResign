@@ -10,6 +10,7 @@ export interface IApprovalTreasuryGet {
     blokirFleet: string;
     approvalTreasuryStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 export interface IApprovalTreasuryPost {

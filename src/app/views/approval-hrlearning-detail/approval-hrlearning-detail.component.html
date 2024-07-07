@@ -62,6 +62,18 @@
                     <th>Tanggal Pembuatan Akun HRIS</th>
                     <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
                   </tr>
+                  <tr>
+                    <th>Document Pendukung</th>
+                    <td>
+                      <div *ngIf="approvalHRLearningData?.documentPath; else noDocumentHRLearning">
+                        <button type="button" (click)="downloadHRLearningById()">Download HR Learning Document</button>
+                      </div>
+                      <ng-template #noDocumentHRLearning>
+                        <p>Dokumen tidak ada</p>
+                      </ng-template>
+                      
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </c-container>

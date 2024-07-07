@@ -234,19 +234,19 @@ export class ApprovalDepartementService {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
 
-    return this.http.post<any>(`${this.apiUrl}/api/approval-hr-services/upload`, formData);
+    return this.http.post<any>(`${this.apiUrl}/api/approval-hr-services-admin/upload`, formData);
   }
 
   getApprovalHRServiceFileUrlbyKaryawan(): Observable<HttpResponse<Blob>> {
 
 
-    return this.http.get(`${this.apiUrl}/api/approval-hr-service/download`, {  responseType: 'blob', observe: 'response' });
+    return this.http.get(`${this.apiUrl}/api/approval-hr-services-admin/download`, {  responseType: 'blob', observe: 'response' });
   }
 
   getApprovalHRServiceFileUrlbyId(id: number): Observable<HttpResponse<Blob>> {
 
 
-    return this.http.get(`${this.apiUrl}/api/approval-hr-service/download/${id}`, {  responseType: 'blob', observe: 'response' });
+    return this.http.get(`${this.apiUrl}/api/approval-hr-services-admin/download/${id}`, {  responseType: 'blob', observe: 'response' });
   }
 
   // Security Administrator Session

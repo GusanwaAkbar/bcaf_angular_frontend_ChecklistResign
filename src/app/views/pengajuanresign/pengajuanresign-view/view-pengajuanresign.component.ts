@@ -3,6 +3,7 @@ import { ResignationService } from '../../../services/resignation.service';
 import { ApprovalAtasanService } from 'src/app/services/approval-atasan.service';
 import { ApprovalDepartementService } from 'src/app/services/approval-departement-service.service';
 import { HttpResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pengajuanresign-form',
@@ -95,18 +96,6 @@ export class ViewPengajuanResignComponent implements OnInit {
     this.selectedFiles[department] = event.target.files[0];
   }
 
-  // uploadApprovalAtasanDocument(): void {
-  //   const file = this.selectedFiles['approvalAtasan'];
-  //   if (!file) {
-  //     alert('Please select a file first.');
-  //     return;
-  //   }
-  //   this.approvalDepartementService.postApprovalAtasanDocument(file).subscribe(
-  //     response => console.log(response),
-  //     error => console.error(error)
-  //   );
-  // }
-
   uploadApprovalGeneralServicesDocument(): void {
     const file = this.selectedFiles['approvalGeneralServices'];
     if (!file) {
@@ -114,7 +103,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalGeneralServiceDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -126,7 +118,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalHRIRDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -138,7 +133,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalHRLearningDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -150,7 +148,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalHRPayrollDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -162,7 +163,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalHRServiceDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -174,7 +178,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalHRTalentDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -186,7 +193,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalSecurityAdminDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -198,7 +208,10 @@ export class ViewPengajuanResignComponent implements OnInit {
       return;
     }
     this.approvalDepartementService.postApprovalTreasuryDocument(file).subscribe(
-      response => console.log(response),
+      response => {
+        console.log(response);
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
+      },
       error => console.error(error)
     );
   }
@@ -252,5 +265,4 @@ export class ViewPengajuanResignComponent implements OnInit {
     const matches = contentDisposition && contentDisposition.match(/filename="([^;]+)"/);
     return (matches && matches[1]) ? matches[1] : "asd";
   }
-
 }

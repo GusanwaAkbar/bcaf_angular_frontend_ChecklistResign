@@ -62,6 +62,18 @@
                     <th>Tanggal Pembuatan Akun HRIS</th>
                     <td>{{ resignationData?.tanggalPembuatanAkunHRIS }}</td>
                   </tr>
+                  <tr>
+                    <th>Dokumen Pendukung</th>
+                    <td>
+                      <div *ngIf="approvalHRPayrollData?.documentPath; else noDocumentHRPayroll">
+                        <button type="button" (click)="downloadHRPayrollById()">Download HR Payroll Document</button>
+                      </div>
+                      <ng-template #noDocumentHRPayroll>
+                        <p>Dokumen tidak ada</p>
+                      </ng-template>
+                    </td>
+
+                  </tr>
                 </tbody>
               </table>
             </c-container>

@@ -383,90 +383,94 @@
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalGeneralServices?.approvalStatusGeneralServices)">
-                      Approval General Services Status: {{ approvalGeneralServices?.approvalStatusGeneralServices }}
+                    <button cButton [color]="getStatusColor(approvalGeneralServices?.approvalGeneralServicesStatus)">
+                      Approval General Services Status: {{ approvalGeneralServices?.approvalGeneralServicesStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalGeneralServices')">
-                    <button cButton (click)="uploadApprovalGeneralServicesDocument()">Upload Document General Services</button>
+                    <button cButton (click)="uploadApprovalGeneralServicesDocument()">Upload GS</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalHRIR?.approvalStatusHRIR)">
-                      Approval HR IR Status: {{ approvalHRIR?.approvalStatusHRIR }}
+                    <button cButton [color]="getStatusColor(approvalHRIR?.approvalHRIRStatus)">
+                      Approval HR IR Status: {{ approvalHRIR?.approvalHRIRStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalHRIR')">
-                    <button cButton (click)="uploadApprovalHRIRDocument()">Upload Document HR IR</button>
+                    <button cButton (click)="uploadApprovalHRIRDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalHRLearning?.approvalStatusHRLearning)">
-                      Approval HR Learning Status: {{ approvalHRLearning?.approvalStatusHRLearning }}
+                    <button cButton [color]="getStatusColor(approvalHRLearning?.approvalHRLearningStatus)">
+                      Approval HR Learning Status: {{ approvalHRLearning?.approvalHRLearningStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalHRLearning')">
-                    <button cButton (click)="uploadApprovalHRLearningDocument()">Upload Document HR Learning</button>
+                    <button cButton (click)="uploadApprovalHRLearningDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalHRPayroll?.approvalStatusHRPayroll)">
-                      Approval HR Payroll Status: {{ approvalHRPayroll?.approvalStatusHRPayroll }}
+                    <button cButton [color]="getStatusColor(approvalHRPayroll?.approvalHRPayrollStatus)">
+                      Approval HR Payroll Status: {{ approvalHRPayroll?.approvalHRPayrollStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalHRPayroll')">
-                    <button cButton (click)="uploadApprovalHRPayrollDocument()">Upload Document HR Payroll</button>
+                    <button cButton (click)="uploadApprovalHRPayrollDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalHRServicesAdmin?.approvalStatusHRServicesAdmin)">
-                      Approval HR Services Admin Status: {{ approvalHRServicesAdmin?.approvalStatusHRServicesAdmin }}
+                    <button cButton [color]="getStatusColor(approvalHRServicesAdmin?.approvalHRServicesAdminStatus)">
+                      Approval HR Services Admin Status: {{ approvalHRServicesAdmin?.approvalHRServicesAdminStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalHRServicesAdmin')">
-                    <button cButton (click)="uploadApprovalHRServicesAdminDocument()">Upload Document HR Services Admin</button>
+                    <button cButton (click)="uploadApprovalHRServicesAdminDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalHRTalent?.approvalStatusHRTalent)">
-                      Approval HR Talent Status: {{ approvalHRTalent?.approvalStatusHRTalent }}
+                    <button cButton [color]="getStatusColor(approvalHRTalent?.approvalHRTalentStatus)">
+                      Approval HR Talent Status: {{ approvalHRTalent?.approvalHRTalentStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalHRTalent')">
-                    <button cButton (click)="uploadApprovalHRTalentDocument()">Upload Document HR Talent</button>
+                    <button cButton (click)="uploadApprovalHRTalentDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalSecurityAdministrator?.approvalStatusSecurityAdministrator)">
-                      Approval Security Administrator Status: {{ approvalSecurityAdministrator?.approvalStatusSecurityAdministrator }}
+                    <button cButton [color]="getStatusColor(approvalSecurityAdministrator?.approvalSecurityAdministratorStatus)">
+                      Approval Security Administrator Status: {{ approvalSecurityAdministrator?.approvalSecurityAdministratorStatus }}
                     </button>
                   </td>
                   <td>
                     <input type="file" (change)="onFileSelected($event, 'approvalSecurityAdministrator')">
-                    <button cButton (click)="uploadApprovalSecurityAdministratorDocument()">Upload Document Security Administrator</button>
+                    <button cButton (click)="uploadApprovalSecurityAdministratorDocument()">Upload</button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <button cButton [color]="getStatusColor(approvalTreasury?.approvalStatusTreasury)">
-                      Approval Treasury Status: {{ approvalTreasury?.approvalStatusTreasury }}
+
+                    <button cButton [color]="getStatusColor(approvalTreasury?.approvalTreasuryStatus)">
+                      Approval Treasury Status: {{ approvalTreasury?.approvalTreasuryStatus }}
                     </button>
                   </td>
                   <td>
+
+
+
                     <input type="file" (change)="onFileSelected($event, 'approvalTreasury')">
-                    <button cButton (click)="uploadApprovalTreasuryDocument()">Upload Document Treasury</button>
+                    <button cButton (click)="uploadApprovalTreasuryDocument()">Upload</button>
                     <button (click)="download()">Download PDF</button>
                   </td>
                 </tr>

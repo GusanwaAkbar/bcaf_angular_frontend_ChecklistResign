@@ -11,6 +11,7 @@ export interface IApprovalGeneralServiceGet
     pengembalianKendaraanUMK3: string;
     approvalGeneralServicesStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 export interface IApprovalGeneralServicePost

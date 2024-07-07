@@ -8,6 +8,7 @@ export interface IApprovalHRTalentGet
     approvalHRTalentStatus: string;
     remarks: string;
     approvalAtasan: ApprovalAtasanGet;
+    documentPath: string;
 }
 
 export interface IApprovalHRTalentPost

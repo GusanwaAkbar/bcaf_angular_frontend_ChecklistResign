@@ -12,6 +12,7 @@ export interface IApprovalHRServiceGet
     penonaktifanKartuElektronik: string;
     approvalHRServicesAdminStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 

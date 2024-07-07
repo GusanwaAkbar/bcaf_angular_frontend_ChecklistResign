@@ -8,6 +8,7 @@ import { UserDetail } from 'src/app/models/user-detail';
 import { ApiResponse } from 'src/app/models/api-response';
 import { LoadingService } from 'src/app/services/loading.service';
 import Swal from 'sweetalert2';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-approval-hrpayroll',
@@ -88,4 +89,38 @@ export class ApprovalHRPayrollDetailComponent implements OnInit {
       );
     }
   }
+
+  downloadHRPayrollById() {
+    let id = this.idApproval;
+  
+    this.approvalDepartementService.getApprovalHRPayrollFileUrlbyId(id).subscribe((response: HttpResponse<Blob>) => {
+      if (response.body) {
+        const blob = new Blob([response.body], { type: response.body.type });
+        const url = window.URL.createObjectURL(blob);
+  
+        const a = document.createElement('a');
+        a.href = url;
+  
+        const contentDisposition = response.headers.get('content-disposition');
+        const matches = contentDisposition && contentDisposition.match(/filename="([^;]+)"/);
+        const filename = (matches && matches[1]) ? matches[1] : 'downloaded-file';
+  
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+  
+        setTimeout(() => {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        }, 0);
+      } else {
+        console.error('The response body is null.');
+      }
+    }, error => {
+      console.error('Error downloading file:', error);
+    });
+  }
+  
+
+
 }

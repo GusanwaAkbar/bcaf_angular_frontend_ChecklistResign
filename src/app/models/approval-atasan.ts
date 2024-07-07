@@ -15,6 +15,7 @@ export interface ApprovalAtasanPost {
     uninstallSoftwareUnitKerja: string;
     approvalStatusAtasan: string;
     remarksAtasan: string;
+    documentPath: string;
   }
 
 

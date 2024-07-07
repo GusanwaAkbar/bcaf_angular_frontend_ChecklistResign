@@ -7,6 +7,7 @@ export interface IApprovalHRIRGet
     exitInterview: string;
     approvalHRIRStatus: string;
     remarks: string;
+    documentPath: string;
 }
 
 export interface IApprovalHRIRPost
