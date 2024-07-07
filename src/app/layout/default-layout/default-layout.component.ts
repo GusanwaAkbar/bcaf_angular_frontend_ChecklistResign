@@ -44,6 +44,7 @@ import { AuthService } from 'src/app/services/auth-service.service'; // Ensure t
 })
 export class DefaultLayoutComponent implements OnInit {
   public navItems: any[] = [];
+  public roles: string[] = [];
 
   constructor(private authService: AuthService) {}
 
@@ -55,6 +56,7 @@ export class DefaultLayoutComponent implements OnInit {
   logUserRoles(): void {
     const authorities = this.authService.getUserAuthorities();
     console.log('User roles:', authorities);
+    this.roles = authorities;
   }
 
   

@@ -107,6 +107,7 @@ trackByFn: TrackByFunction<{ name: string; text: string; icon: string; }> | unde
       if (user) {
         this.username = user.username;
         this.nama = user.userDetail?.nama;
+        
       }
     });
   }
