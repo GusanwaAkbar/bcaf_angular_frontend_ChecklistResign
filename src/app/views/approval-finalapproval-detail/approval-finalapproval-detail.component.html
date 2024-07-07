@@ -43,17 +43,39 @@
 </c-card>
 </c-row>
 
+<br>
 
 <c-row>
+
+
   <c-card>
+
+    <c-card-header>
+    <h4>Approval General Service</h4>
+    </c-card-header>
+
+
+
+<c-card-body>
+
     <table class="uniform-table" [striped]="true" cTable>
               <thead cTableColor="dark">
   
                 <tr>
                   <th colspan="2">
-                    <c-card-header>
+                    <!-- <c-card-header>
                       <h5>Approval General Services</h5>
-                    </c-card-header>
+                    </c-card-header> -->
+
+
+ 
+          <c-row> 
+            <c-col><p>Approved By: {{ approvalAtasan.approvedBy }}</p></c-col>
+            <c-col>  <p>Document Path: <a [href]="approvalAtasan.documentPath" target="_blank">{{ approvalAtasan.documentPath }}</a></p></c-col>
+            <c-col>  <p>Approved Date: {{ approvalAtasan.approvedDate | date:'short' }}</p> </c-col>
+            <c-col>   <p>Created Date: {{ approvalAtasan.createdDate | date:'short' }}</p> </c-col> 
+        </c-row>
+   
                   </th>
                 </tr>
   
@@ -157,6 +179,11 @@
           </tbody>
   
         </table>
+
+
+        
+</c-card-body>
+
       </c-card>
 </c-row>
 

@@ -389,7 +389,6 @@ export class ApprovalDepartementService {
 
   getApprovalHRLearningFileUrlbyId(id: number): Observable<HttpResponse<Blob>> {
 
-
     return this.http.get(`${this.apiUrl}/api/approval-hr-learning/download/${id}`, {  responseType: 'blob', observe: 'response' });
   }
 
