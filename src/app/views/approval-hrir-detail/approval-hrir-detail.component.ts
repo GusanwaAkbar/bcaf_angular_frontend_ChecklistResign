@@ -44,6 +44,10 @@ export class ApprovalHRIRDetailComponent implements OnInit {
       this.loadApprovalHRIR(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalHRIR(id: number): void {
@@ -117,6 +121,26 @@ export class ApprovalHRIRDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.exitInterview
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.exitInterview
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalHRIRStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalHRIRStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
 
   
   

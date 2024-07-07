@@ -44,6 +44,10 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
       this.loadApprovalHRLearning(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalHRLearning(id: number): void {
@@ -110,6 +114,25 @@ export class ApprovalHRLearningDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.pengecekanBiayaTraining
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.pengecekanBiayaTraining
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalHRLearningStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalHRLearningStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
   
 
 }

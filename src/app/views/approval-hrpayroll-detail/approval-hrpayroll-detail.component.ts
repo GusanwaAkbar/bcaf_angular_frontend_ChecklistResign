@@ -50,6 +50,10 @@ export class ApprovalHRPayrollDetailComponent implements OnInit {
       this.loadApprovalHRPayroll(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalHRPayroll(id: number): void {
@@ -120,6 +124,36 @@ export class ApprovalHRPayrollDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.softLoan,
+      formValues.emergencyLoan,
+      formValues.smartphoneLoan,
+      formValues.motorLoan,
+      formValues.umkLoan,
+      formValues.laptopLoan
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.softLoan,
+      formValues.emergencyLoan,
+      formValues.smartphoneLoan,
+      formValues.motorLoan,
+      formValues.umkLoan,
+      formValues.laptopLoan
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalHRPayrollStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalHRPayrollStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
   
 
 

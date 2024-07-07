@@ -131,7 +131,7 @@
                   <tr>
                     <th>Approval Treasury Status</th>
                     <td>
-                      <select class="form-control" formControlName="approvalTreasuryStatus">
+                      <select class="form-control" formControlName="approvalTreasuryStatus"  [attr.disabled]="true" [ariaDisabled]="true">
                         <option value="">Pilih Status</option>
                         <option value="accept">Accept</option>
                         <option value="reject">Reject</option>

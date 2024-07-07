@@ -46,6 +46,10 @@ export class ApprovalTreasuryDetailComponent implements OnInit {
       this.loadApprovalAtasan(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalAtasan(id: number): void {
@@ -66,6 +70,30 @@ export class ApprovalTreasuryDetailComponent implements OnInit {
       });
     });
   }
+
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.biayaAdvance,
+      formValues.blokirFleet
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.biayaAdvance,
+      formValues.blokirFleet
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalTreasuryStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalTreasuryStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
+
+
 
   downloadById() {
 

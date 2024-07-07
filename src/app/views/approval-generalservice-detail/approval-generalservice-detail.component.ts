@@ -50,6 +50,10 @@ export class ApprovalGeneralServiceDetailComponent implements OnInit {
       this.loadApprovalGeneralServices(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalGeneralServices(id: number): void {
@@ -119,6 +123,33 @@ export class ApprovalGeneralServiceDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.penutupanPin,
+      formValues.pengembalianKendaraanDinas,
+      formValues.inventarisKantor,
+      formValues.pengembalianAktiva,
+      formValues.pengembalianKendaraanUMK3
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.penutupanPin,
+      formValues.pengembalianKendaraanDinas,
+      formValues.inventarisKantor,
+      formValues.pengembalianAktiva,
+      formValues.pengembalianKendaraanUMK3
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalGeneralServicesStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalGeneralServicesStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
   
 
   

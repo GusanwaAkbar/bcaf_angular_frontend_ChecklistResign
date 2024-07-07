@@ -46,6 +46,12 @@ export class ApprovalHRServiceDetailComponent implements OnInit {
       this.loadApprovalHRServices(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
+
+    
   }
 
   loadApprovalHRServices(id: number): void {
@@ -113,6 +119,30 @@ export class ApprovalHRServiceDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.excessOfClaim,
+      formValues.penyelesaianBiayaHR,
+      formValues.penonaktifanKartuElektronik
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.excessOfClaim,
+      formValues.penyelesaianBiayaHR,
+      formValues.penonaktifanKartuElektronik
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalHRServicesAdminStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalHRServicesAdminStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+  
+  
   
 
 

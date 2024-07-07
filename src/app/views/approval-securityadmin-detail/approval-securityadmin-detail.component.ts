@@ -47,6 +47,10 @@ export class ApprovalSecurityAdminDetailComponent implements OnInit {
       this.loadApprovalSecurityAdmin(id);
       this.idApproval = id;
     });
+
+    this.form.valueChanges.subscribe(() => {
+      this.updateApprovalStatus();
+    });
   }
 
   loadApprovalSecurityAdmin(id: number): void {
@@ -119,6 +123,30 @@ export class ApprovalSecurityAdminDetailComponent implements OnInit {
       console.error('Error downloading file:', error);
     });
   }
+
+  updateApprovalStatus(): void {
+    const formValues = this.form.value;
+  
+    const allFinished = [
+      formValues.permohonanPenutupanUser,
+      formValues.penutupanEmailBCA,
+      formValues.pengembalianToken
+    ].every(value => value === 'selesai' || value === 'tidak ada');
+  
+    const anyPending = [
+      formValues.permohonanPenutupanUser,
+      formValues.penutupanEmailBCA,
+      formValues.pengembalianToken
+    ].some(value => value === 'belum dilakukan');
+  
+    if (allFinished) {
+      this.form.patchValue({ approvalSecurityAdministratorStatus: 'accept' }, { emitEvent: false });
+    } else if (anyPending) {
+      this.form.patchValue({ approvalSecurityAdministratorStatus: 'pending' }, { emitEvent: false });
+    }
+  }
+
+  
   
 
 
