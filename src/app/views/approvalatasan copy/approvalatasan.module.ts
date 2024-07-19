@@ -27,6 +27,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,  ColDirective,  } from '@coreui/angular';
 
+import { BlockUIModule } from 'ng-block-ui';
+
 @NgModule({
   declarations: [ApprovalAtasanComponent],
   imports: [
@@ -56,7 +58,10 @@ import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheck
     ButtonDirective,
     HttpClientModule,
     ApprovalAtasanRoutingModule,
-    ButtonGroupComponent
+    ButtonGroupComponent,
+    BlockUIModule.forRoot(),
+  
+    
     
   ],
   providers: [HttpClientModule]

@@ -1128,39 +1128,44 @@
         <h4>Final Approval Form</h4>
       </c-card-header>
       <c-card-body>
-        <div class="container">
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <table class="table table-bordered">
-              <tbody>
-                <!-- Final Approval Status -->
-                <tr>
-                  <th>Final Approval Status</th>
-                  <td>
-                    <c-button-group role="group" aria-label="Final Approval Status">
-                      <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="accepted" id="finalApprovalStatus1" />
-                      <label class="btn btn-outline-success" for="finalApprovalStatus1">Accepted</label>
-    
-                      <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="rejected" id="finalApprovalStatus2" />
-                      <label class="btn btn-outline-danger" for="finalApprovalStatus2">Rejected</label>
-    
-                      <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="pending" id="finalApprovalStatus3" />
-                      <label class="btn btn-outline-warning" for="finalApprovalStatus3">Pending</label>
-                    </c-button-group>
-                  </td>
-                </tr>
-    
-                <!-- Remarks -->
-                <tr>
-                  <th>Remarks</th>
-                  <td>
-                    <textarea class="form-control" formControlName="remarks"></textarea>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
+        <c-row>
+          <div class="container">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Final Approval Status -->
+                  <tr>
+                    <th>Final Approval Status</th>
+                    <td>
+                      <c-button-group role="group" aria-label="Final Approval Status">
+                        <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="accepted" id="finalApprovalStatus1" />
+                        <label class="btn btn-outline-success" for="finalApprovalStatus1">Accepted</label>
+      
+                        <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="rejected" id="finalApprovalStatus2" />
+                        <label class="btn btn-outline-danger" for="finalApprovalStatus2">Rejected</label>
+      
+                        <input class="btn-check" formControlName="finalApprovalStatus" type="radio" value="pending" id="finalApprovalStatus3" />
+                        <label class="btn btn-outline-warning" for="finalApprovalStatus3">Pending</label>
+                      </c-button-group>
+                    </td>
+                  </tr>
+      
+                  <!-- Remarks -->
+                  <tr>
+                    <th>Remarks</th>
+                    <td>
+                      <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+      </c-row>
+      <!-- <c-row>
+        <button (click)="generatePDF()">Generate PDF</button>
+      </c-row> -->
       </c-card-body>
     </c-card>
     

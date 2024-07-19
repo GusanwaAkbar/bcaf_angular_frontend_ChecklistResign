@@ -6,7 +6,8 @@ import {
   withHashLocation,
   withInMemoryScrolling,
   withRouterConfig,
-  withViewTransitions
+  withViewTransitions,
+
 } from '@angular/router';
 
 import { DropdownModule, SidebarModule } from '@coreui/angular';
@@ -15,6 +16,8 @@ import { routes } from './app.routes';
 import { provideHttpClient, HTTP_INTERCEPTORS, withInterceptors } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { AuthService } from './services/auth-service.service';
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [

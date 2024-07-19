@@ -20,3 +20,16 @@ export interface ApiResponse<T> {
     errorDetails: any;
 
   }
+
+  export interface ApiResponsePage<T> {
+    data: {
+      content: T[];
+      totalPages: number;
+      totalElements: number;
+      size: number;
+      number: number;
+    };
+    success: boolean;
+    message: string;
+    statusCode: number;
+  }

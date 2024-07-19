@@ -1,46 +1,48 @@
 import { HttpInterceptorFn, HttpRequest, HttpHandlerFn, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { catchError, finalize, switchMap } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { AuthService } from './services/auth-service.service';
-import {LoadingService} from './services/loading.service'
+import { LoadingService } from './services/loading.service';
 import { Router } from '@angular/router';
 
 export const TokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
-  const authService = inject(AuthService); // Inject AuthService
-  const router = inject(Router); // Inject Router
-  const loadingService = inject(LoadingService)
+  const authService = inject(AuthService);
+  const router = inject(Router);
+  const loadingService = inject(LoadingService);
 
-  const authToken = localStorage.getItem('token');
+  // Start loading
+  loadingService.setLoading(true);
 
-  loadingService.show();
-
-    // Exclude login request from interception
-    if (req.url.endsWith('/api/auth/signin')) {
-      return next(req);
-    }
-
-  if (authToken) {
-    const authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authToken}`
-      }
-    });
-    return next(authReq).pipe(
-      catchError((error: HttpErrorResponse) => {
-        if (error.status === 403) {
-          authService.logout(); // Handle logout
-          router.navigate(['/login']); // Redirect to login page
-        }
-        return throwError(error);
-      }),
-      finalize(() => loadingService.hide())
+  // Exclude login request from interception
+  if (req.url.endsWith('/api/auth/signin')) {
+    return next(req).pipe(
+      finalize(() => loadingService.setLoading(false))
     );
-  } else {
-    // Optionally, you can redirect to login page or show a message
-    // authService.logout(); // Handle logout or redirection
-    return throwError({ status: 401, message: 'Authentication token is missing' });
   }
+
+  return authService.getToken().pipe(
+    switchMap(token => {
+      if (token) {
+        const authReq = req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        return next(authReq);
+      } else {
+        // If no token, proceed with the original request
+        return next(req);
+      }
+    }),
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 401 || error.status === 403) {
+        // Handle unauthorized or forbidden
+        authService.logout();
+        router.navigate(['/login']);
+      }
+      return throwError(() => error);
+    }),
+    finalize(() => loadingService.setLoading(false))
+  );
 };
-
-

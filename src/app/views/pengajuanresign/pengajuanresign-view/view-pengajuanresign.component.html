@@ -512,7 +512,7 @@
       <h3>Progress Status Approval Detail</h3>
     </c-card-header>
     <c-card-body>
-      <div *ngIf="approvalGeneralServices">
+      <div *ngIf="approvalGeneralServices;else wait">
 
 
 
@@ -1423,6 +1423,8 @@
         </div>
 
       </c-card-body>
+
+      <ng-template #wait>Menunggu Approval Atasan Terlebih Dahulu...</ng-template>
 
     </c-card>
 

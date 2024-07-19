@@ -1,53 +1,72 @@
-// src/app/components/approval-atasan/approval-atasan.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApprovalAtasanService } from '../../services/approval-atasan.service'
-import { ApprovalAtasanGet } from '../../models/approval-atasan';
-import { ApprovalAtasanPost } from '../../models/approval-atasan';
-import { Resignation, ResignationGet } from '../../models/resignation.model';
-import { UserDetail } from '../../models/user-detail';
-import { ApiResponse, ApiResponseList } from '../../models/api-response';
 import { Router } from '@angular/router';
-import {ApprovalDepartementService} from '../../services/approval-departement-service.service'
+import { ApprovalDepartementService } from '../../services/approval-departement-service.service';
 import { IApprovalTreasuryGet } from '../../models/IApprovalTreasury.model';
+import { ApiResponsePage } from '../../models/api-response';
 
 @Component({
-  selector: 'app-approval-atasan',
+  selector: 'app-approval-treasury',
   templateUrl: './approval-treasury-list.component.html',
   styleUrls: ['./approval-treasury-list.component.scss']
 })
 export class ApprovalTreasuryListComponent implements OnInit {
 
-  treasuryApprovals: any[] = [];
+  treasuryApprovals: IApprovalTreasuryGet[] = [];
+  filterForm: FormGroup;
+  currentPage = 0;
+  pageSize = 10;
+  totalItems = 0;
+  totalPages = 0;
 
-
-  constructor(private approvalDepartementService: ApprovalDepartementService,private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private approvalDepartementService: ApprovalDepartementService,
+    private router: Router
+  ) {
+    this.filterForm = this.fb.group({
+      nipKaryawanResign: [''],
+      namaKaryawan: [''],
+      approvalTreasuryStatus: ['']
+    });
+  }
 
   ngOnInit(): void {
     this.getApprovalList();
+    this.filterForm.valueChanges.subscribe(() => {
+      this.currentPage = 0;
+      this.getApprovalList();
+    });
   }
 
   getApprovalList(): void {
-    this.approvalDepartementService.getApprovalTreasuryList().subscribe(
-      (response:ApiResponseList<IApprovalTreasuryGet>) => {
-        this.treasuryApprovals = response.data
-
-        this.treasuryApprovals
-
-        console.log("this treasury data")
-
-        console.log("this approvals")
-        console.log(this.treasuryApprovals)
-
+    const filters = this.filterForm.value;
+    this.approvalDepartementService.getApprovalTreasuryListV2(
+      this.currentPage,
+      this.pageSize,
+      filters.nipKaryawanResign,
+      filters.namaKaryawan,
+      filters.approvalTreasuryStatus
+    ).subscribe(
+      (response: ApiResponsePage<IApprovalTreasuryGet>) => {
+        this.treasuryApprovals = response.data.content;
+        this.totalItems = response.data.totalElements;
+        this.totalPages = response.data.totalPages;
       },
-      (      error: any) => {
+      (error: any) => {
         console.error('Error fetching approval list', error);
       }
     );
   }
 
-  viewApproval(id: number): void {
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.getApprovalList();
+  }
+
+  
+
+  viewApproval(id: string): void {
     this.router.navigate(['/approval-treasury/view/', id]);
   }
 }

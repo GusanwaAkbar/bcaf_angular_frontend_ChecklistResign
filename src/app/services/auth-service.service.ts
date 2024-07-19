@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { Observable, BehaviorSubject, throwError, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/api-response';
@@ -21,6 +21,10 @@ export class AuthService {
 
   public get currentUserValue(): any {
     return this.currentUserSubject.value;
+  }
+
+  getToken(): Observable<string | null> {
+    return of(localStorage.getItem('token'));
   }
 
   login(username: string, password: string): Observable<any> {
@@ -67,6 +71,6 @@ export class AuthService {
     } else {
       errorMsg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(errorMsg);
+    return throwError(() => new Error(errorMsg));
   }
 }

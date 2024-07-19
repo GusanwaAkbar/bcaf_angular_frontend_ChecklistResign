@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { ApiResponse } from '../models/api-response';
+import { ApiResponse, ApiResponsePage } from '../models/api-response';
 import {IApprovalTreasuryGet, IApprovalTreasuryPost} from '../models/IApprovalTreasury.model'
 
 
@@ -50,6 +50,31 @@ export class ApprovalDepartementService {
 
 
     return this.http.get(`${this.apiUrl}/api/approval-treasury/download/${id}`, {  responseType: 'blob', observe: 'response' });
+  }
+
+
+  getApprovalTreasuryListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalTreasuryStatus?: string
+  ): Observable<ApiResponsePage<IApprovalTreasuryGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalTreasuryStatus) {
+      params = params.set('approvalTreasuryStatus', approvalTreasuryStatus);
+    }
+
+    return this.http.get<ApiResponsePage<IApprovalTreasuryGet>>(`${this.apiUrl}/api/approval-treasury/V2`, { params });
   }
 
 

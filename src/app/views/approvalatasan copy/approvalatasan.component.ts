@@ -8,6 +8,8 @@ import { ResignationGet } from '../../models/resignation.model';
 import { UserDetail } from '../../models/user-detail';
 import { LoadingService } from 'src/app/services/loading.service';
 import Swal from 'sweetalert2';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
+
 
 @Component({
   selector: 'app-approval-atasan',
@@ -22,6 +24,8 @@ export class ApprovalAtasanComponent implements OnInit {
   userDetailAtasan!: UserDetail;
   userDetailResign!: UserDetail;
   idApproval!: number;
+
+  @BlockUI() blockUI!: NgBlockUI;
 
   isLoading$ = this.loadingService.loading$;
 
@@ -59,6 +63,8 @@ export class ApprovalAtasanComponent implements OnInit {
     this.form.valueChanges.subscribe(() => {
       this.updateApprovalStatus();
     });
+
+    
   }
 
   loadApprovalAtasan(id: number): void {

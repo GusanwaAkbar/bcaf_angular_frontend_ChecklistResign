@@ -2,6 +2,8 @@ import { Resignation, ResignationGet } from "./resignation.model";
 import { ApprovalAtasanGet } from "./approval-atasan";
 
 export interface IApprovalTreasuryGet {
+nipKaryawanResign: any;
+namaKaryawan: any;
 
 
     id: string;
