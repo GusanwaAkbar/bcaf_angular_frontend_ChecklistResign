@@ -1,7 +1,16 @@
 <c-container>
   <c-card>
     <c-card-header>
-      <h3>Final Approval Summary</h3>
+      <c-row>
+          <c-col lg="10">
+            <h3>Final Approval Summary</h3>
+          </c-col>
+
+          <c-col lg="2">
+              <button class="btn btn-primary" (click)="generatePDF()">Generate Report</button>
+          </c-col>
+      </c-row>
+     
     </c-card-header>
     <c-card-body>
 
@@ -1167,9 +1176,7 @@
         <button (click)="generatePDF()">Generate PDF</button>
       </c-row> -->
 
-      <c-row>
-        <button cButton color="primary" (click)="generatePDF()">Primary</button>
-      </c-row>
+
 
 
       </c-card-body>
