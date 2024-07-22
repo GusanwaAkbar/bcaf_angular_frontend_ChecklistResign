@@ -18,6 +18,8 @@ export class ApprovalTreasuryListComponent implements OnInit {
   pageSize = 10;
   totalItems = 0;
   totalPages = 0;
+  sortBy = 'createdDate'; // Default sort field
+  sortDirection = 'desc'; // Default sort direction
 
   constructor(
     private fb: FormBuilder,
@@ -46,7 +48,9 @@ export class ApprovalTreasuryListComponent implements OnInit {
       this.pageSize,
       filters.nipKaryawanResign,
       filters.namaKaryawan,
-      filters.approvalTreasuryStatus
+      filters.approvalTreasuryStatus,
+      this.sortBy,
+      this.sortDirection
     ).subscribe(
       (response: ApiResponsePage<IApprovalTreasuryGet>) => {
         this.treasuryApprovals = response.data.content;
@@ -64,7 +68,15 @@ export class ApprovalTreasuryListComponent implements OnInit {
     this.getApprovalList();
   }
 
-  
+  onSort(column: string): void {
+    if (this.sortBy === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortBy = column;
+      this.sortDirection = 'asc';
+    }
+    this.getApprovalList();
+  }
 
   viewApproval(id: string): void {
     this.router.navigate(['/approval-treasury/view/', id]);

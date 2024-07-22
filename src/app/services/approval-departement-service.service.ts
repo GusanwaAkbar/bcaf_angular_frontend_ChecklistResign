@@ -58,12 +58,14 @@ export class ApprovalDepartementService {
     size: number,
     nipKaryawanResign?: string,
     namaKaryawan?: string,
-    approvalTreasuryStatus?: string
+    approvalTreasuryStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
   ): Observable<ApiResponsePage<IApprovalTreasuryGet>> {
     let params = new HttpParams()
       .set('page', page.toString())
       .set('size', size.toString());
-
+  
     if (nipKaryawanResign) {
       params = params.set('nipKaryawanResign', nipKaryawanResign);
     }
@@ -73,7 +75,13 @@ export class ApprovalDepartementService {
     if (approvalTreasuryStatus) {
       params = params.set('approvalTreasuryStatus', approvalTreasuryStatus);
     }
-
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
     return this.http.get<ApiResponsePage<IApprovalTreasuryGet>>(`${this.apiUrl}/api/approval-treasury/V2`, { params });
   }
 

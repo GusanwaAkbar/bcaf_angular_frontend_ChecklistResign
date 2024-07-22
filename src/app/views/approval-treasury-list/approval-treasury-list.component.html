@@ -8,11 +8,9 @@
         <c-col class="d-none d-md-block" sm="5">
           <form [formGroup]="filterForm">
             <c-button-group aria-label="Basic radio toggle button group" role="group">
-              <input class="btn-check" formControlName="approvalTreasuryStatus" type="radio" value="" id="radioAll" />
-              <label cButton cFormCheckLabel variant="outline" for="radioAll">All</label>
-              
+ 
               <input class="btn-check" formControlName="approvalTreasuryStatus" type="radio" value="null" id="radioNull" />
-              <label cButton cFormCheckLabel variant="outline" for="radioNull">Status Null</label>
+              <label cButton cFormCheckLabel variant="outline" for="radioNull">Status Baru</label>
         
               <input class="btn-check" formControlName="approvalTreasuryStatus" type="radio" value="pending" id="radioPending" />
               <label cButton cFormCheckLabel variant="outline" for="radioPending">Status Pending</label>
@@ -52,14 +50,14 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Nama User</th>
-                  <th>NIP</th>
-                  <th>Cabang</th>
-                  <th>Divisi</th>
-                  <th>Jabatan</th>
-                  <th>Tgl Berakhir Bekerja</th>
-                  <th>Status</th>
+                  <th (click)="onSort('id')">No</th>
+                  <th (click)="onSort('namaKaryawan')">Nama User</th>
+                  <th (click)="onSort('nipKaryawanResign')">NIP</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.cabang')">Cabang</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.divisi')">Divisi</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.jabatan')">Jabatan</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.tanggalBerakhirBekerja')">Tgl Berakhir Bekerja</th>
+                  <th (click)="onSort('approvalTreasuryStatus')">Status</th>
                   <th>View Resignation</th>
                 </tr>
               </thead>
