@@ -1,55 +1,104 @@
 <div class="container mt-5">
 
-
-  
-
-  <h2>Approval List</h2>
   <c-card>
     <c-card-header>
-      List Karyawan Resign
+      <c-row>
+        <c-col class="d-none d-md-block" sm="6">
+          <h3>Approval General Service List</h3>
+        </c-col>
+        <c-col class="d-none d-md-block" sm="6">
+          <form [formGroup]="filterForm">
+            <c-button-group aria-label="Basic radio toggle button group" role="group">
+              
+
+              <input class="btn-check" formControlName="approvalGeneralServiceStatus" type="radio" value="null" id="radioNull" checked />
+              <label cButton cFormCheckLabel variant="outline" for="radioNull">Approval Baru</label>
+              <input class="btn-check" formControlName="approvalGeneralServiceStatus" type="radio" value="pending" id="radioPending" />
+              <label cButton cFormCheckLabel variant="outline" for="radioPending">Approval Pending</label>
+              <input class="btn-check" formControlName="approvalGeneralServiceStatus" type="radio" value="accept" id="radioAccepted" />
+              <label cButton cFormCheckLabel variant="outline" for="radioAccepted">Approval Accepted</label>
+
+              <input class="btn-check" formControlName="approvalGeneralServiceStatus" type="radio" value="" id="radioAll" />
+              <label cButton cFormCheckLabel variant="outline" for="radioAll">All</label>
+              
+            </c-button-group>
+          </form>
+        </c-col>
+      </c-row>
     </c-card-header>
 
     <c-card-body>
-      <table class="table table-hover table-striped">
-        <thead>
-          <tr>
-            <th>No</th>
-    
-            <th>Nama User</th>
-            <th>Cabang</th>
-            <th>Divisi</th>
-            <th>Jabatan</th>
-            <!-- <th>Email Aktif</th> -->
-            <th>Nomer WA</th>
-            <th>Tgl Berakhir Bekerja</th>
-            <th> View Resignation </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let approval of GeneralServiceApprovals; let i = index">
-            <td>{{ i + 1 }}</td>
-      
-            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.nama}}</td>
-            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.cabang }}</td>
-            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.divisi }}</td>
-            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.jabatan }}</td>
-            <!-- <td>{{ approval.pengajuanResign.userDetailResign.emailAktif }}</td> -->
-            <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.nomerWA }}</td>
-            <td>{{ approval.approvalAtasan.pengajuanResign.tanggalBerakhirBekerja }}</td>
+      <c-row>
+        <c-card>
+          <c-card-header>
+            <c-row>
+              <c-col md="5">
+                <h5>List Karyawan Resign</h5>
+              </c-col>
+              <c-col md="7">
+                <form [formGroup]="filterForm">
+                  <c-row>
+                    <c-input-group class="mb-3 d-flex align-items-center">
+                      <h6 class="mb-0 mr-2"> Search: &nbsp; </h6>
+                      <input cFormControl placeholder="NIP Karyawan" formControlName="nipKaryawanResign" class="mr-2">
+                      <input cFormControl placeholder="Nama Karyawan" formControlName="namaKaryawan">
+                    </c-input-group>
+                  </c-row>
+                </form>
+              </c-col>
+            </c-row>
+          </c-card-header>
 
-            
-            <td>
-              <button class="btn btn-primary" (click)="viewApproval(approval.id)">View</button>
-            </td>
+          <c-card-body>
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th (click)="onSort('id')">No</th>
+                  <th (click)="onSort('namaKaryawan')">Nama User</th>
+                  <th (click)="onSort('nipKaryawanResign')">NIP</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.cabang')">Cabang</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.divisi')">Divisi</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.jabatan')">Jabatan</th>
+                  <th (click)="onSort('approvalAtasan.pengajuanResign.tanggalBerakhirBekerja')">Tgl Berakhir Bekerja</th>
+                  <th (click)="onSort('approvalGeneralServiceStatus')">Status</th>
+                  <th>View Resignation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let approval of GeneralServiceApprovals; let i = index">
+                  <td>{{ i + 1 + (currentPage * pageSize) }}</td>
+                  <td>{{ approval.namaKaryawan }}</td>
+                  <td>{{ approval.nipKaryawanResign }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.cabang }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.divisi }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.jabatan }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.tanggalBerakhirBekerja }}</td>
+                  <td>{{ approval.approvalGeneralServicesStatus }}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="viewApproval(approval.id)">View</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-          </tr>
-        </tbody>
-      </table>
+            <!-- Pagination -->
+            <c-row class="justify-content-center">
+              <c-pagination aria-label="Page navigation example">
+                <li cPageItem [disabled]="currentPage === 0">
+                  <a cPageLink (click)="onPageChange(currentPage - 1)">&lt; Previous</a>
+                </li>
+                <li cPageItem *ngFor="let page of [].constructor(totalPages); let i = index" 
+                    [active]="i === currentPage">
+                  <a cPageLink (click)="onPageChange(i)">{{ i + 1 }}</a>
+                </li>
+                <li cPageItem [disabled]="currentPage === totalPages - 1">
+                  <a cPageLink (click)="onPageChange(currentPage + 1)">Next &gt;</a>
+                </li>
+              </c-pagination>
+            </c-row>
+          </c-card-body>
+        </c-card>
+      </c-row>
     </c-card-body>
-
-
   </c-card>
-
-
- 
 </div>

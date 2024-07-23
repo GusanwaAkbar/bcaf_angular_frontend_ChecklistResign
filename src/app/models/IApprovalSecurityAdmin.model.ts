@@ -2,8 +2,11 @@ import { ApprovalAtasanGet } from "./approval-atasan";
 
 export interface IApprovalSecurityAdminGet
 {
+[x: string]: any;
+nipKaryawanResign: any;
 
     id: number;
+    namaKaryawan: string;
     approvalAtasan: ApprovalAtasanGet;
     permohonanPenutupanUser: string;
     penutupanEmailBCA: string;

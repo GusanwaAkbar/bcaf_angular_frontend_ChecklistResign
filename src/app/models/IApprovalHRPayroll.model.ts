@@ -1,6 +1,8 @@
 import { ApprovalAtasanGet } from "./approval-atasan"
 
 export interface IApprovalHRPayrollGet {
+nipKaryawanResign: any;
+namaKaryawan: any;
 
     id: number;
     approvalAtasan: ApprovalAtasanGet;

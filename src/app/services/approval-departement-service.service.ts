@@ -4,6 +4,12 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiResponse, ApiResponsePage } from '../models/api-response';
 import {IApprovalTreasuryGet, IApprovalTreasuryPost} from '../models/IApprovalTreasury.model'
+import { IApprovalHRServiceGet } from '../models/IApprovalHRService.model';
+import { IApprovalSecurityAdminGet } from '../models/IApprovalSecurityAdmin.model';
+import { IApprovalHRTalentGet } from '../models/IApprovalHRTalent.model';
+import { IApprovalHRLearningGet } from '../models/IApprovalHRLearning.model';
+import { IApprovalHRPayrollGet } from '../models/IApprovalHRPayroll.model';
+import { IApprovalGeneralServiceGet } from '../models/IApprovalGeneralService.model';
 
 
 @Injectable({
@@ -84,6 +90,9 @@ export class ApprovalDepartementService {
   
     return this.http.get<ApiResponsePage<IApprovalTreasuryGet>>(`${this.apiUrl}/api/approval-treasury/V2`, { params });
   }
+
+
+  
 
 
   // buat service post document ke service departement lain
@@ -453,6 +462,283 @@ export class ApprovalDepartementService {
 
     return this.http.put<any>(`${this.apiUrl}/api/final-approval/${id}`, data)
   }
+
+
+
+  // -------========================------------
+
+
+  getApprovalHRPayrollListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalHRPayrollStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalHRPayrollGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalHRPayrollStatus) {
+      params = params.set('approvalHRPayrollStatus', approvalHRPayrollStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<any>>(`${this.apiUrl}/api/approval-hr-payroll/V2`, { params });
+  }
+
+
+  getApprovalHRIRListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalHRIRStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalTreasuryGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalHRIRStatus) {
+      params = params.set('approvalHRIRStatus', approvalHRIRStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<any>>(`${this.apiUrl}/api/approval-hr-ir/V2`, { params });
+  }
+
+
+  getApprovalGeneralServiceListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalGeneralServiceStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalGeneralServiceGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalGeneralServiceStatus) {
+      params = params.set('approvalGeneralServicesStatus', approvalGeneralServiceStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<IApprovalGeneralServiceGet>>(`${this.apiUrl}/api/approval-general-services/V2`, { params });
+  }
+
+
+  getApprovalHRServicesAdminListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalHRServicesAdminStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalHRServiceGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalHRServicesAdminStatus) {
+      params = params.set('approvalHRServicesAdminStatus', approvalHRServicesAdminStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<IApprovalHRServiceGet>>(`${this.apiUrl}/api/approval-hr-services-admin/V2`, { params });
+  }
+
+
+  getApprovalSecurityAdministratorListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalSecurityAdministratorStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalSecurityAdminGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalSecurityAdministratorStatus) {
+      params = params.set('approvalSecurityAdministratorStatus', approvalSecurityAdministratorStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<IApprovalSecurityAdminGet>>(`${this.apiUrl}/api/approval-security-administrator/V2`, { params });
+  }
+  
+  
+
+  getApprovalHRTalentListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalHRTalentStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalHRTalentGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalHRTalentStatus) {
+      params = params.set('approvalHRTalentStatus', approvalHRTalentStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<IApprovalHRTalentGet>>(`${this.apiUrl}/api/approval-hr-talent/V2`, { params });
+  }
+
+
+
+  getApprovalHRLearningListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalHRLearningStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<IApprovalHRLearningGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalHRLearningStatus) {
+      params = params.set('approvalHRLearningStatus', approvalHRLearningStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<IApprovalHRLearningGet>>(`${this.apiUrl}/api/approval-hr-learning/V2`, { params });
+  }
+
+
+
+  getApprovalFinalApprovalListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalFinalApprovalStatus?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<any>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalFinalApprovalStatus) {
+      params = params.set('approvalFinalApprovalStatus', approvalFinalApprovalStatus);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<any>>(`${this.apiUrl}/api/approval-final-approval/V2`, { params });
+  }
+  
+  
+  
+  
+  
+  
 
   
   

@@ -4,6 +4,8 @@ import { UserDetail } from "./user-detail";
 
 export interface IApprovalHRServiceGet
 {
+namaKaryawan: any;
+nipKaryawanResign: any;
 
     id: number;
     approvalAtasan: ApprovalAtasanGet;

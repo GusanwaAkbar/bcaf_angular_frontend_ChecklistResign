@@ -2,6 +2,8 @@ import { ApprovalAtasanGet } from "./approval-atasan";
 
 export interface IApprovalHRTalentGet
 {
+namaKaryawan: any;
+nipKaryawanResign: any;
 
     id: number;
     pengecekanBiaya: string;

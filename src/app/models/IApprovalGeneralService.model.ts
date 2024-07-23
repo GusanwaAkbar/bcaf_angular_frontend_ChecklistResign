@@ -2,6 +2,8 @@ import { ApprovalAtasanGet } from "./approval-atasan";
 
 export interface IApprovalGeneralServiceGet 
 {
+nipKaryawanResign: any;
+namaKaryawan: any;
     id: number;
     approvalAtasan: ApprovalAtasanGet;
     penutupanPin: string;

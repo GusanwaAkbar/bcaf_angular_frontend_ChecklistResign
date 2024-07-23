@@ -1,55 +1,84 @@
-// src/app/components/approval-atasan/approval-atasan.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApprovalAtasanService } from '../../services/approval-atasan.service'
-import { ApprovalAtasanGet } from '../../models/approval-atasan';
-import { ApprovalAtasanPost } from '../../models/approval-atasan';
-import { Resignation, ResignationGet } from '../../models/resignation.model';
-import { UserDetail } from '../../models/user-detail';
-import { ApiResponse, ApiResponseList } from '../../models/api-response';
 import { Router } from '@angular/router';
-import {ApprovalDepartementService} from '../../services/approval-departement-service.service'
-import { IApprovalTreasuryGet } from '../../models/IApprovalTreasury.model';
+import { ApprovalDepartementService } from '../../services/approval-departement-service.service';
 import { IApprovalSecurityAdminGet } from '../../models/IApprovalSecurityAdmin.model';
-//import { IApprovalSecurityAdminGet } from '../../models/IApprovalSecurityAdmin.model';
+import { ApiResponsePage } from '../../models/api-response';
 
 @Component({
-  selector: 'app-approval-atasan',
+  selector: 'app-approval-securityadmin',
   templateUrl: './approval-securityadmin-list.component.html',
   styleUrls: ['./approval-securityadmin-list.component.scss']
 })
 export class ApprovalSecurityAdminListComponent implements OnInit {
 
-  SecurityAdminApprovals: any[] = [];
+  securityAdminApprovals: IApprovalSecurityAdminGet[] = [];
+  filterForm: FormGroup;
+  currentPage = 0;
+  pageSize = 10;
+  totalItems = 0;
+  totalPages = 0;
+  sortBy = 'createdDate'; // Default sort field
+  sortDirection = 'desc'; // Default sort direction
 
-
-  constructor(private approvalDepartementService: ApprovalDepartementService,private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private approvalDepartementService: ApprovalDepartementService,
+    private router: Router
+  ) {
+    this.filterForm = this.fb.group({
+      nipKaryawanResign: [''],
+      namaKaryawan: [''],
+      approvalSecurityAdminStatus: ['null']
+    });
+  }
 
   ngOnInit(): void {
     this.getApprovalList();
+    this.filterForm.valueChanges.subscribe(() => {
+      this.currentPage = 0;
+      this.getApprovalList();
+    });
   }
 
   getApprovalList(): void {
-    this.approvalDepartementService.getApprovalSecurityAdminList().subscribe(
-      (response:ApiResponseList<IApprovalSecurityAdminGet>) => {
-        this.SecurityAdminApprovals = response.data
-
-        this.SecurityAdminApprovals
-
-        console.log("this treasury data")
-
-        console.log("this approvals")
-        console.log(this.SecurityAdminApprovals)
-
+    const filters = this.filterForm.value;
+    this.approvalDepartementService.getApprovalSecurityAdministratorListV2(
+      this.currentPage,
+      this.pageSize,
+      filters.nipKaryawanResign,
+      filters.namaKaryawan,
+      filters.approvalSecurityAdminStatus,
+      this.sortBy,
+      this.sortDirection
+    ).subscribe(
+      (response: any) => {
+        this.securityAdminApprovals = response.data.content;
+        this.totalItems = response.data.totalElements;
+        this.totalPages = response.data.totalPages;
       },
-      (      error: any) => {
+      (error: any) => {
         console.error('Error fetching approval list', error);
       }
     );
   }
 
-  viewApproval(id: number): void {
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.getApprovalList();
+  }
+
+  onSort(column: string): void {
+    if (this.sortBy === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortBy = column;
+      this.sortDirection = 'asc';
+    }
+    this.getApprovalList();
+  }
+
+  viewApproval(id: any): void {
     this.router.navigate(['/approval-securityadmin/view/', id]);
   }
 }
