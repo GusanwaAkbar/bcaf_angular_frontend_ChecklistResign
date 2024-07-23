@@ -22,6 +22,7 @@ export interface ApiResponse<T> {
   }
 
   export interface ApiResponsePage<T> {
+    totalItems: number;
     data: {
       content: T[];
       totalPages: number;

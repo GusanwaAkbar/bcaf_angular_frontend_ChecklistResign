@@ -20,7 +20,8 @@ import {
   InputGroupTextDirective,
   FormControlDirective,
   ButtonDirective,
-  ButtonGroupComponent
+  ButtonGroupComponent,
+  PaginationModule
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -60,7 +61,8 @@ import { RouterLink } from '@angular/router';
     ButtonGroupComponent,
     RouterLink,
     CardHeaderComponent,
-    CardBodyComponent
+    CardBodyComponent,
+    PaginationModule
     
     
   ],

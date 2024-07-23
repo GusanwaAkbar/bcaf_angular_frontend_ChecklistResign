@@ -20,6 +20,8 @@ export interface ApprovalAtasanPost {
 
 
   export interface ApprovalAtasanGet {
+namaKaryawan: any;
+nipKaryawanResign: any;
     id: number;
     nipAtasan: string;
     emailAtasan: string;
