@@ -12,6 +12,11 @@ export interface Resignation {
 
 
   export interface ResignationGet {
+approvedDateFinal: string|number|Date;
+approvedDateAllDepartement: string|number|Date;
+approvedDateAtasan: string|number|Date;
+approvedDateDepartement: string|number|Date;
+nipUser: any;
 approvalAtasan: any;
 createdDate: any;
 approvedDate: any;

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PengajuanResignListComponent } from './pengajuanresign-list.component';
-import { ApprovalAtasanListRoutingModule } from './pengajuanresign-list-routing.module';
+import { PengajuanResignDetailComponent } from './pengajuanresign-detail.component';
+import { PengajuanResignDetailRoutingModule } from './pengajuanresign-detail-routing.module'
 import { NgStyle } from '@angular/common';
 import { IconDirective } from '@coreui/icons-angular';
 
@@ -20,17 +20,18 @@ import {
   InputGroupTextDirective,
   FormControlDirective,
   ButtonDirective,
-  ButtonGroupComponent,
-  PaginationModule
+  TableModule,
+  ButtonModule,
+  ButtonGroupModule
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective,  ColDirective,  } from '@coreui/angular';
-import { RouterLink } from '@angular/router';
+import { ButtonGroupsComponent } from '../../buttons/button-groups/button-groups.component';
 
 @NgModule({
-  declarations: [PengajuanResignListComponent],
+  declarations: [PengajuanResignDetailComponent],
   imports: [
     
     CommonModule,
@@ -57,17 +58,14 @@ import { RouterLink } from '@angular/router';
     FormControlDirective,
     ButtonDirective,
     HttpClientModule,
-    ApprovalAtasanListRoutingModule,
-    ButtonGroupComponent,
-    RouterLink,
-    CardHeaderComponent,
-    CardBodyComponent,
-    PaginationModule,
-    IconDirective,
-    
-    
+    PengajuanResignDetailRoutingModule,
+    TableModule,
+    ButtonGroupsComponent,
+    ButtonDirective,
+    ButtonGroupModule
+
     
   ],
   providers: [HttpClientModule]
 })
-export class PengajuanResignListModule { }
+export class PengajuanResignDetailModule { }

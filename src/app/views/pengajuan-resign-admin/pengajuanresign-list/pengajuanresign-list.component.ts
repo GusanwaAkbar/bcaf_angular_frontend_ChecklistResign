@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { LoadingService } from '../../../services/loading.service';
 import { ResignationService } from 'src/app/services/resignation.service';
 import { ResignationGet } from 'src/app/models/resignation.model';
+import { cilSwapVertical } from '@coreui/icons';
 
 @Component({
   selector: 'app-approval-atasan',
@@ -24,6 +25,7 @@ export class PengajuanResignListComponent implements OnInit {
   totalPages: number = 0;
   sortBy: string = 'namaKaryawan';
   sortDirection: string = 'asc';
+   icons = { cilSwapVertical };
 
   constructor(
     private pengajuanResignService: ResignationService,
@@ -70,8 +72,8 @@ export class PengajuanResignListComponent implements OnInit {
     );
   }
 
-  viewApproval(id: number): void {
-    this.router.navigate(['/approval-atasan/view/', id]);
+  viewApproval(nipKaryawan: string): void {
+    this.router.navigate(['/admin-pengajuanresign-list/view/', nipKaryawan]);
   }
 
   onFilter(): void {
