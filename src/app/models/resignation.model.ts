@@ -12,6 +12,12 @@ export interface Resignation {
 
 
   export interface ResignationGet {
+approvalAtasan: any;
+createdDate: any;
+approvedDate: any;
+pengajuanResign: any;
+nipKaryawanResign: any;
+namaKaryawan: any;
     id: number;
     isiUntukOrangLain: boolean;
     tanggalPembuatanAkunHRIS: string;

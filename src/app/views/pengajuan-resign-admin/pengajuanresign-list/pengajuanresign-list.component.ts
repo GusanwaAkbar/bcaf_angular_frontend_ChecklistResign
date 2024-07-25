@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApprovalAtasanService } from '../../services/approval-atasan.service';
-import { ApprovalAtasanGet } from '../../models/approval-atasan';
-import { ApiResponsePage } from 'src/app/models/api-response';
+import { ApprovalAtasanService } from '../../../services/approval-atasan.service';
+import { ApprovalAtasanGet } from '../../../models/approval-atasan';
+import { ApiResponsePage } from '../../../models/api-response';
 import { Router } from '@angular/router';
-import { LoadingService } from 'src/app/services/loading.service';
+import { LoadingService } from '../../../services/loading.service';
+import { ResignationService } from 'src/app/services/resignation.service';
+import { ResignationGet } from 'src/app/models/resignation.model';
 
 @Component({
   selector: 'app-approval-atasan',
-  templateUrl: './approvalatasan-list.component.html',
-  styleUrls: ['./approvalatasan-list.component.scss']
+  templateUrl: './pengajuanresign-list.component.html',
+  styleUrls: ['./pengajuanresign-list.component.scss']
 })
-export class ApprovalAtasanListComponent implements OnInit {
-  approvals: ApprovalAtasanGet[] = [];
-  
-  
+export class PengajuanResignListComponent implements OnInit {
+  approvals: ResignationGet[] = [];
+  //username: string = '20000022'; // Example username, you can change as needed
   isLoading$ = this.loadingService.loading$;
   filterForm: FormGroup;
   currentPage: number = 0;
-  pageSize: number = 5;
+  pageSize: number = 10;
   totalItems: number = 0;
   totalPages: number = 0;
   sortBy: string = 'namaKaryawan';
   sortDirection: string = 'asc';
 
   constructor(
-    private approvalAtasanService: ApprovalAtasanService,
+    private pengajuanResignService: ResignationService,
     private router: Router,
     private loadingService: LoadingService,
     private fb: FormBuilder
@@ -48,7 +49,7 @@ export class ApprovalAtasanListComponent implements OnInit {
 
   getApprovalList(): void {
     const { nipKaryawanResign, namaKaryawan, approvalStatusAtasan } = this.filterForm.value;
-    this.approvalAtasanService.getApprovalAtasanListV2(
+    this.pengajuanResignService.getResignationListV2(
       this.currentPage,
       this.pageSize,
       nipKaryawanResign,
@@ -57,7 +58,7 @@ export class ApprovalAtasanListComponent implements OnInit {
       this.sortBy,
       this.sortDirection
     ).subscribe(
-      (response: ApiResponsePage<ApprovalAtasanGet>) => {
+      (response: ApiResponsePage<ResignationGet>) => {
         console.log('Service Response:', response); // Log the response to check its structure
         this.approvals = response.data.content; // Ensure this is an array
         this.totalItems = response.data.totalElements;

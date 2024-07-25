@@ -3,7 +3,7 @@
     <c-card-header>
       <c-row>
         <c-col class="d-none d-md-block" sm="6">
-          <h3>Approval Atasan List</h3>
+          <h3>List Pengajuan Resign</h3>
         </c-col>
         <c-col class="d-none d-md-block" sm="6">
           <form [formGroup]="filterForm">
@@ -58,7 +58,7 @@
                   <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.divisi')">Divisi</th>
                   <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.jabatan')">Jabatan</th>
                   <th (click)="onSort('approvalAtasan.pengajuanResign.tanggalBerakhirBekerja')">Tgl Berakhir Bekerja</th>
-                  <th (click)="onSort('approvalAtasanStatus')">Status</th>
+                  <th (click)="onSort('approvalStatusAtasan')">Status</th>
                   <th>View Resignation</th>
                 </tr>
               </thead>
@@ -67,39 +67,40 @@
                   <td>{{ i + 1 + (currentPage * pageSize) }}</td>
                   <td>{{ approval.namaKaryawan }}</td>
                   <td>{{ approval.nipKaryawanResign }}</td>
-                  <td>{{ approval.pengajuanResign.userDetailResign.cabang }}</td>
-                  <td>{{ approval.pengajuanResign.userDetailResign.divisi }}</td>
-                  <td>{{ approval.pengajuanResign.userDetailResign.jabatan }}</td>
-                  <td>{{ approval.pengajuanResign.tanggalBerakhirBekerja }}</td>
-                  <td>{{ approval.approvalStatusAtasan }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.cabang }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.divisi }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.jabatan }}</td>
+                  <td>{{ approval.approvalAtasan.pengajuanResign.tanggalBerakhirBekerja }}</td>
+                  <td>{{ approval.approvedDate }}</td>
                   <td>
-                    <button class="btn btn-primary" (click)="viewApproval(approval.id)">View</button>
+                    <button cButton type="button" color="primary" (click)="viewApproval(approval.id)">
+                      View
+                    </button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </c-card-body>
-
-            <c-card-footer>
-            <!-- Pagination -->
-            <c-row class="justify-content-center">
-              <c-pagination aria-label="Page navigation example">
-                <li cPageItem [disabled]="currentPage === 0">
-                  <a cPageLink (click)="onPageChange(currentPage - 1)">&lt; Previous</a>
-                </li>
-                <li cPageItem *ngFor="let page of [].constructor(totalPages); let i = index" 
-                    [active]="i === currentPage">
-                  <a cPageLink (click)="onPageChange(i)">{{ i + 1 }}</a>
-                </li>
-                <li cPageItem [disabled]="currentPage === totalPages - 1">
-                  <a cPageLink (click)="onPageChange(currentPage + 1)">Next &gt;</a>
-                </li>
-              </c-pagination>
-            </c-row>
-
-        </c-card-footer>
         </c-card>
       </c-row>
     </c-card-body>
+
+
+      <c-row class="justify-content-center">
+        <c-pagination aria-label="Page navigation example">
+          <li cPageItem [disabled]="currentPage === 0">
+            <a cPageLink (click)="onPageChange(currentPage - 1)">&lt; Previous</a>
+          </li>
+          <li cPageItem *ngFor="let page of [].constructor(totalPages); let i = index" 
+              [active]="i === currentPage">
+            <a cPageLink (click)="onPageChange(i)">{{ i + 1 }}</a>
+          </li>
+          <li cPageItem [disabled]="currentPage === totalPages - 1">
+            <a cPageLink (click)="onPageChange(currentPage + 1)">Next &gt;</a>
+          </li>
+        </c-pagination>
+        </c-row>
+
+
   </c-card>
 </c-container>

@@ -731,7 +731,50 @@ export class ApprovalDepartementService {
       params = params.set('sortDirection', sortDirection);
     }
   
-    return this.http.get<ApiResponsePage<any>>(`${this.apiUrl}/api/approval-final-approval/V2`, { params });
+    return this.http.get<ApiResponsePage<any>>(`${this.apiUrl}/api/final-approval/V2`, { params });
+  }
+
+
+  // Tracking Service
+
+  getApprovalGeneralServicesByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-general-services/${nipKaryawan}`);
+  }
+
+  getApprovalHRIRByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-hr-ir/${nipKaryawan}`);
+  }
+
+  getApprovalHRLearningByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-hr-learning/${nipKaryawan}`);
+  }
+
+  getApprovalHRPayrollByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-hr-payroll/${nipKaryawan}`);
+  }
+
+  getApprovalHRServicesAdminByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-hr-services-admin/${nipKaryawan}`);
+  }
+
+  getApprovalHRTalentByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-hr-talent/${nipKaryawan}`);
+  }
+
+  getApprovalSecurityAdministratorByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-security-administrator/${nipKaryawan}`);
+  }
+
+  getApprovalTreasuryByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-treasury/${nipKaryawan}`);
+  }
+
+  getFinalApprovalByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-final-approval/${nipKaryawan}`);
+  }
+
+  getApprovalAtasanByNip(nipKaryawan: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/tracking/get-approval-atasan/${nipKaryawan}`);
   }
   
   

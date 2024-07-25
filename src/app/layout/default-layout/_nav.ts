@@ -124,6 +124,13 @@ export const navItems: INavData[] = [
 
   },
 
+  {
+    name: 'Track Progress Checklist',
+    url: '/admin-pengajuanresign-list',
+    iconComponent: { name: 'cil-pencil' },
+  },
+  
+
 
 
   {

@@ -1,11 +1,11 @@
 // src/app/services/resignation.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Resignation, ResignationGet } from '../models/resignation.model';
 import { UserDetail } from '../models/user-detail';
-import { ApiResponse } from '../models/api-response';
+import { ApiResponse, ApiResponsePage } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,38 @@ export class ResignationService {
     return this.http.get<ApiResponse<ResignationGet>>(`${environment.base_url}/api/resignations/karyawan-resign`)
   }
 
+
+  getResignationListV2(
+    page: number,
+    size: number,
+    nipKaryawanResign?: string,
+    namaKaryawan?: string,
+    approvalStatusAtasan?: string,
+    sortBy?: string,
+    sortDirection?: string
+  ): Observable<ApiResponsePage<ResignationGet>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+  
+    if (nipKaryawanResign) {
+      params = params.set('nipKaryawanResign', nipKaryawanResign);
+    }
+    if (namaKaryawan) {
+      params = params.set('namaKaryawan', namaKaryawan);
+    }
+    if (approvalStatusAtasan) {
+      params = params.set('approvalStatusAtasan', approvalStatusAtasan);
+    }
+    if (sortBy) {
+      params = params.set('sortBy', sortBy);
+    }
+    if (sortDirection) {
+      params = params.set('sortDirection', sortDirection);
+    }
+  
+    return this.http.get<ApiResponsePage<ResignationGet>>(`${environment.base_url}/api/resignations/admin`, { params });
+  }
 
 
  
