@@ -37,7 +37,9 @@ export class PengajuanResignDetailComponent implements OnInit {
 
     this.nipKaryawan = this.route.snapshot.paramMap.get('nipKaryawan');
 
-    this.resignationService.getResignationByUser().subscribe(response => {
+    console.log("nip KAryawaaannn", this.nipKaryawan)
+
+    this.resignationService.getResignationByNipKaryawan(this.nipKaryawan).subscribe(response => {
       if (response.success) {
         this.resignations = response.data;
       }
