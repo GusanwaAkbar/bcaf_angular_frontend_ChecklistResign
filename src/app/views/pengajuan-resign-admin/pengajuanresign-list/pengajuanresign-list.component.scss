@@ -1,0 +1,17 @@
+.table th, .table td {
+    font-size: 14px; /* Adjust the font size as needed */
+    padding: 8px; /* Adjust padding as needed */
+    text-align: left;
+    vertical-align: middle; /* Ensure the text and sorting logo are aligned */
+}
+.table th svg {
+    vertical-align: middle; /* Align SVG icons vertically */
+    margin-left: 4px; /* Space between text and icon */
+}
+.table th {
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}

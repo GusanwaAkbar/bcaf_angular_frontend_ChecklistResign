@@ -10,15 +10,15 @@ export const navItems: INavData[] = [
     url: '/pengajuan-resign',
     iconComponent: { name: 'cil-pencil' },
 
-
-    //bawah adalah notif
-    // badge: {
-    //   color: 'info',
-    //   text: 'NEW'
-    // }
   },
   {
-    name: 'Progress Approval',
+    name: 'Pengajuan Resign Admin',
+    url: '/admin-pengajuanresign-create',
+    iconComponent: { name: 'cil-pencil' },
+
+  },
+  {
+    name: 'Progress Checklist Anda',
     url: '/progress-approval',
     linkProps: { fragment: 'headings' },
     iconComponent: { name: 'cil-pencil' }
@@ -125,7 +125,7 @@ export const navItems: INavData[] = [
   },
 
   {
-    name: 'Track Progress Checklist',
+    name: 'Progress Checklist Karyawan',
     url: '/admin-pengajuanresign-list',
     iconComponent: { name: 'cil-pencil' },
   },

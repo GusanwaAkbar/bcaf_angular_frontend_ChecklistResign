@@ -51,16 +51,16 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th (click)="onSort('id')">  No <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th>
-                  <th (click)="onSort('approvalAtasan.createdDate')"> Created Date  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th> 
-                  <th (click)="onSort('namaKaryawan')">Nama User  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th>
-                  <th (click)="onSort('nipKaryawanResign')">NIP  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th>
-                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.cabang')">Cabang  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th>
-                  <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.divisi')">Divisi  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th>
+                  <th (click)="onSort('id')">  No <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th>
+                  <th (click)="onSort('approvalAtasan.createdDate')"> Created Date  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th> 
+                  <th (click)="onSort('namaKaryawan')">Nama User  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th>
+                  <th (click)="onSort('nipKaryawanResign')">NIP  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th>
+                  <th (click)="onSort('userDetailResign.cabang')">Cabang  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th>
+                  <th (click)="onSort('userDetailResign.divisi')">Divisi  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th>
                   <!-- <th (click)="onSort('approvalAtasan.pengajuanResign.userDetailResign.jabatan')">Jabatan</th> -->
-                  <th (click)="onSort('approvalAtasan.approvedDate')">Atasan Approve  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th> 
-                  <th (click)="onSort('approvalAtasan.approvedDateAllDepartement')">Departement Approve  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th> 
-                  <th (click)="onSort('approvalAtasan.approvedDateFinal')">Final Approve  <svg [cIcon]="icons.cilSwapVertical" size="xl" title="List Icon"></svg></th> 
+                  <th (click)="onSort('approvedDate')">Atasan Approve  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th> 
+                  <th (click)="onSort('approvedDateAllDepartement')">Departement Approve  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th> 
+                  <th (click)="onSort('approvedDateFinal')">Final Approve  <svg [cIcon]="icons.cilSwapVertical" size="md" title="List Icon"></svg></th> 
 
                   <th>View Resignation</th>
                 </tr>
@@ -71,8 +71,8 @@
                   <td>{{ approval.createdDate | date:'short' }}</td>
                   <td>{{ approval.namaKaryawan }}</td>
                   <td>{{ approval.nipUser }}</td>
-                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.cabang }}</td>
-                  <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.divisi }}</td>
+                  <td>{{ approval.userDetailResign.cabang }}</td>
+                  <td>{{ approval.userDetailResign.divisi }}</td>
                   <!-- <td>{{ approval.approvalAtasan.pengajuanResign.userDetailResign.jabatan }}</td> -->
                   <td>{{ approval.approvedDate | date:'short' }}</td>
                   <td>{{ approval.approvedDateAllDepartement | date:'short' }}</td>

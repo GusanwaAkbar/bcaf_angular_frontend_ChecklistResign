@@ -46,6 +46,7 @@ export class PengajuanResignListComponent implements OnInit {
     this.filterForm.valueChanges.subscribe(() => {
       this.currentPage = 0;
       this.getApprovalList();
+
     });
   }
 
@@ -65,6 +66,9 @@ export class PengajuanResignListComponent implements OnInit {
         this.approvals = response.data.content; // Ensure this is an array
         this.totalItems = response.data.totalElements;
         this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+
+        console.log("logging devisi============")
+        console.log(this.approvals[0].userDetailResign)
       },
       (error: any) => {
         console.error('Error fetching approval list', error);

@@ -1,0 +1,99 @@
+<!-- resignation-form.component.html -->
+<c-row>
+  <!-- form resignation -->
+  <c-col md="8">
+    <c-card class="mb-4">
+      <c-card-header ngPreserveWhitespaces>
+        <strong><h4>Form Pengajuan Resign Oleh Admin</h4></strong>
+      </c-card-header>
+      <c-card-body>
+        <form [formGroup]="resignationForm" (ngSubmit)="confirmSubmit()">
+          <c-row class="mb-3">
+            <label cLabel class="col-sm-6 col-form-label" for="nipAtasan">
+              <p class="fw-semibold"> NIP Karyawan Resign </p> 
+            </label>
+            <c-col sm="6">
+              <input cFormControl id="nipKaryawanResignormControlName="nipKaryawanResign/>
+            </c-col>
+          </c-row>
+
+          <c-row class="mb-3">
+            <label cLabel class="col-sm-6 col-form-label" for="tanggalPembuatanAkunHRIS"> 
+              <p class="fw-semibold">Tanggal Pembuatan Akun HRIS:</p>
+            </label>
+            <c-col sm="6">
+              <input cFormControl id="tanggalPembuatanAkunHRIS" type="date" formControlName="tanggalPembuatanAkunHRIS" />
+            </c-col>
+          </c-row>
+          <c-row class="mb-3">
+            <label cLabel class="col-sm-6 col-form-label" for="tanggalBerakhirBekerja">
+              <p class="fw-semibold">Tanggal Berakhir Bekerja: </p>
+            </label>
+            <c-col sm="6">
+              <input cFormControl id="tanggalBerakhirBekerja" type="date" formControlName="tanggalBerakhirBekerja" />
+            </c-col>
+          </c-row>
+
+          <c-row class="mb-3">
+            <label cLabel class="col-sm-6 col-form-label" for="nipAtasan">
+              <p class="fw-semibold"> NIP Atasan </p> 
+            </label>
+            <c-col sm="6">
+              <input cFormControl id="nipAtasan" formControlName="nipAtasan" />
+            </c-col>
+          </c-row>
+        
+          <c-row class="mb-3">
+            <c-col sm="2">
+              <button cButton type="button" (click)="confirmSubmit()">Submit</button>
+            </c-col>
+          </c-row>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <!-- user detail -->
+  <c-col md="4">
+    <c-card *ngIf="userDetail">
+      <c-card-header><h4>Data Karyawan Resign</h4></c-card-header>
+      <c-card-body>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>NIP</th>
+              <td>{{ userDetail.user_username }}</td>
+            </tr>
+            <tr>
+              <th>Nama</th>
+              <td>{{ userDetail.nama }}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ userDetail.email }}</td>
+            </tr>
+            <tr>
+              <th>Cabang</th>
+              <td>{{ userDetail.cabang }}</td>
+            </tr>
+            <tr>
+              <th>ID Divisi</th>
+              <td>{{ userDetail.idDivisi }}</td>
+            </tr>
+            <tr>
+              <th>Divisi</th>
+              <td>{{ userDetail.divisi }}</td>
+            </tr>
+            <tr>
+              <th>Jabatan</th>
+              <td>{{ userDetail.jabatan }}</td>
+            </tr>
+            <!-- <tr>
+              <th>External User</th>
+              <td>{{ userDetail.externalUser }}</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

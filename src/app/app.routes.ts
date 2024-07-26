@@ -78,9 +78,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/pengajuan-resign-admin/pengajuanresign-list/pengajuanresign-list.module').then((m) => m.PengajuanResignListModule )
       },
       {
-        path: 'admin-pengajuanresign',
-        loadChildren: () => import('./views/admin-pengajuanresign-list/admin-pengajuanresign-list.module').then((m) => m.AdminPengajuanResignListModule )
+        path: 'admin-pengajuanresign-create',
+        loadChildren: () => import('./views/pengajuan-resign-admin/pengajuanresign-admin/pengajuanresign-admin.module').then((m) => m.PengajuanResignAdminModule )
       },
+      
 
 
       {
