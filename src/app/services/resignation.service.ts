@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Resignation, ResignationGet } from '../models/resignation.model';
-import { UserDetail } from '../models/user-detail';
+import { UserDetail, UserDetailV2 } from '../models/user-detail';
 import { ApiResponse, ApiResponsePage } from '../models/api-response';
 
 @Injectable({
@@ -22,6 +22,19 @@ export class ResignationService {
   getUserDetail(): Observable<ApiResponse<UserDetail>> {
     const url = `${this.apiUrl}/user-detail`;
     return this.http.get<ApiResponse<UserDetail>>(url);
+  }
+
+
+  //V2 userDetail Karyawan and Atasan
+  getUserDetailV2(): Observable<ApiResponse<UserDetailV2>> {
+    const url = `${this.apiUrl}/user-detail/V2`;
+    return this.http.get<ApiResponse<UserDetailV2>>(url);
+  }
+
+  //Atasan ke dua
+  getUserDetailAtasan2(): Observable<ApiResponse<UserDetailV2>> {
+    const url = `${this.apiUrl}/user-detail-atasan2`;
+    return this.http.get<ApiResponse<UserDetailV2>>(url);
   }
 
 

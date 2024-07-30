@@ -7,9 +7,13 @@ export interface UserDetail {
   divisi: string;
   jabatan: string;
   externalUser: string;
-  emailAktif: string | null;
-  nomerWA: string | null;
   user_username: string;
   nipAtasan: string;
   userUsername:string;
+}
+
+
+export interface UserDetailV2 {
+  karyawanResignDetail: UserDetail;
+  atasanDetail: UserDetail;
 }

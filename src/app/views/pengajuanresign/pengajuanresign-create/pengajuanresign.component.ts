@@ -12,36 +12,77 @@ import Swal from 'sweetalert2';
 })
 export class PengajuanResignComponent implements OnInit {
   resignationForm: FormGroup;
-  userDetail: UserDetail | null = null;
+  karyawanDetail: UserDetail | null = null;
+  allAtasanDetails: UserDetail[] = [];
+  atasanDetail: UserDetail | null = null;
 
   constructor(private fb: FormBuilder, private resignationService: ResignationService) {
     this.resignationForm = this.fb.group({
       tanggalPembuatanAkunHRIS: ['', Validators.required],
       tanggalBerakhirBekerja: ['', Validators.required],
       nipAtasan: [''],
+      atasan: ['', Validators.required],
+      atasanName: ['']
+      
     });
   }
 
   ngOnInit(): void {
-    this.fetchUserDetail();
+    this.fetchUserDetails();
   }
 
-  fetchUserDetail(): void {
-    this.resignationService.getUserDetail().subscribe(
-      (response) => {
-        if (response.success) {
-          this.userDetail = response.data;
-
-          if ( this.userDetail.nipAtasan) {
-            this.resignationForm.patchValue({ nipAtasan: this.userDetail.nipAtasan });
-          }
-          
+  fetchUserDetails(): void {
+    this.resignationService.getUserDetailV2().subscribe(
+      response => {
+        if (response.success && response.data) {
+          this.karyawanDetail = response.data.karyawanResignDetail;
+          this.allAtasanDetails.push(response.data.atasanDetail);
+          this.resignationForm.patchValue({
+            nipAtasan: this.allAtasanDetails[0]?.user_username || '',
+            atasan: this.allAtasanDetails[0]?.user_username || '',
+            atasanName: this.allAtasanDetails[0]?.nama || ''
+          });
+          this.updateAtasanDetail(this.allAtasanDetails[0]?.user_username);
+        } else {
+          Swal.fire('Error!', 'Failed to fetch user details.', 'error');
         }
       },
-      (error) => {
-        console.error('Error fetching user details:', error);
+      error => {
+        Swal.fire('Error!', 'Failed to fetch user details.', 'error');
       }
     );
+
+    this.resignationService.getUserDetailAtasan2().subscribe(
+      response => {
+        if (response.success && response.data) {
+          this.allAtasanDetails.push(response.data.atasanDetail);
+        } else {
+          Swal.fire('Error!', 'Failed to fetch user details.', 'error');
+        }
+      },
+      error => {
+        Swal.fire('Error!', 'Failed to fetch user details.', 'error');
+      }
+    );
+  }
+
+  selectAtasan(atasan: UserDetail): void {
+    this.resignationForm.patchValue({
+      atasan: atasan.user_username,
+      atasanName: atasan.nama,
+      nipAtasan: atasan.user_username
+    });
+    this.updateAtasanDetail(atasan.user_username);
+  }
+
+  updateAtasanDetail(selectedAtasanUsername: string): void {
+    const selectedAtasanDetail = this.allAtasanDetails.find(atasan => atasan.user_username === selectedAtasanUsername);
+    if (selectedAtasanDetail) {
+      this.atasanDetail = selectedAtasanDetail;
+      this.resignationForm.patchValue({
+        nipAtasan: selectedAtasanDetail.user_username
+      });
+    }
   }
 
   confirmSubmit(): void {
@@ -61,7 +102,6 @@ export class PengajuanResignComponent implements OnInit {
 
   onSubmit(): void {
     if (this.resignationForm.valid) {
-      console.log('Form is valid:', this.resignationForm.value); // Add this line for debugging
       const resignationData: Resignation = this.resignationForm.value;
       this.resignationService.postResignation(resignationData).subscribe(
         response => {
@@ -72,8 +112,7 @@ export class PengajuanResignComponent implements OnInit {
         }
       );
     } else {
-      console.log('Form is invalid:', this.resignationForm.errors); // Add this line for debugging
+      console.log('Form is invalid:', this.resignationForm.errors);
     }
   }
-  
 }
