@@ -52,6 +52,13 @@ export class ResignationService {
     return this.http.get<ApiResponse<ResignationGet>>(`${environment.base_url}/api/tracking/get-resignations/${nipKaryawan}`)
   }
 
+  getCheckNipKaryawanResign(nipKaryawan: any): Observable<any> {
+
+    console.log(nipKaryawan)
+
+    return this.http.get<ApiResponse<UserDetailV2>>(`${environment.base_url}/api/resignations/admin/check-nip-karyawan/${nipKaryawan}`)
+  }
+
 
   getResignationListV2(
     page: number,
@@ -84,6 +91,8 @@ export class ResignationService {
   
     return this.http.get<ApiResponsePage<ResignationGet>>(`${environment.base_url}/api/resignations/admin`, { params });
   }
+
+
 
 
  

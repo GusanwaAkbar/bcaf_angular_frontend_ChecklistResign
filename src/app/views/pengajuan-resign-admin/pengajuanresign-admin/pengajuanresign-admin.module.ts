@@ -19,7 +19,9 @@ import {
   InputGroupComponent,
   InputGroupTextDirective,
   FormControlDirective,
-  ButtonDirective
+  ButtonDirective,
+  CardModule,
+  DropdownModule
 } from '@coreui/angular';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -54,7 +56,10 @@ import { CardHeaderComponent, FormLabelDirective, FormSelectDirective, FormCheck
     FormControlDirective,
     ButtonDirective,
     HttpClientModule,
-    PengajuanResignRoutingModule
+    PengajuanResignRoutingModule,
+    CardModule,
+    DropdownModule
+    
     
   ],
   providers: [HttpClientModule]

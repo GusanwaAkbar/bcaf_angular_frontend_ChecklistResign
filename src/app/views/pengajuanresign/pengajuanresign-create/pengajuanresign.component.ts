@@ -18,7 +18,7 @@ export class PengajuanResignComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private resignationService: ResignationService) {
     this.resignationForm = this.fb.group({
-      tanggalPembuatanAkunHRIS: ['', Validators.required],
+      
       tanggalBerakhirBekerja: ['', Validators.required],
       nipAtasan: [''],
       atasan: [''],

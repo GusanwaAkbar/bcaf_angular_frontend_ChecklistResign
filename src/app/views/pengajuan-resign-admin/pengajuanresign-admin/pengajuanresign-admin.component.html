@@ -1,30 +1,13 @@
-<!-- resignation-form.component.html -->
 <c-row>
   <!-- form resignation -->
-  <c-col md="8">
-    <c-card class="mb-4">
+  <c-col lg="4" class="d-flex flex-column">
+    <c-card class="mb-4 flex-grow-1">
       <c-card-header ngPreserveWhitespaces>
-        <strong><h4>Form Pengajuan Resign Oleh Admin</h4></strong>
+        <strong><h4>Form Pengajuan Resign</h4></strong>
       </c-card-header>
       <c-card-body>
         <form [formGroup]="resignationForm" (ngSubmit)="confirmSubmit()">
-          <c-row class="mb-3">
-            <label cLabel class="col-sm-6 col-form-label" for="nipAtasan">
-              <p class="fw-semibold"> NIP Karyawan Resign </p> 
-            </label>
-            <c-col sm="6">
-              <input cFormControl id="nipKaryawanResignormControlName="nipKaryawanResign/>
-            </c-col>
-          </c-row>
 
-          <c-row class="mb-3">
-            <label cLabel class="col-sm-6 col-form-label" for="tanggalPembuatanAkunHRIS"> 
-              <p class="fw-semibold">Tanggal Pembuatan Akun HRIS:</p>
-            </label>
-            <c-col sm="6">
-              <input cFormControl id="tanggalPembuatanAkunHRIS" type="date" formControlName="tanggalPembuatanAkunHRIS" />
-            </c-col>
-          </c-row>
           <c-row class="mb-3">
             <label cLabel class="col-sm-6 col-form-label" for="tanggalBerakhirBekerja">
               <p class="fw-semibold">Tanggal Berakhir Bekerja: </p>
@@ -32,20 +15,50 @@
             <c-col sm="6">
               <input cFormControl id="tanggalBerakhirBekerja" type="date" formControlName="tanggalBerakhirBekerja" />
             </c-col>
-          </c-row>
-
-          <c-row class="mb-3">
-            <label cLabel class="col-sm-6 col-form-label" for="nipAtasan">
-              <p class="fw-semibold"> NIP Atasan </p> 
+            <label cLabel class="col-sm-6 col-form-label" for="nipKaryawanResign">
+              <p class="fw-semibold">NIP Karyawan Resign: </p>
             </label>
             <c-col sm="6">
-              <input cFormControl id="nipAtasan" formControlName="nipAtasan" />
+              <input cFormControl id="nipKaryawanResign" type="string" formControlName="nipKaryawanResign" />
+            </c-col>
+          </c-row>
+
+          <c-row class="mb-6">
+            <c-col sm="6">
+              <button cButton type="button" (click)="checkNipKaryawanResign()"> Check NIP </button>
+            </c-col>
+          </c-row>
+
+          <br>
+
+          <c-row class="mb-3">
+            <label cLabel class="col-sm-6 col-form-label" for="atasan">
+              <p class="fw-semibold">Approver (Atasan)</p> 
+            </label>
+            <c-col sm="6">
+              <c-dropdown>
+                <button cButton cDropdownToggle color="primary">
+                  {{ resignationForm.get('atasanName')?.value || 'Pilih Approver' }}
+                </button>
+                <ul cDropdownMenu>
+                  <li *ngFor="let atasan of allAtasanDetails; let i = index">
+                    <button
+                      type="button"
+                      cDropdownItem
+                      (click)="selectAtasan(atasan,i+1)"
+                    >
+                      {{ atasan.nama }}
+                    
+                    </button>
+                  </li>
+                </ul>
+              </c-dropdown>
             </c-col>
           </c-row>
         
           <c-row class="mb-3">
             <c-col sm="2">
-              <button cButton type="button" (click)="confirmSubmit()">Submit</button>
+              <button cButton type="submit">Submit</button>
             </c-col>
           </c-row>
         </form>
@@ -53,47 +66,86 @@
     </c-card>
   </c-col>
   <!-- user detail -->
-  <c-col md="4">
-    <c-card *ngIf="userDetail">
-      <c-card-header><h4>Data Karyawan Resign</h4></c-card-header>
+  <c-col lg="4" class="d-flex flex-column">
+    <c-card *ngIf="karyawanDetail" class="flex-grow-10">
+      <c-card-header><h4>Data Karyawan</h4></c-card-header>
       <c-card-body>
         <table class="table">
           <tbody>
             <tr>
               <th>NIP</th>
-              <td>{{ userDetail.user_username }}</td>
+              <td>{{ karyawanDetail.user_username }}</td>
             </tr>
             <tr>
               <th>Nama</th>
-              <td>{{ userDetail.nama }}</td>
+              <td>{{ karyawanDetail.nama }}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>{{ userDetail.email }}</td>
+              <td>{{ karyawanDetail.email }}</td>
             </tr>
             <tr>
               <th>Cabang</th>
-              <td>{{ userDetail.cabang }}</td>
+              <td>{{ karyawanDetail.cabang }}</td>
             </tr>
             <tr>
               <th>ID Divisi</th>
-              <td>{{ userDetail.idDivisi }}</td>
+              <td>{{ karyawanDetail.idDivisi }}</td>
             </tr>
             <tr>
               <th>Divisi</th>
-              <td>{{ userDetail.divisi }}</td>
+              <td>{{ karyawanDetail.divisi }}</td>
             </tr>
             <tr>
               <th>Jabatan</th>
-              <td>{{ userDetail.jabatan }}</td>
+              <td>{{ karyawanDetail.jabatan }}</td>
             </tr>
-            <!-- <tr>
-              <th>External User</th>
-              <td>{{ userDetail.externalUser }}</td>
-            </tr> -->
           </tbody>
         </table>
       </c-card-body>
     </c-card>
   </c-col>
+  <!-- atasan detail -->
+  <c-col lg="4" class="d-flex flex-column">
+    <c-card *ngIf="atasanDetail" class="flex-grow-10">
+      <c-card-header><h4>Data Atasan</h4></c-card-header>
+      <c-card-body>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>NIP</th>
+              <td>{{ atasanDetail.user_username }}</td>
+            </tr>
+            <tr>
+              <th>Nama</th>
+              <td>{{ atasanDetail.nama }}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ atasanDetail.email }}</td>
+            </tr>
+            <tr>
+              <th>Cabang</th>
+              <td>{{ atasanDetail.cabang }}</td>
+            </tr>
+            <tr>
+              <th>ID Divisi</th>
+              <td>{{ atasanDetail.idDivisi }}</td>
+            </tr>
+            <tr>
+              <th>Divisi</th>
+              <td>{{ atasanDetail.divisi }}</td>
+            </tr>
+            <tr>
+              <th>Jabatan</th>
+              <td>{{ atasanDetail.jabatan }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  
+
+
 </c-row>
