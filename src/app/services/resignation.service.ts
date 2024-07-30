@@ -16,7 +16,7 @@ export class ResignationService {
   constructor(private http: HttpClient) {}
 
   postResignation(data: Resignation): Observable<Resignation> {
-    return this.http.post<Resignation>(this.apiUrl, data);
+    return this.http.post<Resignation>(`${this.apiUrl}`, data);
   }
 
   getUserDetail(): Observable<ApiResponse<UserDetail>> {

@@ -7,29 +7,13 @@
       </c-card-header>
       <c-card-body>
         <form [formGroup]="resignationForm" (ngSubmit)="confirmSubmit()">
-          <c-row class="mb-3">
-            <label cLabel class="col-sm-6 col-form-label" for="tanggalPembuatanAkunHRIS"> 
-              <p class="fw-semibold">Tanggal Pembuatan Akun HRIS:</p>
-            </label>
-            <c-col sm="6">
-              <input cFormControl id="tanggalPembuatanAkunHRIS" type="date" formControlName="tanggalPembuatanAkunHRIS" />
-            </c-col>
-          </c-row>
+
           <c-row class="mb-3">
             <label cLabel class="col-sm-6 col-form-label" for="tanggalBerakhirBekerja">
               <p class="fw-semibold">Tanggal Berakhir Bekerja: </p>
             </label>
             <c-col sm="6">
               <input cFormControl id="tanggalBerakhirBekerja" type="date" formControlName="tanggalBerakhirBekerja" />
-            </c-col>
-          </c-row>
-
-          <c-row class="mb-3">
-            <label cLabel class="col-sm-6 col-form-label" for="nipAtasan">
-              <p class="fw-semibold">NIP Atasan</p> 
-            </label>
-            <c-col sm="6">
-              <input cFormControl id="nipAtasan" formControlName="nipAtasan" />
             </c-col>
           </c-row>
 
@@ -43,13 +27,14 @@
                   {{ resignationForm.get('atasanName')?.value || 'Pilih Approver' }}
                 </button>
                 <ul cDropdownMenu>
-                  <li *ngFor="let atasan of allAtasanDetails">
+                  <li *ngFor="let atasan of allAtasanDetails; let i = index">
                     <button
                       type="button"
                       cDropdownItem
-                      (click)="selectAtasan(atasan)"
+                      (click)="selectAtasan(atasan,i+1)"
                     >
                       {{ atasan.nama }}
+                    
                     </button>
                   </li>
                 </ul>

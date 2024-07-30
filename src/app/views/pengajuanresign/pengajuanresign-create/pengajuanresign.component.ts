@@ -21,8 +21,9 @@ export class PengajuanResignComponent implements OnInit {
       tanggalPembuatanAkunHRIS: ['', Validators.required],
       tanggalBerakhirBekerja: ['', Validators.required],
       nipAtasan: [''],
-      atasan: ['', Validators.required],
-      atasanName: ['']
+      atasan: [''],
+      atasanName: [''],
+      approver: [1, Validators.required]
       
     });
   }
@@ -57,22 +58,28 @@ export class PengajuanResignComponent implements OnInit {
         if (response.success && response.data) {
           this.allAtasanDetails.push(response.data.atasanDetail);
         } else {
-          Swal.fire('Error!', 'Failed to fetch user details.', 'error');
+          Swal.fire('Error!', 'Failed to fetch user Details Atasan 2.', 'error');
         }
       },
       error => {
-        Swal.fire('Error!', 'Failed to fetch user details.', 'error');
+        Swal.fire('Error!', 'Failed to fetch user Details Atasan 2.', 'error');
       }
     );
   }
 
-  selectAtasan(atasan: UserDetail): void {
+  selectAtasan(atasan: UserDetail, i: number): void {
     this.resignationForm.patchValue({
       atasan: atasan.user_username,
       atasanName: atasan.nama,
-      nipAtasan: atasan.user_username
+      nipAtasan: atasan.user_username,
+      
     });
+
+
     this.updateAtasanDetail(atasan.user_username);
+    
+    //set approver value based on dropdown
+    this.resignationForm.get('approver')?.setValue(i);
   }
 
   updateAtasanDetail(selectedAtasanUsername: string): void {
