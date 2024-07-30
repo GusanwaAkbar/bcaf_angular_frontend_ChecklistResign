@@ -135,6 +135,21 @@ export class PengajuanResignAdminComponent implements OnInit {
         Swal.fire('Error!', 'Failed to fetch user details.', 'error');
       }
     );
+
+
+    this.resignationService.getCheckNipKaryawanResignAtasan2(nipKaryawanResign).subscribe(
+      response => {
+        if (response.success && response.data) {
+          this.allAtasanDetails.push(response.data.atasanDetail);
+        } else {
+          Swal.fire('Error!', 'Failed to fetch user Details Atasan 2.', 'error');
+        }
+      },
+      error => {
+        Swal.fire('Error!', 'Failed to fetch user Details Atasan 2.', 'error');
+      }
+    );
+  
   }
   
 

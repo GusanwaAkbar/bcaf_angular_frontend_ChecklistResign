@@ -59,6 +59,14 @@ export class ResignationService {
     return this.http.get<ApiResponse<UserDetailV2>>(`${environment.base_url}/api/resignations/admin/check-nip-karyawan/${nipKaryawan}`)
   }
 
+  getCheckNipKaryawanResignAtasan2(nipKaryawan: any): Observable<any> {
+
+    console.log(nipKaryawan)
+
+    return this.http.get<ApiResponse<UserDetailV2>>(`${environment.base_url}/api/resignations/user-detail-atasan2/${nipKaryawan}`)
+  }
+
+  //url = /user-detail-atasan2/{nipKaryawan}
 
   getResignationListV2(
     page: number,
